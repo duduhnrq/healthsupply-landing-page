@@ -1,0 +1,87 @@
+@charset "UTF-8";
+
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap");
+
+:root {
+  --color001: #3fb3a6;
+  --color002: #009cdc;
+  --color003: #d77535;
+  --font001: "Lexend", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font001);
+}
+
+.navbar {
+  box-shadow: 0px 1px 0px 0px #e7e7e7;
+}
+
+.navbar-brand img {
+  width: 130px;
+  height: auto;
+}
+
+.nav-link:hover {
+  color: var(--color001);
+}
+
+.hero {
+  background: linear-gradient(0deg, #f0f0f0, #fff);
+  padding: 2rem 0;
+}
+
+.title {
+  font-weight: 500;
+}
+
+.title span {
+  background: linear-gradient(-45deg, var(--color002), var(--color001));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero p {
+    color: #696969;
+}
+
+.btn-primary {
+  background: linear-gradient(-45deg, var(--color002), var(--color001));
+  border: none;
+  transition: all .25s ease-in-out;
+}
+
+.btn-primary:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+.hero-image img {
+    max-width: 100%;
+}
+
+.item {
+    border: 1px solid #e7e7e7;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    background: #fff;
+    transition: all .25s ease-in-out;
+    width: 100%;
+}
+
+.item:hover {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.item img {
+    width: 60px;
+    height: auto;
+}
+
