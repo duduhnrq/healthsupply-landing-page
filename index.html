@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg position-fixed sticky-top w-100">
       <div class="container-fluid justify-content-between w-75">
         <a class="navbar-brand" href="#"
           ><img src="imagens/hs_logo.png" alt="HealthSupply Logo"
@@ -47,65 +47,167 @@
         </div>
       </div>
     </nav>
-    <section
-      class="hero d-flex justify-content-center align-items-center gap-3 p-5"
-    >
+
+    <section id="hero">
       <div
-        class="container d-flex flex-column justify-content-center align-items-start gap-3"
+        class="hero-cta d-flex m-auto justify-content-center align-items-center gap-3 py-5 w-75"
       >
-        <h1 class="display-3 title lh-1">
-          Evolução nas <span>Compras Hospitalares</span>
-        </h1>
-        <p>
-          Chegou a Portugal a plataforma que integra toda a cadeia de compras
-          hospitalares: planeamento, cotações, contratos, entregas, avaliação de
-          fornecedores e relatórios.
-        </p>
-        <a href="#" class="btn btn-primary"
-          >Descobrir Soluções
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            fill="currentColor"
-            class="bi bi-arrow-right"
-            viewBox="0 0 16 16"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"
-            />
-          </svg>
-        </a>
-      </div>
-      <div class="hero-image border-radius">
-        <img class="rounded-4 shadow" src="https://placehold.co/1280x720" />
+        <div
+          class="container d-flex flex-column justify-content-center align-items-start gap-3"
+        >
+          <h1 class="display-3 title lh-1">
+            Evolução nas <span>Compras Hospitalares</span>
+          </h1>
+          <p class="text-light">
+            Chegou a Portugal a plataforma que integra toda a cadeia de compras
+            hospitalares: planeamento, cotações, contratos, entregas, avaliação
+            de fornecedores e relatórios.
+          </p>
+          <a href="#" class="btn btn-primary"
+            >Descobrir Soluções
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-arrow-right"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"
+              />
+            </svg>
+          </a>
+        </div>
+        <div class="hero-image border-radius">
+          <img class="rounded-4 shadow" src="https://placehold.co/1280x720" />
+        </div>
       </div>
     </section>
-    <section class="features">
-      <div
-        class="container d-flex justify-content-center align-items-stretch gap-3 my-5"
-      >
-        <div class="item d-flex flex-column gap-3 h-100">
-          <img class="rounded-4" src="https://placehold.co/60x60" />
-          <h2 class="item-title">Planeamento Inteligente</h2>
-          <p>
-            Com mecanismos modernos e tendo em conta as principais curvas, o
-            Módulo de Planeamento de Compras é capaz de conectar-se à base de
-            dados do seu ERP e verificar o histórico de movimentação dos
-            produtos nos últimos 3 anos, sugerindo assim a lista de itens e as
-            quantidades que devem ser adquiridas.
+
+    <section id="features">
+      <div class="w-75 m-auto">
+        <div
+          class="d-flex justify-content-between gap-4 align-items-stretch my-5"
+        >
+          <div class="item d-flex flex-column gap-3">
+            <img class="rounded-4" src="https://placehold.co/60x60" />
+            <h3 class="item-title"><span>Planeamento</span> Inteligente</h2>
+            <p class="text-light">
+              O módulo conecta-se ao ERP, analisa o histórico de 3 anos e sugere
+              itens e quantidades ideais para compras.
+            </p>
+          </div>
+          <div class="item d-flex flex-column gap-3">
+            <img class="rounded-4" src="https://placehold.co/60x60" />
+            <h3 class="item-title"><span>Marketplace</span> Especializado</h2>
+            <p class="text-light">
+              Permite lançar cotações, receber propostas de fornecedores e
+              comparar preços detalhadamente.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="integrare">
+      <div class="integrare-container w-75 m-auto py-5 d-flex flex-column gap-3">
+        <div
+          class="integrare-header d-flex flex-column justify-content-center align-items-center gap-3"
+        >
+          <img class="rounded-4" src="https://placehold.co/80x80" />
+          <h2 class="display-5">Integração com a <span>Integrare</span></h2>
+        </div>
+        <div class="integrare-content shadow p-5 rounded-4 bg-white">
+          <p class="m-0 text-light">
+            A HealthSupply oferece integração ágil com qualquer ERP hospitalar e dos fornecedores, acelerando a receção de ofertas de preços. Nossa plataforma já é compatível com os principais sistemas de gestão do mercado e, em parceria com a <a href="https://www.integrare.pt" target="_blank">Integrare</a>, garante ainda mais rapidez e eficiência no envio das ofertas.
           </p>
         </div>
-        <div class="item d-flex flex-column gap-3 h-100">
-          <img class="rounded-4" src="https://placehold.co/60x60" />
-          <h2 class="item-title">Marketplace Especializado</h2>
-          <p>
-            Este módulo permite ao utilizador lançar cotações no mercado para os
-            itens necessários no abastecimento, recebendo as propostas de preços
-            dos fornecedores e fornecendo um mapa de cotações com informações
-            detalhadas para o comprador.
-          </p>
+      </div>
+    </section>
+
+    <section id="planeamento">
+      <div class="w-75 m-auto py-5">
+        <div class="plan-header text-center py-3">
+          <h2 class="display-5">Como funciona o <span>Planeamento</span></h2>
+          <p class="text-light">Gestão inteligente de compras, do planeamento à entrega</p>
+        </div>
+        <div class="plan-container d-flex gap-4">
+          <div class="item d-flex flex-column justify-content-center align-items-center text-center gap-3">
+            <img class="rounded-4" src="https://placehold.co/60x60"/>
+            <h3>Integração com o ERP</h3>
+            <p>Conecta-se ao ERP do cliente para gerir stocks e gerar pedidos de reposição automaticamente.</p>
+          </div>
+          <div class="item d-flex flex-column justify-content-center align-items-center text-center gap-3">
+            <img class="rounded-4" src="https://placehold.co/60x60"/>
+            <h3>Pedidos Automáticos</h3>
+            <p>Sugere compras e transfere entre armazéns, equilibrando custos e nível de serviço com algoritmos inteligentes.</p>
+          </div>
+          <div class="item d-flex flex-column justify-content-center align-items-center text-center gap-3">
+            <img class="rounded-4" src="https://placehold.co/60x60"/>
+            <h3>Acompanhamento de Entregas</h3>
+            <p>Regista a receção e facilita o follow up das compras, integrando o módulo de Qualificação de Fornecedores.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="marketplace"> 
+      <div class="w-75 m-auto py-5">
+        <div class="mark-header text-center py-3">
+          <h2 class="display-5 ">Como funciona o <span>Marketplace</span></h2>
+          <p class="text-light">Seis etapas para transformar a gestão de compras hospitalares</p>
+        </div>
+        <div class="mark-container row g-4">
+          <div class="col-md-4">
+            <div class="item d-flex flex-column justify-content-center gap-3 h-100">
+              <img class="rounded-4" src="https://placehold.co/50x50"/>
+              <p class="text-blue">ETAPA 01</p>
+              <h3>Lançamento das Cotações</h3>
+              <p>A HealthSupply conecta rapidamente hospitais a milhares de fornecedores de medicamentos, materiais médicos, higiene, alimentação, EPI e muito mais.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="item d-flex flex-column justify-content-center gap-3 h-100">
+              <img class="rounded-4" src="https://placehold.co/50x50"/>
+              <p class="text-blue">ETAPA 02</p>
+              <h3>Ofertas dos Fornecedores</h3>
+              <p>Fornecedores recebem notificações e enviam propostas pelo sistema, eliminando planilhas e centralizando tudo num mapa de fácil análise.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="item d-flex flex-column justify-content-center gap-3 h-100">
+              <img class="rounded-4" src="https://placehold.co/50x50"/>
+              <p class="text-blue">ETAPA 03</p>
+              <h3>Análise e Emissão das NC's</h3>
+              <p>O mapa de cotação organiza preços e informações de gestão, permitindo selecionar vencedores e gerar automaticamente os pedidos eletrônicos.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="item d-flex flex-column justify-content-center gap-3 h-100">
+              <img class="rounded-4" src="https://placehold.co/50x50"/>
+              <p class="text-blue">ETAPA 04</p>
+              <h3>Acompanhamento das Entregas</h3>
+              <p>Monitorização de entregas e faturação, com notificações automáticas em caso de falta de produtos.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="item d-flex flex-column justify-content-center gap-3 h-100">
+              <img class="rounded-4" src="https://placehold.co/50x50"/>
+              <p class="text-blue">ETAPA 05</p>
+              <h3>Relatórios</h3>
+              <p>Relatórios completos garantem controlo e transparência nas compras e evolução de preços.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="item d-flex flex-column justify-content-center gap-3 h-100">
+              <img class="rounded-4" src="https://placehold.co/50x50"/>
+              <p class="text-blue">ETAPA 06</p>
+              <h3>Gerenciamento de Contratos</h3>
+              <p>Gestão de contratos e criação automática de pedidos com base em tabelas pré-negociadas.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
