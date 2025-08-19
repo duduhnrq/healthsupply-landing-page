@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Bootstrap demo</title>
+    <title>HealthSupply</title>
+    <link rel="shortcut icon" href="imagens/hs_logo.ico" type="image/x-icon" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -30,20 +31,24 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div
-          class="collapse navbar-collapse flex-grow-0"
+          class="collapse navbar-collapse flex-grow-0 gap-3"
           id="navbarSupportedContent"
         >
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="#">Home</a>
+              <a class="nav-link" href="#">Soluções</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Features</a>
+              <a class="nav-link" href="#">Funcionalidades</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Pricing</a>
+              <a class="nav-link" href="#">Contato</a>
             </li>
           </ul>
+          <div class="d-flex gap-2">
+            <a href="#" class="btn btn-comprador">Comprador</a>
+            <a href="#" class="btn btn-fornecedor">Fornecedor</a>
+          </div>
         </div>
       </div>
     </nav>
@@ -55,15 +60,16 @@
         <div
           class="container d-flex flex-column justify-content-center align-items-start gap-3"
         >
-          <h1 class="display-3 title lh-1">
-            Evolução nas <span>Compras Hospitalares</span>
+          <h1 class="display-3 lh-1 text-bold">
+            Evolução nas
+            <span class="text-fade">Compras Hospitalares</span>
           </h1>
           <p class="text-light">
             Chegou a Portugal a plataforma que integra toda a cadeia de compras
             hospitalares: planeamento, cotações, contratos, entregas, avaliação
             de fornecedores e relatórios.
           </p>
-          <a href="#" class="btn btn-primary"
+          <a href="#" class="btn btn-cta"
             >Descobrir Soluções
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -93,7 +99,9 @@
         >
           <div class="item d-flex flex-column gap-3">
             <img class="rounded-4" src="https://placehold.co/60x60" />
-            <h3 class="item-title"><span>Planeamento</span> Inteligente</h2>
+            <h3 class="item-title">
+              <span class="text-fade">Planeamento</span> Inteligente
+            </h3>
             <p class="text-light">
               O módulo conecta-se ao ERP, analisa o histórico de 3 anos e sugere
               itens e quantidades ideais para compras.
@@ -101,7 +109,9 @@
           </div>
           <div class="item d-flex flex-column gap-3">
             <img class="rounded-4" src="https://placehold.co/60x60" />
-            <h3 class="item-title"><span>Marketplace</span> Especializado</h2>
+            <h3 class="item-title">
+              <span class="text-fade">Marketplace</span> Especializado
+            </h3>
             <p class="text-light">
               Permite lançar cotações, receber propostas de fornecedores e
               comparar preços detalhadamente.
@@ -112,16 +122,25 @@
     </section>
 
     <section id="integrare">
-      <div class="integrare-container w-75 m-auto py-5 d-flex flex-column gap-3">
+      <div
+        class="integrare-container w-75 m-auto py-5 d-flex flex-column gap-3"
+      >
         <div
           class="integrare-header d-flex flex-column justify-content-center align-items-center gap-3"
         >
           <img class="rounded-4" src="https://placehold.co/80x80" />
-          <h2 class="display-5">Integração com a <span>Integrare</span></h2>
+          <h2 class="display-5 text-bold">
+            Integração com a <span>Integrare</span>
+          </h2>
         </div>
         <div class="integrare-content shadow p-5 rounded-4 bg-white">
           <p class="m-0 text-light">
-            A HealthSupply oferece integração ágil com qualquer ERP hospitalar e dos fornecedores, acelerando a receção de ofertas de preços. Nossa plataforma já é compatível com os principais sistemas de gestão do mercado e, em parceria com a <a href="https://www.integrare.pt" target="_blank">Integrare</a>, garante ainda mais rapidez e eficiência no envio das ofertas.
+            A HealthSupply oferece integração ágil com qualquer ERP hospitalar e
+            dos fornecedores, acelerando a receção de ofertas de preços. Nossa
+            plataforma já é compatível com os principais sistemas de gestão do
+            mercado e, em parceria com a
+            <a href="https://www.integrare.pt" target="_blank">Integrare</a>,
+            garante ainda mais rapidez e eficiência no envio das ofertas.
           </p>
         </div>
       </div>
@@ -129,83 +148,334 @@
 
     <section id="planeamento">
       <div class="w-75 m-auto py-5">
-        <div class="plan-header text-center py-3">
-          <h2 class="display-5">Como funciona o <span>Planeamento</span></h2>
-          <p class="text-light">Gestão inteligente de compras, do planeamento à entrega</p>
+        <div class="text-center py-3">
+          <h2 class="display-5 text-bold">
+            Como funciona o <span class="text-fade">Planeamento</span>
+          </h2>
+          <p class="text-light">
+            Gestão inteligente de compras, do planeamento à entrega
+          </p>
         </div>
         <div class="plan-container d-flex gap-4">
-          <div class="item d-flex flex-column justify-content-center align-items-center text-center gap-3">
-            <img class="rounded-4" src="https://placehold.co/60x60"/>
+          <div
+            class="item d-flex flex-column justify-content-center align-items-center text-center gap-3"
+          >
+            <img class="rounded-4" src="https://placehold.co/60x60" />
             <h3>Integração com o ERP</h3>
-            <p>Conecta-se ao ERP do cliente para gerir stocks e gerar pedidos de reposição automaticamente.</p>
+            <p>
+              Conecta-se ao ERP do cliente para gerir stocks e gerar pedidos de
+              reposição automaticamente.
+            </p>
           </div>
-          <div class="item d-flex flex-column justify-content-center align-items-center text-center gap-3">
-            <img class="rounded-4" src="https://placehold.co/60x60"/>
+          <div
+            class="item d-flex flex-column justify-content-center align-items-center text-center gap-3"
+          >
+            <img class="rounded-4" src="https://placehold.co/60x60" />
             <h3>Pedidos Automáticos</h3>
-            <p>Sugere compras e transfere entre armazéns, equilibrando custos e nível de serviço com algoritmos inteligentes.</p>
+            <p>
+              Sugere compras e transfere entre armazéns, equilibrando custos e
+              nível de serviço com algoritmos inteligentes.
+            </p>
           </div>
-          <div class="item d-flex flex-column justify-content-center align-items-center text-center gap-3">
-            <img class="rounded-4" src="https://placehold.co/60x60"/>
+          <div
+            class="item d-flex flex-column justify-content-center align-items-center text-center gap-3"
+          >
+            <img class="rounded-4" src="https://placehold.co/60x60" />
             <h3>Acompanhamento de Entregas</h3>
-            <p>Regista a receção e facilita o follow up das compras, integrando o módulo de Qualificação de Fornecedores.</p>
+            <p>
+              Regista a receção e facilita o follow up das compras, integrando o
+              módulo de Qualificação de Fornecedores.
+            </p>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="marketplace"> 
+    <section id="marketplace">
       <div class="w-75 m-auto py-5">
-        <div class="mark-header text-center py-3">
-          <h2 class="display-5 ">Como funciona o <span>Marketplace</span></h2>
-          <p class="text-light">Seis etapas para transformar a gestão de compras hospitalares</p>
+        <div class="text-center py-3">
+          <h2 class="display-5 text-bold">
+            Como funciona o <span class="text-fade">Marketplace</span>
+          </h2>
+          <p class="text-light">
+            Seis etapas para transformar a gestão de compras hospitalares
+          </p>
         </div>
         <div class="mark-container row g-4">
           <div class="col-md-4">
-            <div class="item d-flex flex-column justify-content-center gap-3 h-100">
-              <img class="rounded-4" src="https://placehold.co/50x50"/>
+            <div
+              class="item d-flex flex-column justify-content-center gap-3 h-100"
+            >
+              <img class="rounded-4" src="https://placehold.co/50x50" />
               <p class="text-blue">ETAPA 01</p>
               <h3>Lançamento das Cotações</h3>
-              <p>A HealthSupply conecta rapidamente hospitais a milhares de fornecedores de medicamentos, materiais médicos, higiene, alimentação, EPI e muito mais.</p>
+              <p>
+                A HealthSupply conecta rapidamente hospitais a milhares de
+                fornecedores de medicamentos, materiais médicos, higiene,
+                alimentação, EPI e muito mais.
+              </p>
             </div>
           </div>
           <div class="col-md-4">
-            <div class="item d-flex flex-column justify-content-center gap-3 h-100">
-              <img class="rounded-4" src="https://placehold.co/50x50"/>
+            <div
+              class="item d-flex flex-column justify-content-center gap-3 h-100"
+            >
+              <img class="rounded-4" src="https://placehold.co/50x50" />
               <p class="text-blue">ETAPA 02</p>
               <h3>Ofertas dos Fornecedores</h3>
-              <p>Fornecedores recebem notificações e enviam propostas pelo sistema, eliminando planilhas e centralizando tudo num mapa de fácil análise.</p>
+              <p>
+                Fornecedores recebem notificações e enviam propostas pelo
+                sistema, eliminando planilhas e centralizando tudo num mapa de
+                fácil análise.
+              </p>
             </div>
           </div>
           <div class="col-md-4">
-            <div class="item d-flex flex-column justify-content-center gap-3 h-100">
-              <img class="rounded-4" src="https://placehold.co/50x50"/>
+            <div
+              class="item d-flex flex-column justify-content-center gap-3 h-100"
+            >
+              <img class="rounded-4" src="https://placehold.co/50x50" />
               <p class="text-blue">ETAPA 03</p>
               <h3>Análise e Emissão das NC's</h3>
-              <p>O mapa de cotação organiza preços e informações de gestão, permitindo selecionar vencedores e gerar automaticamente os pedidos eletrônicos.</p>
+              <p>
+                O mapa de cotação organiza preços e informações de gestão,
+                permitindo selecionar vencedores e gerar automaticamente os
+                pedidos eletrônicos.
+              </p>
             </div>
           </div>
           <div class="col-md-4">
-            <div class="item d-flex flex-column justify-content-center gap-3 h-100">
-              <img class="rounded-4" src="https://placehold.co/50x50"/>
+            <div
+              class="item d-flex flex-column justify-content-center gap-3 h-100"
+            >
+              <img class="rounded-4" src="https://placehold.co/50x50" />
               <p class="text-blue">ETAPA 04</p>
               <h3>Acompanhamento das Entregas</h3>
-              <p>Monitorização de entregas e faturação, com notificações automáticas em caso de falta de produtos.</p>
+              <p>
+                Monitorização de entregas e faturação, com notificações
+                automáticas em caso de falta de produtos.
+              </p>
             </div>
           </div>
           <div class="col-md-4">
-            <div class="item d-flex flex-column justify-content-center gap-3 h-100">
-              <img class="rounded-4" src="https://placehold.co/50x50"/>
+            <div
+              class="item d-flex flex-column justify-content-center gap-3 h-100"
+            >
+              <img class="rounded-4" src="https://placehold.co/50x50" />
               <p class="text-blue">ETAPA 05</p>
               <h3>Relatórios</h3>
-              <p>Relatórios completos garantem controlo e transparência nas compras e evolução de preços.</p>
+              <p>
+                Relatórios completos garantem controlo e transparência nas
+                compras e evolução de preços.
+              </p>
             </div>
           </div>
           <div class="col-md-4">
-            <div class="item d-flex flex-column justify-content-center gap-3 h-100">
-              <img class="rounded-4" src="https://placehold.co/50x50"/>
+            <div
+              class="item d-flex flex-column justify-content-center gap-3 h-100"
+            >
+              <img class="rounded-4" src="https://placehold.co/50x50" />
               <p class="text-blue">ETAPA 06</p>
               <h3>Gerenciamento de Contratos</h3>
-              <p>Gestão de contratos e criação automática de pedidos com base em tabelas pré-negociadas.</p>
+              <p>
+                Gestão de contratos e criação automática de pedidos com base em
+                tabelas pré-negociadas.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="tecnologia">
+      <div class="w-75 m-auto py-5 d-flex flex-column gap-3">
+        <div>
+          <h2 class="display-5 text-center text-bold">
+            A Melhor <span class="text-fade">Tecnologia</span>
+          </h2>
+        </div>
+        <div class="tec-content rounded-4 shadow">
+          <div class="bg-white rounded-4 p-5">
+            <p class="text-light text-center mb-5">
+              As tecnologias utilizadas asseguram flexibilidade para inovação e
+              expansão, com redução de custos operacionais. Com a certificação
+              Full Cross Browsers, o sistema mantém total compatibilidade em
+              PCs, tablets e smartphones.
+            </p>
+            <div class="row g-4">
+              <div
+                class="col-md-4 d-flex flex-column align-items-center text-center gap-3"
+              >
+                <img src="https://placehold.co/50x50" class="rounded-4" />
+                <h3>Segurança e Confiabilidade</h3>
+                <p class="text-light">
+                  O nosso ambiente utiliza Certificado SSL, assegurando que
+                  todos os dados entre o navegador web e o servidor sejam
+                  criptografados.
+                </p>
+              </div>
+              <div
+                class="col-md-4 d-flex flex-column align-items-center text-center gap-3"
+              >
+                <img src="https://placehold.co/50x50" class="rounded-4" />
+                <h3>Hospedagem Segura</h3>
+                <p class="text-light">
+                  Hospedagem em um Data Center de alta segurança.
+                </p>
+              </div>
+              <div
+                class="col-md-4 d-flex flex-column align-items-center text-center gap-3"
+              >
+                <img src="https://placehold.co/50x50" class="rounded-4" />
+                <h3>Monitoramento Contínuo</h3>
+                <p class="text-light">
+                  Monitoramento 24/7 de desempenho e estabilidade para garantir
+                  o máximo de disponibilidade.
+                </p>
+              </div>
+              <div
+                class="col-md-4 d-flex flex-column align-items-center text-center gap-3"
+              >
+                <img src="https://placehold.co/50x50" class="rounded-4" />
+                <h3>Backups Regulares</h3>
+                <p class="text-light">
+                  Manutenção periódica do Banco de Dados, incluindo backups
+                  diários.
+                </p>
+              </div>
+              <div
+                class="col-md-4 d-flex flex-column align-items-center text-center gap-3"
+              >
+                <img src="https://placehold.co/50x50" class="rounded-4" />
+                <h3>Alta Disponibilidade</h3>
+                <p class="text-light">
+                  Espelhamento online dos dados com alta redundância de
+                  servidores e links.
+                </p>
+              </div>
+              <div
+                class="col-md-4 d-flex flex-column align-items-center text-center gap-3"
+              >
+                <img src="https://placehold.co/50x50" class="rounded-4" />
+                <h3>Segurança</h3>
+                <p class="text-light">
+                  Políticas de proteção de alto nível contra vírus e ataques.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="funcionalidades">
+      <div class="w-75 m-auto py-5 d-flex flex-column gap-3">
+        <div>
+          <h2 class="display-5 text-center text-bold">
+            Funcionalidades <span class="text-fade">Diferenciadas</span>
+          </h2>
+          <p class="text-light text-center">
+            Conheça as funcionalidades que tornam a nossa plataforma única.
+          </p>
+        </div>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+          <div class="col">
+            <div class="func-item bg-white d-flex flex-column align-items-stretch">
+              <div class="func-img-wrapper">
+          <img src="https://placehold.co/600x400" class="w-100 h-100 object-fit-cover" />
+              </div>
+              <div class="func-content p-3 d-flex flex-column justify-content-center">
+          <h3>Cotações Multi-Marcas</h3>
+          <p class="text-light">Permite cotações para várias marcas e embalagens com preços diferentes.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="func-item bg-white d-flex flex-column align-items-stretch">
+              <div class="func-img-wrapper">
+          <img src="https://placehold.co/600x400" class="w-100 h-100 object-fit-cover" />
+              </div>
+              <div class="func-content p-3 d-flex flex-column justify-content-center">
+          <h3>Divisão de Compra</h3>
+          <p class="text-light">O comprador pode dividir a compra do mesmo produto para mais de um fornecedor.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="func-item bg-white d-flex flex-column align-items-stretch">
+              <div class="func-img-wrapper">
+          <img src="https://placehold.co/600x400" class="w-100 h-100 object-fit-cover" />
+              </div>
+              <div class="func-content p-3 d-flex flex-column justify-content-center">
+          <h3>Arredondamento de Quantidades</h3>
+          <p class="text-light">Ajusta automaticamente as quantidades com base no múltiplo de embalagem.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="func-item bg-white d-flex flex-column align-items-stretch">
+              <div class="func-img-wrapper">
+          <img src="https://placehold.co/600x400" class="w-100 h-100 object-fit-cover" />
+              </div>
+              <div class="func-content p-3 d-flex flex-column justify-content-center">
+          <h3>Documentação Cadastral dos Fornecedores</h3>
+          <p class="text-light">Configuração de documentos obrigatórios por grupo de produtos, com alertas e bloqueio automático em caso de irregularidades.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="func-item bg-white d-flex flex-column align-items-stretch">
+              <div class="func-img-wrapper">
+          <img src="https://placehold.co/600x400" class="w-100 h-100 object-fit-cover" />
+              </div>
+              <div class="func-content p-3 d-flex flex-column justify-content-center">
+          <h3>Padronização de Marcas</h3>
+          <p class="text-light">Gestão de marcas permitidas e não permitidas no mapa de cotação.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="func-item bg-white d-flex flex-column align-items-stretch">
+              <div class="func-img-wrapper">
+          <img src="https://placehold.co/600x400" class="w-100 h-100 object-fit-cover" />
+              </div>
+              <div class="func-content p-3 d-flex flex-column justify-content-center">
+          <h3>Análise Técnica</h3>
+          <p class="text-light">Permite ao requisitante avaliar ofertas com informações configuráveis.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="func-item bg-white d-flex flex-column align-items-stretch">
+              <div class="func-img-wrapper">
+          <img src="https://placehold.co/600x400" class="w-100 h-100 object-fit-cover" />
+              </div>
+              <div class="func-content p-3 d-flex flex-column justify-content-center">
+          <h3>Compras Agrupadas</h3>
+          <p class="text-light">Oferece negociações agrupadas, padronizações e flexibilidade na escolha de fornecedores.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="func-item bg-white d-flex flex-column align-items-stretch">
+              <div class="func-img-wrapper">
+          <img src="https://placehold.co/600x400" class="w-100 h-100 object-fit-cover" />
+              </div>
+              <div class="func-content p-3 d-flex flex-column justify-content-center">
+          <h3>Compras Programadas</h3>
+          <p class="text-light">Permite definir múltiplas datas de entrega para maior eficiência.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="func-item bg-white d-flex flex-column align-items-stretch">
+              <div class="func-img-wrapper">
+          <img src="https://placehold.co/600x400" class="w-100 h-100 object-fit-cover" />
+              </div>
+              <div class="func-content p-3 d-flex flex-column justify-content-center">
+          <h3>Registro de Ocorrências</h3>
+          <p class="text-light">Registra falhas ou pontos positivos para avaliação de fornecedores.</p>
+              </div>
             </div>
           </div>
         </div>

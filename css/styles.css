@@ -34,6 +34,17 @@ html {
   color: var(--color002) !important;
 }
 
+.text-fade {
+  background: linear-gradient(-45deg, var(--color002), var(--color001));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-bold {
+  font-weight: 500;
+}
+
 .navbar {
   box-shadow: 0px 1px 0px 0px #e7e7e7;
   background-color: rgba(255, 255, 255, 0.616);
@@ -49,6 +60,31 @@ html {
   color: var(--color001);
 }
 
+.btn-comprador {
+  color: white;
+  background: linear-gradient(-45deg, var(--color002), var(--color001));
+  border: none;
+  transition: all 0.25s ease-in-out;
+}
+
+.btn-comprador:hover {
+  color: white;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+.btn-fornecedor {
+  color: white;
+  background-color: var(--color003);
+  border: none;
+  transition: all 0.25s ease-in-out;
+}
+
+.btn-fornecedor:hover {
+  color: white;
+  background-color: var(--color003);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
 .hero {
   background: linear-gradient(0deg, #f0f0f0, #fff);
   padding: 2rem 0;
@@ -58,26 +94,17 @@ html {
   margin-top: 70px !important;
 }
 
-.title {
-  font-weight: 500;
-}
-
-.title span {
-  background: linear-gradient(-45deg, var(--color002), var(--color001));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.btn-primary {
+.btn-cta {
+  color: white;
   background: linear-gradient(-45deg, var(--color002), var(--color001));
   border: none;
   transition: all 0.25s ease-in-out;
 }
 
-.btn-primary:hover {
+.btn-cta:hover {
   transform: scale(1.05);
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+  color: white;
 }
 
 .hero-image img {
@@ -107,13 +134,6 @@ html {
   height: auto;
 }
 
-.item span {
-  background: linear-gradient(-45deg, var(--color002), var(--color001));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
 #integrare {
   background: linear-gradient(0deg, #f0f0f0, #fff);
 }
@@ -129,10 +149,6 @@ html {
   width: 80px;
 }
 
-.integrare-header h2 {
-  font-weight: 500;
-}
-
 .integrare-content a {
   color: var(--color003);
   text-decoration: none;
@@ -142,26 +158,8 @@ html {
   text-decoration: underline;
 }
 
-#planeamento h2{
-  font-weight: 500;
-}
-
-#planeamento h2 span {
-  background: linear-gradient(-45deg, var(--color002), var(--color001));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-#marketplace h2{
-  font-weight: 500;
-}
-
-#marketplace h2 span {
-  background: linear-gradient(-45deg, var(--color002), var(--color001));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+#marketplace {
+  background: linear-gradient(0deg, #f0f0f0, #fff);
 }
 
 .mark-container .item:hover {
@@ -170,4 +168,29 @@ html {
 
 .mark-container img{
   width: 50px;
+}
+
+.tec-content {
+  background: linear-gradient(-45deg, var(--color003), var(--color002), var(--color001));
+  padding: 4px;
+}
+
+#funcionalidades {
+  background: linear-gradient(0deg, #f0f0f0, #fff);
+}
+
+.func-item {
+  border: 1px solid #e7e7e7;
+  padding: 0;
+  border-radius: .5rem;
+  transition: all .25s ease-in-out;
+  height: 100%;
+}
+
+.func-item img{
+  border-radius: .5rem .5rem 0 0;
+}
+
+.func-item h3 {
+  font-size: 1.25rem;
 }
