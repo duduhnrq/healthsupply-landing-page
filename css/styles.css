@@ -194,3 +194,11 @@ html {
 .func-item h3 {
   font-size: 1.25rem;
 }
+
+.func-item:hover {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.func-item:hover .func-img-wrapper {
+  transform: ;
+}
