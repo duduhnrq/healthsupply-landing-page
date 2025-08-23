@@ -11,6 +11,10 @@
       integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
       crossorigin="anonymous"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
@@ -36,18 +40,28 @@
         >
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="#">Soluções</a>
+              <a class="nav-link" href="#solucoes">Soluções</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Funcionalidades</a>
+              <a class="nav-link" href="#funcionalidades">Funcionalidades</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Contato</a>
+              <a class="nav-link" href="#contato">Contato</a>
             </li>
           </ul>
-          <div class="d-flex gap-2">
-            <a href="#" class="btn btn-comprador">Comprador</a>
-            <a href="#" class="btn btn-fornecedor">Fornecedor</a>
+          <div class="nav-btn-container d-flex gap-2">
+            <a
+              href="https://mkt.healthsupply.pt/login"
+              target="_blank"
+              class="btn btn-comprador"
+              >Comprador</a
+            >
+            <a
+              href="https://mkt.integrare.pt/login"
+              target="_blank"
+              class="btn btn-fornecedor"
+              >Fornecedor</a
+            >
           </div>
         </div>
       </div>
@@ -69,7 +83,7 @@
             hospitalares: planeamento, cotações, contratos, entregas, avaliação
             de fornecedores e relatórios.
           </p>
-          <a href="#" class="btn btn-cta"
+          <a href="#solucoes" class="btn btn-cta"
             >Descobrir Soluções
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -92,10 +106,10 @@
       </div>
     </section>
 
-    <section id="features">
+    <section id="solucoes">
       <div class="w-75 m-auto">
         <div
-          class="d-flex justify-content-between gap-4 align-items-stretch my-5"
+          class="sol-container d-flex justify-content-between gap-4 align-items-stretch my-5"
         >
           <div class="item d-flex flex-column gap-3">
             <img class="rounded-4" src="https://placehold.co/60x60" />
@@ -129,7 +143,7 @@
           class="integrare-header d-flex flex-column justify-content-center align-items-center gap-3"
         >
           <img class="rounded-4" src="https://placehold.co/80x80" />
-          <h2 class="display-5 text-bold">
+          <h2 class="display-5 text-bold text-center">
             Integração com a <span>Integrare</span>
           </h2>
         </div>
@@ -302,7 +316,7 @@
               Full Cross Browsers, o sistema mantém total compatibilidade em
               PCs, tablets e smartphones.
             </p>
-            <div class="row g-4">
+            <div class="tec-container row g-4">
               <div
                 class="col-md-4 d-flex flex-column align-items-center text-center gap-3"
               >
@@ -378,106 +392,327 @@
             Conheça as funcionalidades que tornam a nossa plataforma única.
           </p>
         </div>
-        <div class="row row-cols-1 row-cols-md-3 g-4">
-          <div class="col">
-            <div class="func-item bg-white d-flex flex-column align-items-stretch">
-              <div class="func-img-wrapper">
-          <img src="https://placehold.co/600x400" class="w-100 h-100 object-fit-cover" />
+
+        <div id="carouselExampleDark" class="carousel carousel-dark slide">
+          <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="10000">
+              <div class="card w-50 m-auto">
+                <img
+                  src="https://placehold.co/300x200"
+                  class="card-img-top"
+                  alt="Card Image"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Cotações Multi-Marcas</h5>
+                  <p class="card-text text-light">
+                    Permite cotações para várias marcas e embalagens com preços
+                    diferentes.
+                  </p>
+                </div>
               </div>
-              <div class="func-content p-3 d-flex flex-column justify-content-center">
-          <h3>Cotações Multi-Marcas</h3>
-          <p class="text-light">Permite cotações para várias marcas e embalagens com preços diferentes.</p>
+            </div>
+            <div class="carousel-item" data-bs-interval="2000">
+              <div class="card w-50 m-auto">
+                <img
+                  src="https://placehold.co/300x200"
+                  class="card-img-top"
+                  alt="Card Image"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Divisão de Compra</h5>
+                  <p class="card-text text-light">
+                    O comprador pode dividir a compra do mesmo produto para mais
+                    de um fornecedor.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="card w-50 m-auto">
+                <img
+                  src="https://placehold.co/300x200"
+                  class="card-img-top"
+                  alt="Card Image"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Arredondamento de Quantidades</h5>
+                  <p class="card-text text-light">
+                    Ajusta automaticamente as quantidades com base no múltiplo
+                    de embalagem.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="card w-50 m-auto">
+                <img
+                  src="https://placehold.co/300x200"
+                  class="card-img-top"
+                  alt="Card Image"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">
+                    Documentação Cadastral dos Fornecedores
+                  </h5>
+                  <p class="card-text text-light">
+                    Configuração de documentos obrigatórios por grupo de
+                    produtos, com alertas e bloqueio automático em caso de
+                    irregularidades.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="card w-50 m-auto">
+                <img
+                  src="https://placehold.co/300x200"
+                  class="card-img-top"
+                  alt="Card Image"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Padronização de Marcas</h5>
+                  <p class="card-text text-light">
+                    Gestão de marcas permitidas e não permitidas no mapa de
+                    cotação.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="card w-50 m-auto">
+                <img
+                  src="https://placehold.co/300x200"
+                  class="card-img-top"
+                  alt="Card Image"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Análise Técnica</h5>
+                  <p class="card-text text-light">
+                    Permite ao requisitante avaliar ofertas com informações
+                    configuráveis.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="card w-50 m-auto">
+                <img
+                  src="https://placehold.co/300x200"
+                  class="card-img-top"
+                  alt="Card Image"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Compras Agrupadas</h5>
+                  <p class="card-text text-light">
+                    Oferece negociações agrupadas, padronizações e flexibilidade
+                    na escolha de fornecedores.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="card w-50 m-auto">
+                <img
+                  src="https://placehold.co/300x200"
+                  class="card-img-top"
+                  alt="Card Image"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Compras Programadas</h5>
+                  <p class="card-text text-light">
+                    Permite definir múltiplas datas de entrega para maior
+                    eficiência.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="card w-50 m-auto">
+                <img
+                  src="https://placehold.co/300x200"
+                  class="card-img-top"
+                  alt="Card Image"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Registro de Ocorrências</h5>
+                  <p class="card-text text-light">
+                    Registra falhas ou pontos positivos para avaliação de
+                    fornecedores.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
-          <div class="col">
-            <div class="func-item bg-white d-flex flex-column align-items-stretch">
-              <div class="func-img-wrapper">
-          <img src="https://placehold.co/600x400" class="w-100 h-100 object-fit-cover" />
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselExampleDark"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselExampleDark"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato">
+      <div class="w-75 m-auto pt-5 d-flex flex-column gap-3">
+        <div>
+          <h2 class="display-5 text-center text-bold">
+            Entre em <span class="text-fade">Contato</span>
+          </h2>
+          <p class="text-light text-center">
+            Pronto para transformar a gestão do seu hospital? Fale connosco
+            hoje.
+          </p>
+        </div>
+      </div>
+
+      <div
+        class="ctt-container d-flex justify-content-between gap-5 w-75 m-auto mt-5"
+      >
+        <div class="ctt-block form w-50 p-4">
+          <form>
+            <div class="mb-4 lh-1">
+              <label for="name" class="form-label">Nome Completo</label>
+              <input
+                type="text"
+                class="form-control"
+                id="name"
+                placeholder="Seu nome completo"
+                required
+              />
+            </div>
+            <div class="d-flex gap-3">
+              <div class="mb-4 lh-1 w-100">
+                <label for="email" class="form-label">Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  placeholder="seu@email.com"
+                  required
+                />
               </div>
-              <div class="func-content p-3 d-flex flex-column justify-content-center">
-          <h3>Divisão de Compra</h3>
-          <p class="text-light">O comprador pode dividir a compra do mesmo produto para mais de um fornecedor.</p>
+              <div class="mb-4 lh-1 w-100">
+                <label for="phone" class="form-label">Telefone</label>
+                <input
+                  type="tel"
+                  class="form-control"
+                  id="phone"
+                  placeholder="+351 000 000 000"
+                  required
+                />
               </div>
             </div>
-          </div>
-          <div class="col">
-            <div class="func-item bg-white d-flex flex-column align-items-stretch">
-              <div class="func-img-wrapper">
-          <img src="https://placehold.co/600x400" class="w-100 h-100 object-fit-cover" />
+            <div class="mb-4 lh-1">
+              <label for="entityType" class="form-label"
+                >Tipo de Entidade</label
+              >
+              <select class="form-select" id="entityType" required>
+                <option value="">Selecione</option>
+                <option value="comprador">Comprador</option>
+                <option value="fornecedor">Fornecedor</option>
+              </select>
+              <div class="form-check d-flex align-items-center gap-2 mt-2">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="newsletter"
+                />
+                <label class="form-check-label" for="newsletter">
+                  Solicitar uma demonstração
+                </label>
               </div>
-              <div class="func-content p-3 d-flex flex-column justify-content-center">
-          <h3>Arredondamento de Quantidades</h3>
-          <p class="text-light">Ajusta automaticamente as quantidades com base no múltiplo de embalagem.</p>
-              </div>
+              <style>
+                #newsletter:checked {
+                  accent-color: #3c6e71; /* Cor 3 */
+                }
+              </style>
+            </div>
+            <div class="mb-4 lh-1">
+              <label for="message" class="form-label">Mensagem</label>
+              <textarea
+                class="form-control"
+                id="message"
+                rows="3"
+                placeholder="Digite sua mensagem aqui..."
+                required
+              ></textarea>
+            </div>
+            <button type="submit" class="btn btn-cta">Enviar</button>
+          </form>
+        </div>
+
+        <div
+          class="ctt-block d-flex flex-column justify-content-start gap-4 align-items-center w-50"
+        >
+          <div class="ctt-item d-flex align-items-stretch gap-3">
+            <div class="email-image">
+              <img
+                class="rounded-4"
+                src="https://placehold.co/50x50"
+                alt="Email Icon"
+              />
+            </div>
+            <div class="email-content">
+              <p class="text-bold">Email</p>
+              <p class="text-light">contato@healthsupply.pt</p>
             </div>
           </div>
-          <div class="col">
-            <div class="func-item bg-white d-flex flex-column align-items-stretch">
-              <div class="func-img-wrapper">
-          <img src="https://placehold.co/600x400" class="w-100 h-100 object-fit-cover" />
-              </div>
-              <div class="func-content p-3 d-flex flex-column justify-content-center">
-          <h3>Documentação Cadastral dos Fornecedores</h3>
-          <p class="text-light">Configuração de documentos obrigatórios por grupo de produtos, com alertas e bloqueio automático em caso de irregularidades.</p>
-              </div>
+          <div class="ctt-item d-flex align-items-stretch gap-3">
+            <div class="tel-image">
+              <img
+                class="rounded-4"
+                src="https://placehold.co/50x50"
+                alt="Phone Icon"
+              />
+            </div>
+            <div class="tel-content">
+              <a
+                href="https://api.whatsapp.com/send?phone=351910998075"
+                target="_blank"
+                class="text-bold"
+                >WhatsApp</a
+              >
+              <p class="text-light">+351 910 998 075</p>
+              <p class="text-light">Segunda a Sexta: 9h - 18h</p>
             </div>
           </div>
-          <div class="col">
-            <div class="func-item bg-white d-flex flex-column align-items-stretch">
-              <div class="func-img-wrapper">
-          <img src="https://placehold.co/600x400" class="w-100 h-100 object-fit-cover" />
-              </div>
-              <div class="func-content p-3 d-flex flex-column justify-content-center">
-          <h3>Padronização de Marcas</h3>
-          <p class="text-light">Gestão de marcas permitidas e não permitidas no mapa de cotação.</p>
-              </div>
+          <div class="ctt-item d-flex align-items-stretch gap-3">
+            <div class="esc-image">
+              <img
+                class="rounded-4"
+                src="https://placehold.co/50x50"
+                alt="Esc Icon"
+              />
+            </div>
+            <div class="esc-content">
+              <p class="text-bold">Morada</p>
+              <p class="text-light">Avenida da Liberdade, 123</p>
+              <p class="text-light">1250-146 Lisboa, Portugal</p>
             </div>
           </div>
-          <div class="col">
-            <div class="func-item bg-white d-flex flex-column align-items-stretch">
-              <div class="func-img-wrapper">
-          <img src="https://placehold.co/600x400" class="w-100 h-100 object-fit-cover" />
-              </div>
-              <div class="func-content p-3 d-flex flex-column justify-content-center">
-          <h3>Análise Técnica</h3>
-          <p class="text-light">Permite ao requisitante avaliar ofertas com informações configuráveis.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="func-item bg-white d-flex flex-column align-items-stretch">
-              <div class="func-img-wrapper">
-          <img src="https://placehold.co/600x400" class="w-100 h-100 object-fit-cover" />
-              </div>
-              <div class="func-content p-3 d-flex flex-column justify-content-center">
-          <h3>Compras Agrupadas</h3>
-          <p class="text-light">Oferece negociações agrupadas, padronizações e flexibilidade na escolha de fornecedores.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="func-item bg-white d-flex flex-column align-items-stretch">
-              <div class="func-img-wrapper">
-          <img src="https://placehold.co/600x400" class="w-100 h-100 object-fit-cover" />
-              </div>
-              <div class="func-content p-3 d-flex flex-column justify-content-center">
-          <h3>Compras Programadas</h3>
-          <p class="text-light">Permite definir múltiplas datas de entrega para maior eficiência.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="func-item bg-white d-flex flex-column align-items-stretch">
-              <div class="func-img-wrapper">
-          <img src="https://placehold.co/600x400" class="w-100 h-100 object-fit-cover" />
-              </div>
-              <div class="func-content p-3 d-flex flex-column justify-content-center">
-          <h3>Registro de Ocorrências</h3>
-          <p class="text-light">Registra falhas ou pontos positivos para avaliação de fornecedores.</p>
-              </div>
-            </div>
-          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="footer">
+      <div class="w-100 bg-dark container-fluid py-3 mt-5">
+        <div class="text-center">
+          <p class="text-light m-0">
+            © 2025 HealthSupply. Todos os direitos reservados.
+          </p>
         </div>
       </div>
     </section>
@@ -487,5 +722,7 @@
       integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9d</svg>iLvGRem5+R9g2FzA8ZGN954O5Q"
       crossorigin="anonymous"
     ></script>
+
+    <script src="js/scripts.js"></script>
   </body>
 </html>

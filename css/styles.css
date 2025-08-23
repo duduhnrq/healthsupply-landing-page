@@ -111,6 +111,10 @@ html {
   max-width: 100%;
 }
 
+#solucoes {
+  scroll-margin-top: 80px;
+}
+
 .item {
   border: 1px solid #e7e7e7;
   border-radius: 0.5rem;
@@ -166,12 +170,17 @@ html {
   border: 1px solid var(--color002);
 }
 
-.mark-container img{
+.mark-container img {
   width: 50px;
 }
 
 .tec-content {
-  background: linear-gradient(-45deg, var(--color003), var(--color002), var(--color001));
+  background: linear-gradient(
+    -45deg,
+    var(--color003),
+    var(--color002),
+    var(--color001)
+  );
   padding: 4px;
 }
 
@@ -179,26 +188,95 @@ html {
   background: linear-gradient(0deg, #f0f0f0, #fff);
 }
 
-.func-item {
+.form {
+  width: 50%;
   border: 1px solid #e7e7e7;
-  padding: 0;
-  border-radius: .5rem;
-  transition: all .25s ease-in-out;
-  height: 100%;
+  border-radius: 0.5rem;
 }
 
-.func-item img{
-  border-radius: .5rem .5rem 0 0;
+.form-check-input {
+  width: 20px;
+  height: 20px;
+  transition: all 0.25s ease-in-out;
 }
 
-.func-item h3 {
-  font-size: 1.25rem;
+.form-check-input:checked {
+  background-color: var(--color003);
+  border-color: var(--color003);
 }
 
-.func-item:hover {
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+.form button {
+  width: 100%;
 }
 
-.func-item:hover .func-img-wrapper {
-  transform: ;
+.ctt-item {
+  width: 100%;
+  min-height: 120px;
+  border: 1px solid #e7e7e7;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+}
+
+.ctt-item p {
+  margin: 0;
+}
+
+.tel-content a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.tel-content a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 990px) {
+  .nav-btn-container {
+    flex-direction: column;
+    width: 50%;
+  }
+
+  .hero-cta {
+    flex-direction: column;
+    gap: 1.5rem !important;
+  }
+
+  .sol-container {
+    flex-direction: column;
+  }
+
+  .plan-container {
+    flex-direction: column;
+  }
+
+  .mark-container {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .mark-container div {
+    width: 100%;
+  }
+
+  .tec-container {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tec-container div {
+    width: 100%;
+  }
+
+  .ctt-container {
+    flex-direction: column;
+    gap: 2rem !important;
+    margin-top: 1rem !important;
+  }
+
+  .ctt-block {
+    width: 100% !important;
+  }
 }
