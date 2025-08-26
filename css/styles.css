@@ -186,6 +186,7 @@ html {
 
 #funcionalidades {
   background: linear-gradient(0deg, #f0f0f0, #fff);
+  scroll-margin-top: 60px;
 }
 
 .form {
@@ -268,6 +269,19 @@ html {
 
   .tec-container div {
     width: 100%;
+  }
+
+  .func-container {
+    width: 100% !important;
+  }
+
+  .func-header {
+    width: 75%;
+    margin: auto;
+  }
+
+  .card {
+    width: 70% !important;
   }
 
   .ctt-container {
