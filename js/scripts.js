@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // Formulário
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxonk9xfxfETSF1Jdyl7FWitL10ROZGbfVs_7ZrtOpmNF9bcHGsBgYeKjF0YNOx-vDi/exec';
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzux3e2_my1nyyoPUpOr8SgmTLcwWKXSNyZEtohHyKDvLE3KABxRmC8r1BD3EzToYsv/exec';
 
 const form = document.getElementById('formulario');
 const statusModal = new bootstrap.Modal(document.getElementById('statusModal'));
