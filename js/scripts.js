@@ -27,3 +27,50 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
+
+// Formulário
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxonk9xfxfETSF1Jdyl7FWitL10ROZGbfVs_7ZrtOpmNF9bcHGsBgYeKjF0YNOx-vDi/exec';
+
+const form = document.getElementById('formulario');
+const statusModal = new bootstrap.Modal(document.getElementById('statusModal'));
+const statusMessage = document.getElementById('statusMessage');
+
+form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    statusMessage.innerHTML = `
+        <div class="spinner-grow mb-3" role="status"></div>
+        <p>Enviando sua mensagem...</p>
+    `;
+    statusModal.show();
+
+    const formData = new FormData(form);
+    formData.set("solicitar", document.getElementById('solicitar').checked ? 'Sim' : 'Não');
+
+    try {
+        const response = await fetch(SCRIPT_URL, {
+            method: 'POST',
+            body: formData
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+            statusMessage.innerHTML = `
+                <div class="success-icon mb-3 fs-1"><img src="imagens/check.png" alt="Success"></div>
+                <p>Sua mensagem foi enviada com sucesso!</p>
+            `;
+            form.reset();
+        } else {
+            statusMessage.innerHTML = `
+                <div class="error-icon mb-3 fs-1"></div>
+                <p>Erro: ${result.message}</p>
+            `;
+        }
+    } catch (error) {
+        statusMessage.innerHTML = `
+            <div class="error-icon mb-3 fs-1"></div>
+            <p>Erro ao enviar: ${error.message}</p>
+        `;
+    }
+});

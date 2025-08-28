@@ -211,6 +211,7 @@ html {
 .form-check-input {
   width: 20px;
   height: 20px;
+  cursor: pointer;
   transition: all 0.25s ease-in-out;
 }
 
@@ -221,6 +222,18 @@ html {
 
 .form button {
   width: 100%;
+}
+
+.spinner-grow {
+  width: 60px;
+  height: 60px;
+  color: var(--color003);
+}
+
+.success-icon img {
+  width: 60px;
+  height: 60px;
+  filter: brightness(0) saturate(100%) invert(54%) sepia(14%) saturate(2126%) hue-rotate(340deg) brightness(94%) contrast(96%);
 }
 
 .ctt-item {
