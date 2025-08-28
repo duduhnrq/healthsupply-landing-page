@@ -4,14 +4,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (phoneInput) {
         phoneInput.addEventListener("input", function () {
-            let value = phoneInput.value.replace(/\D/g, ""); // Só números
+            let value = phoneInput.value.replace(/\D/g, "");
 
-            // Remove código do país se já foi digitado
             if (value.startsWith("351")) {
                 value = value.substring(3);
             }
 
-            // Monta o número formatado
             let formatted = "+351";
             if (value.length > 0) {
                 formatted += " " + value.substring(0, 3);
