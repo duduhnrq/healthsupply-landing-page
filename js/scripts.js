@@ -61,13 +61,13 @@ form.addEventListener('submit', async function(e) {
             form.reset();
         } else {
             statusMessage.innerHTML = `
-                <div class="error-icon mb-3 fs-1"></div>
+                <div class="error-icon mb-3 fs-1"><img src="imagens/close.png" alt="Error"></div>
                 <p>Erro: ${result.message}</p>
             `;
         }
     } catch (error) {
         statusMessage.innerHTML = `
-            <div class="error-icon mb-3 fs-1"></div>
+            <div class="error-icon mb-3 fs-1"><img src="imagens/close.png" alt="Error"></div>
             <p>Erro ao enviar: ${error.message}</p>
         `;
     }
