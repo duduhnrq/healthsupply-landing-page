@@ -293,7 +293,7 @@ html {
     align-items: center;
   }
 
-  .tec-container div {
+  .tec-container .col-md-4 {
     width: 100%;
   }
 
