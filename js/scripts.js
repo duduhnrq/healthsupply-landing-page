@@ -58,6 +58,9 @@ form.addEventListener('submit', async function(e) {
                 <div class="success-icon mb-3 fs-1"><img src="imagens/check.png" alt="Success"></div>
                 <p>Sua mensagem foi enviada com sucesso!</p>
             `;
+            setTimeout(() => {
+                statusModal.hide();
+            }, 3000);
             form.reset();
         } else {
             statusMessage.innerHTML = `

@@ -259,9 +259,13 @@ html {
 }
 
 @media (max-width: 990px) {
+  .navbar-nav {
+    text-align: center;
+  }
+
   .nav-btn-container {
-    flex-direction: column;
-    width: 50%;
+    justify-content: center !important;
+    width: 100%;
   }
 
   .hero-cta {
@@ -318,6 +322,11 @@ html {
 
   .ctt-block {
     width: 100% !important;
+  }
+
+  .email-tel-container {
+    flex-direction: column;
+    gap: 0 !important;
   }
 }
 
@@ -383,7 +392,7 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50px;
+  min-width: 50px;
   height: 50px;
   background-color: var(--color002-light);
 }
@@ -397,7 +406,7 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50px;
+  min-width: 50px;
   height: 50px;
   background-color: var(--color001-light);
 }
@@ -411,7 +420,7 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50px;
+  min-width: 50px;
   height: 50px;
   background-color: var(--color003-light);
 }
