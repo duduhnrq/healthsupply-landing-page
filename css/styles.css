@@ -115,7 +115,7 @@ html {
 }
 
 #solucoes {
-  scroll-margin-top: 80px;
+  scroll-margin-top: 120px;
 }
 
 .item {
@@ -144,10 +144,6 @@ html {
 
 .item:hover img {
   transform: scale(1.1);
-}
-
-#integrare {
-  background: linear-gradient(0deg, #f0f0f0, #fff);
 }
 
 .integrare-header span {
@@ -202,6 +198,10 @@ html {
   scroll-margin-top: 60px;
 }
 
+#contacto {
+  scroll-margin-top: 60px;
+}
+
 .form {
   width: 50%;
   border: 1px solid #e7e7e7;
@@ -233,7 +233,8 @@ html {
 .success-icon img {
   width: 60px;
   height: 60px;
-  filter: brightness(0) saturate(100%) invert(54%) sepia(14%) saturate(2126%) hue-rotate(340deg) brightness(94%) contrast(96%);
+  filter: brightness(0) saturate(100%) invert(54%) sepia(14%) saturate(2126%)
+    hue-rotate(340deg) brightness(94%) contrast(96%);
 }
 
 .ctt-item {
@@ -343,7 +344,8 @@ html {
 
 .item-icon-01 img {
   width: 35px;
-  filter: brightness(0) saturate(100%) invert(59%) sepia(70%) saturate(337%) hue-rotate(124deg) brightness(90%) contrast(92%);
+  filter: brightness(0) saturate(100%) invert(59%) sepia(70%) saturate(337%)
+    hue-rotate(124deg) brightness(90%) contrast(92%);
 }
 
 .item-icon-02 {
@@ -357,7 +359,8 @@ html {
 
 .item-icon-02 img {
   width: 33px;
-  filter: brightness(0) saturate(100%) invert(50%) sepia(92%) saturate(3859%) hue-rotate(170deg) brightness(98%) contrast(101%);
+  filter: brightness(0) saturate(100%) invert(50%) sepia(92%) saturate(3859%)
+    hue-rotate(170deg) brightness(98%) contrast(101%);
 }
 
 .item-icon-03 {
@@ -371,7 +374,8 @@ html {
 
 .item-icon-03 img {
   width: 45px;
-  filter: brightness(0) saturate(100%) invert(73%) sepia(78%) saturate(3811%) hue-rotate(339deg) brightness(90%) contrast(86%);
+  filter: brightness(0) saturate(100%) invert(73%) sepia(78%) saturate(3811%)
+    hue-rotate(339deg) brightness(90%) contrast(86%);
 }
 
 .item-icon-04 {
@@ -385,7 +389,22 @@ html {
 
 .item-icon-04 img {
   width: 25px;
-  filter: brightness(0) saturate(100%) invert(50%) sepia(92%) saturate(3859%) hue-rotate(170deg) brightness(98%) contrast(101%);
+  filter: brightness(0) saturate(100%) invert(50%) sepia(92%) saturate(3859%)
+    hue-rotate(170deg) brightness(98%) contrast(101%);
+}
+
+.item-icon-05 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(-45deg, var(--color002), var(--color001));
+}
+
+.item-icon-05 svg {
+  width: 25px;
+  fill: white;
 }
 
 .email-image {
@@ -399,7 +418,8 @@ html {
 
 .email-image img {
   width: 25px;
-  filter: brightness(0) saturate(100%) invert(50%) sepia(92%) saturate(3859%) hue-rotate(170deg) brightness(98%) contrast(101%);
+  filter: brightness(0) saturate(100%) invert(50%) sepia(92%) saturate(3859%)
+    hue-rotate(170deg) brightness(98%) contrast(101%);
 }
 
 .tel-image {
@@ -413,7 +433,8 @@ html {
 
 .tel-image img {
   width: 25px;
-  filter: brightness(0) saturate(100%) invert(59%) sepia(70%) saturate(337%) hue-rotate(124deg) brightness(90%) contrast(92%);
+  filter: brightness(0) saturate(100%) invert(59%) sepia(70%) saturate(337%)
+    hue-rotate(124deg) brightness(90%) contrast(92%);
 }
 
 .esc-image {
@@ -427,5 +448,6 @@ html {
 
 .esc-image img {
   width: 25px;
-  filter: brightness(0) saturate(100%) invert(73%) sepia(78%) saturate(3811%) hue-rotate(339deg) brightness(90%) contrast(86%);
+  filter: brightness(0) saturate(100%) invert(73%) sepia(78%) saturate(3811%)
+    hue-rotate(339deg) brightness(90%) contrast(86%);
 }
