@@ -146,26 +146,6 @@ html {
   transform: scale(1.1);
 }
 
-.integrare-header span {
-  background: linear-gradient(-45deg, var(--color003), var(--color003-dark));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.integrare-header img {
-  width: 80px;
-}
-
-.integrare-content a {
-  color: var(--color003);
-  text-decoration: none;
-}
-
-.integrare-content a:hover {
-  text-decoration: underline;
-}
-
 #marketplace {
   background: linear-gradient(0deg, #f0f0f0, #fff);
 }
@@ -196,6 +176,22 @@ html {
 #funcionalidades {
   background: linear-gradient(0deg, #f0f0f0, #fff);
   scroll-margin-top: 60px;
+}
+
+.carousel-inner {
+  margin: 0 auto;
+  width: 90% !important;
+}
+
+.cards-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  margin: 0 auto;
+}
+
+.card-item {
+  width: 33.33%;
 }
 
 #contacto {
@@ -311,8 +307,21 @@ html {
     margin: auto;
   }
 
-  .card {
-    width: 70% !important;
+  .carousel {
+    width: 90% !important;
+    margin: 0 auto;
+  }
+
+  .carousel-inner {
+    width: 80% !important;
+  }
+
+  .cards-wrapper {
+    flex-direction: column;
+  }
+
+  .card-item {
+    width: 100%;
   }
 
   .ctt-container {
