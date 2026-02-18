@@ -6,10 +6,8 @@
     <title>HealthSupply</title>
     <link rel="shortcut icon" href="imagens/hs_logo.ico" type="image/x-icon" />
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
-      crossorigin="anonymous"
     />
     <link
       rel="stylesheet"
@@ -49,20 +47,12 @@
               <a class="nav-link" href="#contacto">Contacto</a>
             </li>
           </ul>
-          <div class="nav-btn-container d-flex gap-2">
-            <a
-              href="https://mkt.healthsupply.pt/login"
-              target="_blank"
-              class="btn btn-comprador"
-              >Comprador</a
-            >
-            <a
-              href="https://mkt.integrare.pt/login"
-              target="_blank"
-              class="btn btn-fornecedor"
-              >Fornecedor</a
-            >
+        </div>
+        <div class="d-flex gap-2">
+          <div class="btn btn-outline-secondary" onclick="abrirFormulario()">
+            Entrar
           </div>
+          <a class="btn btn-cta" href="registo.html"> Registar Empresa </a>
         </div>
       </div>
     </nav>
@@ -83,22 +73,24 @@
             planeamento, cotações, contratos, entregas, avaliação de
             fornecedores e relatórios.
           </p>
-          <a href="#solucoes" class="btn btn-cta"
-            >Descobrir Soluções
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="currentColor"
-              class="bi bi-arrow-right"
-              viewBox="0 0 16 16"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"
-              />
-            </svg>
-          </a>
+          <div class="d-flex gap-3">
+            <a href="#solucoes" class="btn btn-cta"
+              >Descobrir Soluções
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-arrow-right"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"
+                />
+              </svg>
+            </a>
+          </div>
         </div>
         <div class="hero-image border-radius w-100">
           <img class="rounded-4 shadow" src="imagens/image001.jpg" />
@@ -109,7 +101,7 @@
     <section id="solucoes">
       <div class="w-75 m-auto">
         <div
-          class="sol-container d-flex justify-content-between gap-4 align-items-stretch mt-4"
+          class="sol-container d-flex justify-content-between gap-4 align-items-stretch mt-5"
         >
           <div class="item d-flex flex-column gap-3">
             <div class="item-icon-01 rounded-4">
@@ -841,11 +833,7 @@
       </div>
     </section>
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9d</svg>iLvGRem5+R9g2FzA8ZGN954O5Q"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <script src="js/scripts.js"></script>
   </body>
