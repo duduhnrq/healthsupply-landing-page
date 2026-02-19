@@ -119,7 +119,6 @@
                 <h6 class="mb-1 text-center">Fornecedora</h6>
               </div>
             </label>
-
           </div>
           <div class="invalid-feedback mt-1">
             Por favor selecione o tipo de perfil da empresa.
@@ -670,15 +669,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js"></script>
 
     <script>
-      // Carregar Modal Sucesso
-      document.addEventListener("DOMContentLoaded", function () {
-        const modalSucesso = document.getElementById("modalSucesso");
-
-        const bsModal = new bootstrap.Modal(modalSucesso);
-
-        bsModal.show();
-      });
-
       // Validação Formulário
       document.addEventListener("DOMContentLoaded", function () {
         const form = document.getElementById("registoForm");
@@ -713,7 +703,15 @@
           } else {
             form.classList.add("was-validated");
             const firstInvalid = form.querySelector(":invalid");
-            if (firstInvalid) firstInvalid.focus();
+            if (firstInvalid) {
+              firstInvalid.focus({ preventScroll: true });
+
+              // Rolagem suave até o campo inválido
+              firstInvalid.scrollIntoView({
+                behavior: "smooth",
+                block: "center",
+              });
+            }
           }
         });
       });
@@ -771,7 +769,6 @@
           r.addEventListener("change", updateCategoriaVisibility);
         });
 
-        // Inicializa a visibilidade com base no rádio selecionado (se houver)
         updateCategoriaVisibility();
       });
 
