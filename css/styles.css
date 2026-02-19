@@ -354,7 +354,9 @@ html {
   .ctt-block {
     width: 100% !important;
   }
+}
 
+@media (max-width: 1330px) {
   .email-tel-container {
     flex-direction: column;
     gap: 0 !important;

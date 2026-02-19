@@ -1,17 +1,10 @@
 // Telefone
-document.addEventListener("input", function (e) {
-  if (e.target.matches('input[type="tel"]')) {
-    let value = e.target.value.replace(/\D/g, "");
+const inputTel = document.querySelector("#telefone");
 
-    if (value.startsWith("351")) value = value.substring(3);
-
-    let formatted = "+351";
-    if (value.length > 0) formatted += " " + value.substring(0, 3);
-    if (value.length > 3) formatted += " " + value.substring(3, 6);
-    if (value.length > 6) formatted += " " + value.substring(6, 9);
-
-    e.target.value = formatted.trim();
-  }
+window.intlTelInput(inputTel, {
+  initialCountry: "pt",
+  preferredCountries: ["pt", "br", "es"],
+  separateDialCode: true,
 });
 
 // Codigo Postal

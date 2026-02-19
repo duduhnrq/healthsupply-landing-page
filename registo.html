@@ -336,32 +336,13 @@
 
           <div class="d-flex flex-column flex-md-row gap-md-3 gap-0">
             <div class="mb-3 w-100">
-              <label for="morada" class="form-label">Morada *</label>
-              <input
-                type="text"
-                class="form-control"
-                id="morada"
-                placeholder="Morada da Sede da Empresa"
-                maxlength="200"
-                required
-              />
-              <div class="invalid-feedback mt-1">
-                Por favor preencha a morada da sede.
-              </div>
+              <label for="pais" class="form-label">País *</label>
+              <select id="pais" class="form-select" required>
+                <option value="" disabled selected>Carregando...</option>
+              </select>
+              <div class="invalid-feedback">Por favor selecione o país.</div>
             </div>
-            <div class="mb-3 w-100">
-              <label for="complemento" class="form-label">Complemento</label>
-              <input
-                type="text"
-                class="form-control"
-                id="complemento"
-                placeholder="Complemento da Morada"
-                maxlength="200"
-              />
-            </div>
-          </div>
 
-          <div class="d-flex flex-column flex-md-row gap-md-3 gap-0">
             <div class="mb-3 w-100">
               <label for="codigoPostal" class="form-label"
                 >Código Postal *</label
@@ -370,43 +351,63 @@
                 type="text"
                 class="form-control"
                 id="codigoPostal"
-                name="codigoPostal"
-                placeholder="0000-000"
-                pattern="^\d{4}-\d{3}$"
-                required
-              />
-              <div class="invalid-feedback mt-1">
-                Por favor preencha o código postal.
-              </div>
-            </div>
-            <div class="mb-3 w-100">
-              <label for="localidade" class="form-label">Localidade *</label>
-              <input
-                type="text"
-                class="form-control"
-                id="localidade"
-                placeholder="Localidade da Sede"
+                placeholder="Código Postal da Sede"
                 maxlength="200"
                 required
               />
               <div class="invalid-feedback mt-1">
-                Por favor preencha a localidade da sede.
+                Por favor preencha o código postal da sede.
               </div>
             </div>
           </div>
 
           <div class="mb-3 w-100">
-            <label for="distrito" class="form-label">Distrito *</label>
+            <label for="morada" class="form-label">Morada / Endereço *</label>
             <input
               type="text"
               class="form-control"
-              id="distrito"
-              placeholder="Distrito da Sede"
+              id="morada"
+              placeholder="Morada / Endereço da Sede"
               maxlength="200"
               required
             />
             <div class="invalid-feedback mt-1">
-              Por favor preencha o distrito da sede.
+              Por favor preencha a morada / endereço da sede.
+            </div>
+          </div>
+
+          <div class="d-flex flex-column flex-md-row gap-md-3 gap-0">
+            <div class="mb-3 w-100">
+              <label for="cidade" class="form-label"
+                >Cidade / Localidade *</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="cidade"
+                name="cidade"
+                placeholder="Cidade / Localidade da Sede"
+                required
+              />
+              <div class="invalid-feedback mt-1">
+                Por favor preencha a cidade / localidade da sede.
+              </div>
+            </div>
+            <div class="mb-3 w-100">
+              <label for="regiao" class="form-label"
+                >Região / Estado / Distrito *</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="regiao"
+                placeholder="Região / Estado / Distrito da Sede"
+                maxlength="200"
+                required
+              />
+              <div class="invalid-feedback mt-1">
+                Por favor preencha a região / estado / distrito da sede.
+              </div>
             </div>
           </div>
         </div>
@@ -602,7 +603,9 @@
           </label>
         </div>
 
-        <div class="d-flex justify-content-between align-items-center">
+        <div
+          class="d-flex flex-column-reverse flex-md-row justify-content-between align-items-center gap-3 gap-md-0"
+        >
           <p class="text-light text-xs mb-0">
             Precisa de ajuda?
             <a
@@ -786,6 +789,42 @@
         initialCountry: "pt",
         preferredCountries: ["pt", "br", "es"],
         separateDialCode: true,
+      });
+
+      // Select País
+      document.addEventListener("DOMContentLoaded", () => {
+        const select = document.getElementById("pais");
+
+        const paises = [
+          "Portugal",
+          "Brasil",
+          "Espanha",
+          "França",
+          "Alemanha",
+          "Itália",
+          "Reino Unido",
+          "Estados Unidos",
+          "Canadá",
+          "México",
+          "Argentina",
+          "Angola",
+          "Moçambique",
+          "Cabo Verde",
+          "China",
+          "Japão",
+          "Austrália",
+          "Índia",
+        ];
+
+        select.innerHTML =
+          '<option value="" disabled selected>Selecione o país</option>';
+
+        paises.forEach((pais) => {
+          const opt = document.createElement("option");
+          opt.value = pais;
+          opt.textContent = pais;
+          select.appendChild(opt);
+        });
       });
     </script>
   </body>
