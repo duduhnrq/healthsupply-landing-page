@@ -605,7 +605,7 @@
           </div>
 
           <label
-            for="fileUpload"
+            for="documentos"
             class="upload-box d-flex flex-column align-items-center justify-content-center w-100 rounded-4 cursor-pointer"
           >
             <svg
@@ -633,7 +633,7 @@
             >
 
             <input
-              id="fileUpload"
+              id="documentos"
               type="file"
               name="documentos"
               accept=".pdf,.jpg,.jpeg,.png"
@@ -768,6 +768,34 @@
       </div>
     </div>
 
+    <!-- Modal Erro -->
+    <div class="modal fade" id="modalErro" tabindex="-1">
+      <div class="modal-dialog modal-md modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header border-0">
+            <h5 class="modal-title text-danger">Erro ao Submeter</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <p class="m-0">
+              Ocorreu um erro ao enviar os dados. Por favor tente novamente ou
+              contacte o suporte.
+            </p>
+          </div>
+          <div class="w-100 d-flex justify-content-center">
+            <button class="btn btn-danger w-100 m-3" data-bs-dismiss="modal">
+              Tentar novamente
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
@@ -775,188 +803,61 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js"></script>
 
     <script>
-      // Validação Formulário
-      document.addEventListener("DOMContentLoaded", () => {
-        const form = document.getElementById("registoForm");
-        const SCRIPT_URL =
-          "https://script.google.com/macros/s/AKfycbyOTN714Q3m7g1jq1THRahZhhqD0ozrMY6B_IwmT7hRnJZDp__BC0ijE5UQfYF7-vSV2A/exec";
+      const SCRIPT_URL =
+        "https://script.google.com/macros/s/AKfycbw4GAgG75NCirEqqM8odBqJ79xyINGfud1mU5k8QLBi8WI9mqUUEJaRbyRo8GiFq8wzHA/exec";
 
-        form.addEventListener("submit", async function (e) {
-          e.preventDefault();
-
-          // Validação Bootstrap
-          if (!form.checkValidity()) {
-            form.classList.add("was-validated");
-            const firstInvalid = form.querySelector(":invalid");
-            if (firstInvalid) firstInvalid.focus();
-            return;
-          }
-
-          const formData = new FormData(form);
-
-          // RADIO: perfil
-          const perfilSelecionado = form.querySelector(
-            "input[name='perfil']:checked",
-          );
-          formData.set(
-            "perfil",
-            perfilSelecionado ? perfilSelecionado.value : "",
-          );
-
-          // MULTISELECT: categorias
-          const categorias = [
-            ...document.getElementById("categorias").selectedOptions,
-          ]
-            .map((o) => o.value)
-            .join(", ");
-          formData.set("categorias", categorias);
-
-          // TELEFONE GERAL
-          let numeroGeral = itiGeral.getNumber();
-          if (!numeroGeral) {
-            const code = itiGeral.getSelectedCountryData().dialCode;
-            const localNumber = inputGeral.value.replace(/\D/g, "");
-            numeroGeral = `+${code}${localNumber}`;
-          }
-          formData.set("telefoneGeral", numeroGeral);
-
-          // TELEFONE PRINCIPAL
-          let numeroPrincipal = itiPrincipal.getNumber();
-          if (!numeroPrincipal) {
-            const code = itiPrincipal.getSelectedCountryData().dialCode;
-            const localNumber = inputPrincipal.value.replace(/\D/g, "");
-            numeroPrincipal = `+${code}${localNumber}`;
-          }
-          formData.set("telefonePrincipal", numeroPrincipal);
-
-          formData.set(
-            "telefonePrincipal",
-            itiPrincipal.getNumber() || formData.get("telefonePrincipal"),
-          );
-
-          // CHECKBOX: termos
-          const termos = document.getElementById("checkboxTermos").checked
-            ? "Sim"
-            : "Não";
-          formData.set("termos", termos);
-
-          // ARQUIVOS (somente nomes)
-          const files = document.getElementById("fileUpload").files;
-          const nomesArquivos = [...files].map((f) => f.name).join(", ");
-          formData.set("documentos", nomesArquivos);
-
-          try {
-            const statusModal = new bootstrap.Modal(
-              document.getElementById("statusModal"),
-            );
-            statusModal.show();
-
-            const response = await fetch(SCRIPT_URL, {
-              method: "POST",
-              body: formData,
-            });
-
-            const result = await response.json();
-
-            if (result.success) {
-              const successModal = new bootstrap.Modal(
-                document.getElementById("modalSucesso"),
-              );
-              statusModal.hide();
-              successModal.show();
-
-              form.reset();
-              form.classList.remove("was-validated");
-            } else {
-              alert("Erro no servidor: " + result.message);
-            }
-          } catch (error) {
-            alert("Erro ao enviar: " + error.message);
-          }
-        });
-      });
-
-      // Fechar Modal Sucesso
-      function fecharModalSucesso() {
-        const successModalEl = document.getElementById("modalSucesso");
-        const successModal = bootstrap.Modal.getInstance(successModalEl);
-
-        successModal.hide();
+      // ── Funções dos modais (sem Bootstrap Modal API) ──────────────
+      function mostrarModal(id) {
+        const el = document.getElementById(id);
+        el.style.display = "flex";
+        el.classList.add("show");
+        document.body.classList.add("modal-open");
+        // backdrop
+        let bd = document.getElementById("modal-backdrop");
+        if (!bd) {
+          bd = document.createElement("div");
+          bd.id = "modal-backdrop";
+          bd.className = "modal-backdrop fade show";
+          document.body.appendChild(bd);
+        }
       }
 
-      // NIPC
-      document.getElementById("nipc").addEventListener("input", function () {
-        this.value = this.value.replace(/\D/g, "");
-      });
+      function esconderModal(id) {
+        const el = document.getElementById(id);
+        el.style.display = "";
+        el.classList.remove("show");
+        document.body.classList.remove("modal-open");
+        const bd = document.getElementById("modal-backdrop");
+        if (bd) bd.remove();
+      }
 
-      // Multiselect Categoria de Produto
-      document.addEventListener("DOMContentLoaded", function () {
-        const categoriasSelect = document.getElementById("categorias");
+      window.fecharModalSucesso = function () {
+        esconderModal("modalSucesso");
+        const form = document.getElementById("registoForm");
+        form.reset();
+        form.classList.remove("was-validated");
+        arquivosSelecionados = [];
+        renderizarLista();
+        if (choicesInstance) choicesInstance.removeActiveItems();
+        document.querySelectorAll(".is-valid, .is-invalid").forEach((el) => {
+          el.classList.remove("is-valid", "is-invalid");
+        });
+        document.getElementById("categoriaContainer").classList.add("d-none");
+      };
 
-        if (categoriasSelect) {
-          new Choices(categoriasSelect, {
-            removeItemButton: true,
-            placeholder: true,
-            placeholderValue: "Selecione as categorias...",
-            searchPlaceholderValue: "Pesquisar...",
-            itemSelectText: "",
-            shouldSort: false,
-          });
-        }
-      });
+      // ── Estado ────────────────────────────────────────────────────
+      let choicesInstance = null;
+      let arquivosSelecionados = [];
 
-      // Categorias de Produto
-      document.addEventListener("DOMContentLoaded", function () {
-        const perfilRadios = document.querySelectorAll('input[name="perfil"]');
-        const categoriaContainer =
-          document.getElementById("categoriaContainer");
-        const categoriasSelect = document.getElementById("categorias");
-
-        if (!categoriaContainer || perfilRadios.length === 0) return;
-
-        function updateCategoriaVisibility() {
-          const selected = document.querySelector(
-            'input[name="perfil"]:checked',
-          );
-          if (selected && selected.value === "fornecedora") {
-            categoriaContainer.classList.remove("d-none");
-            if (categoriasSelect) categoriasSelect.required = true;
-          } else {
-            categoriaContainer.classList.add("d-none");
-            if (categoriasSelect) {
-              categoriasSelect.required = false;
-              categoriasSelect.classList.remove("is-invalid", "is-valid");
-            }
-          }
-        }
-
-        perfilRadios.forEach(function (r) {
-          r.addEventListener("change", updateCategoriaVisibility);
+      // ── Inicialização (quando tudo carregou) ──────────────────────
+      window.onload = function () {
+        // NIPC apenas números
+        document.getElementById("nipc").addEventListener("input", function () {
+          this.value = this.value.replace(/\D/g, "");
         });
 
-        updateCategoriaVisibility();
-      });
-
-      // Formato Telefone
-      const inputGeral = document.querySelector("#telefoneGeral");
-      const inputPrincipal = document.querySelector("#telefonePrincipal");
-
-      const itiGeral = window.intlTelInput(inputGeral, {
-        initialCountry: "pt",
-        preferredCountries: ["pt", "br", "es"],
-        separateDialCode: true,
-      });
-
-      const itiPrincipal = window.intlTelInput(inputPrincipal, {
-        initialCountry: "pt",
-        preferredCountries: ["pt", "br", "es"],
-        separateDialCode: true,
-      });
-
-      // Select País
-      document.addEventListener("DOMContentLoaded", () => {
-        const select = document.getElementById("pais");
-
+        // Países
+        const selectPais = document.getElementById("pais");
         const paises = [
           "Portugal",
           "Brasil",
@@ -977,89 +878,216 @@
           "Austrália",
           "Índia",
         ];
-
-        select.innerHTML =
+        selectPais.innerHTML =
           '<option value="" disabled selected>Selecione o país</option>';
-
-        paises.forEach((pais) => {
-          const opt = document.createElement("option");
-          opt.value = pais;
-          opt.textContent = pais;
-          select.appendChild(opt);
+        paises.forEach((p) => {
+          const o = document.createElement("option");
+          o.value = o.textContent = p;
+          selectPais.appendChild(o);
         });
-      });
 
-      // Preview Documentos Anexados
-      const fileInput = document.getElementById("fileUpload");
-      const listaDocs = document.getElementById("listaDocumentos");
+        // Choices (categorias)
+        const categoriasEl = document.getElementById("categorias");
+        choicesInstance = new Choices(categoriasEl, {
+          removeItemButton: true,
+          placeholder: true,
+          placeholderValue: "Selecione as categorias...",
+          searchPlaceholderValue: "Pesquisar...",
+          itemSelectText: "",
+          shouldSort: false,
+        });
 
-      let arquivosSelecionados = [];
+        // Mostrar/ocultar categorias conforme perfil
+        const categoriaContainer =
+          document.getElementById("categoriaContainer");
+        document.querySelectorAll('input[name="perfil"]').forEach((r) => {
+          r.addEventListener("change", function () {
+            if (this.value === "fornecedora") {
+              categoriaContainer.classList.remove("d-none");
+              categoriasEl.required = true;
+            } else {
+              categoriaContainer.classList.add("d-none");
+              categoriasEl.required = false;
+            }
+          });
+        });
 
-      fileInput.addEventListener("change", () => {
-        arquivosSelecionados = [...arquivosSelecionados, ...fileInput.files];
+        // intlTelInput
+        const itiGeral = window.intlTelInput(
+          document.getElementById("telefoneGeral"),
+          {
+            initialCountry: "pt",
+            preferredCountries: ["pt", "br", "es"],
+            separateDialCode: true,
+          },
+        );
+        const itiPrincipal = window.intlTelInput(
+          document.getElementById("telefonePrincipal"),
+          {
+            initialCountry: "pt",
+            preferredCountries: ["pt", "br", "es"],
+            separateDialCode: true,
+          },
+        );
 
-        fileInput.value = "";
-        
-        renderizarLista();
-      });
+        // Ficheiros
+        const fileInput = document.getElementById("documentos");
+        fileInput.addEventListener("change", () => {
+          Array.from(fileInput.files).forEach((f) => {
+            if (f.size > 10 * 1024 * 1024) {
+              alert(`"${f.name}" excede 10MB.`);
+              return;
+            }
+            arquivosSelecionados.push(f);
+          });
+          fileInput.value = "";
+          renderizarLista();
+        });
 
-      function renderizarLista() {
-        listaDocs.innerHTML = "";
-
-        if (arquivosSelecionados.length === 0) {
-          listaDocs.innerHTML =
-            "<p class='text-secondary text-xs mb-0'>Nenhum arquivo selecionado.</p>";
-          return;
+        function renderizarLista() {
+          const lista = document.getElementById("listaDocumentos");
+          lista.innerHTML = "";
+          if (!arquivosSelecionados.length) {
+            lista.innerHTML =
+              "<p class='text-secondary text-xs mb-0'>Nenhum arquivo selecionado.</p>";
+            return;
+          }
+          arquivosSelecionados.forEach((f, i) => {
+            const div = document.createElement("div");
+            div.className =
+              "d-flex align-items-center justify-content-between border rounded-3 p-2 mb-2 bg-light";
+            div.innerHTML = `
+              <span class="small">${f.name} <span class="text-secondary">(${(f.size / 1024 / 1024).toFixed(2)} MB)</span></span>
+              <button type="button" class="btn btn-sm btn-outline-danger" onclick="removerArquivo(${i})">✕</button>`;
+            lista.appendChild(div);
+          });
         }
 
-        arquivosSelecionados.forEach((file, index) => {
-          const fileSize = (file.size / 1024 / 1024).toFixed(2); // MB
+        window.removerArquivo = function (i) {
+          arquivosSelecionados.splice(i, 1);
+          renderizarLista();
+        };
 
-          const item = document.createElement("div");
-          item.className =
-            "d-flex align-items-center justify-content-between border rounded-3 p-2 mb-2 bg-light";
+        // Fechar modal de termos (btn-close)
+        document
+          .querySelectorAll('[data-bs-dismiss="modal"]')
+          .forEach((btn) => {
+            btn.addEventListener("click", function () {
+              const modal = this.closest(".modal");
+              if (modal) esconderModal(modal.id);
+            });
+          });
 
-          item.innerHTML = `
-            <div class="d-flex align-items-center gap-2">
-              <div class="item-icon-07">
-                <svg id="Layer_1" viewBox="0 0 24 24" width="18" height="18"
-                    xmlns="http://www.w3.org/2000/svg">
-                  <path d="m17 14a1 1 0 0 1 -1 1h-8a1 1 0 0 1 0-2h8a1 1 0 0 1 1 1zm-4 3h-5a1 1 0 0 0 0 2h5a1 1 0 0 0 0-2zm9-6.515v8.515a5.006 5.006 0 0 1 -5 5h-10a5.006 5.006 0 0 1 -5-5v-14a5.006 5.006 0 0 1 5-5h4.515a6.958 6.958 0 0 1 4.95 2.05l3.484 3.486a6.951 6.951 0 0 1 2.051 4.949zm-6.949-7.021a5.01 5.01 0 0 0 -1.051-.78v4.316a1 1 0 0 0 1 1h4.316a4.983 4.983 0 0 0 -.781-1.05zm4.949 7.021c0-.165-.032-.323-.047-.485h-4.953a3 3 0 0 1 -3-3v-4.953c-.162-.015-.321-.047-.485-.047h-4.515a3 3 0 0 0 -3 3v14a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3z"/>
-                </svg>
-              </div>
+        // Abrir modal de termos
+        document
+          .querySelectorAll('[data-bs-target="#modalTermos"]')
+          .forEach((el) => {
+            el.addEventListener("click", function (e) {
+              e.preventDefault();
+              mostrarModal("modalTermos");
+            });
+          });
 
-              <div class="d-flex align-items-center gap-2">
-                <span class="small">${file.name}</span>
-                <span class="text-secondary text-xs">${fileSize} MB</span>
-              </div>
-            </div>
+        // ── SUBMIT ────────────────────────────────────────────────
+        document
+          .getElementById("registoForm")
+          .addEventListener("submit", async function (e) {
+            e.preventDefault();
 
-            <button class="btn btn-sm remove-file-btn" onclick="removerArquivo(${index})">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                  width="16" height="16" fill="none" stroke="currentColor"
-                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <line x1="18" y1="6" x2="6" y2="18"></line>
-                  <line x1="6" y1="6" x2="18" y2="18"></line>
-              </svg>
-              <span class="visually-hidden">Remover</span>
-            </button>
-          `;
+            const form = this;
 
-          listaDocs.appendChild(item);
-        });
-      }
+            // Validação HTML5 nativa
+            if (!form.checkValidity()) {
+              form.classList.add("was-validated");
+              form
+                .querySelector(":invalid")
+                ?.scrollIntoView({ behavior: "smooth", block: "center" });
+              return;
+            }
 
-      // Função global
-      window.removerArquivo = function (index) {
-        arquivosSelecionados.splice(index, 1);
+            // Validação extra: categorias obrigatórias para fornecedora
+            const perfil = document.querySelector(
+              'input[name="perfil"]:checked',
+            )?.value;
+            if (
+              perfil === "fornecedora" &&
+              !categoriasEl.selectedOptions.length
+            ) {
+              categoriasEl.classList.add("is-invalid");
+              categoriasEl.scrollIntoView({
+                behavior: "smooth",
+                block: "center",
+              });
+              return;
+            }
 
-        // Criar novo FileList atualizado
-        const dataTransfer = new DataTransfer();
-        arquivosSelecionados.forEach((file) => dataTransfer.items.add(file));
-        fileInput.files = dataTransfer.files;
+            // Mostrar loading
+            mostrarModal("statusModal");
 
-        renderizarLista();
-      };
+            try {
+              const fd = new FormData();
+              fd.append("perfil", perfil || "");
+
+              [
+                "nomeComercial",
+                "denominacaoSocial",
+                "nipc",
+                "emailGeral",
+                "pais",
+                "codigoPostal",
+                "morada",
+                "complemento",
+                "cidade",
+                "regiao",
+                "nomePrincipal",
+                "apelidoPrincipal",
+                "cargoFuncao",
+                "emailPrincipal",
+              ].forEach((id) =>
+                fd.append(id, document.getElementById(id)?.value || ""),
+              );
+
+              fd.append("telefoneGeral", itiGeral.getNumber());
+              fd.append("telefonePrincipal", itiPrincipal.getNumber());
+
+              Array.from(categoriasEl.selectedOptions).forEach((o) =>
+                fd.append("categorias", o.value),
+              );
+
+              // Documentos em base64
+              for (let i = 0; i < arquivosSelecionados.length; i++) {
+                const f = arquivosSelecionados[i];
+                const b64 = await new Promise((res, rej) => {
+                  const r = new FileReader();
+                  r.onload = () => res(r.result.split(",")[1]);
+                  r.onerror = rej;
+                  r.readAsDataURL(f);
+                });
+                fd.append(`doc_name_${i}`, f.name);
+                fd.append(`doc_type_${i}`, f.type);
+                fd.append(`doc_data_${i}`, b64);
+              }
+
+              const resp = await fetch(SCRIPT_URL, {
+                method: "POST",
+                body: fd,
+              });
+              const result = await resp.json();
+
+              esconderModal("statusModal");
+              if (result.success) {
+                mostrarModal("modalSucesso");
+              } else {
+                console.error(result.error);
+                mostrarModal("modalErro");
+              }
+            } catch (err) {
+              console.error(err);
+              esconderModal("statusModal");
+              mostrarModal("modalErro");
+            }
+          });
+      }; // fim window.onload
     </script>
   </body>
 </html>
