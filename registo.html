@@ -314,8 +314,12 @@
                 type="tel"
                 class="form-control"
                 id="telefoneGeral"
-                name="telefoneGeral"
                 required
+              />
+              <input
+                type="hidden"
+                id="telefoneGeralCompleto"
+                name="telefoneGeral"
               />
 
               <div class="invalid-feedback mt-1">
@@ -535,8 +539,12 @@
                 type="tel"
                 class="form-control"
                 id="telefonePrincipal"
-                name="telefonePrincipal"
                 required
+              />
+              <input
+                type="hidden"
+                id="telefonePrincipalCompleto"
+                name="telefonePrincipal"
               />
               <div class="invalid-feedback mt-1">
                 Por favor preencha o contacto telefónico do contacto principal.
@@ -711,7 +719,7 @@
 
     <!-- Modal Carregamento -->
     <div class="modal fade" id="statusModal" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-dialog modal-md modal-dialog-centered">
         <div class="modal-content text-center p-4">
           <div class="modal-body">
             <div id="statusMessage">
@@ -804,15 +812,14 @@
 
     <script>
       const SCRIPT_URL =
-        "https://script.google.com/macros/s/AKfycbw4GAgG75NCirEqqM8odBqJ79xyINGfud1mU5k8QLBi8WI9mqUUEJaRbyRo8GiFq8wzHA/exec";
+        "https://script.google.com/macros/s/AKfycbz3hWzEqgnNB5F3gBLaNmm73-wKCV8h4x1bnaHtcLcHEqDEhlP6rfd2X0kOhLUYSKAVcg/exec";
 
-      // ── Funções dos modais (sem Bootstrap Modal API) ──────────────
+      // ── Modais
       function mostrarModal(id) {
         const el = document.getElementById(id);
         el.style.display = "flex";
         el.classList.add("show");
         document.body.classList.add("modal-open");
-        // backdrop
         let bd = document.getElementById("modal-backdrop");
         if (!bd) {
           bd = document.createElement("div");
@@ -824,6 +831,7 @@
 
       function esconderModal(id) {
         const el = document.getElementById(id);
+        if (!el) return;
         el.style.display = "";
         el.classList.remove("show");
         document.body.classList.remove("modal-open");
@@ -831,6 +839,45 @@
         if (bd) bd.remove();
       }
 
+      // ── Estado global
+      let choicesInstance = null;
+      let arquivosSelecionados = [];
+      let itiGeral = null;
+      let itiPrincipal = null;
+
+      // ── renderizarLista global
+      function renderizarLista() {
+        const lista = document.getElementById("listaDocumentos");
+        if (!lista) return;
+        lista.innerHTML = "";
+        if (!arquivosSelecionados.length) {
+          lista.innerHTML =
+            "<p class='text-secondary small mb-0'>Nenhum arquivo selecionado.</p>";
+          return;
+        }
+        arquivosSelecionados.forEach((f, i) => {
+          const div = document.createElement("div");
+          div.className =
+            "d-flex align-items-center justify-content-between border rounded-3 p-2 mb-2 bg-light";
+          div.innerHTML = `
+            <div class="d-flex item-icon-07 align-items-center gap-2">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                <path d="m17 14a1 1 0 0 1-1 1h-8a1 1 0 0 1 0-2h8a1 1 0 0 1 1 1zm-4 3h-5a1 1 0 0 0 0 2h5a1 1 0 0 0 0-2zm9-6.515v8.515a5.006 5.006 0 0 1-5 5h-10a5.006 5.006 0 0 1-5-5v-14a5.006 5.006 0 0 1 5-5h4.515a6.958 6.958 0 0 1 4.95 2.05l3.484 3.486a6.951 6.951 0 0 1 2.051 4.949zm-6.949-7.021a5.01 5.01 0 0 0-1.051-.78v4.316a1 1 0 0 0 1 1h4.316a4.983 4.983 0 0 0-.781-1.05zm4.949 7.021c0-.165-.032-.323-.047-.485h-4.953a3 3 0 0 1-3-3v-4.953c-.162-.015-.321-.047-.485-.047h-4.515a3 3 0 0 0-3 3v14a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3z"/>
+              </svg>
+              <span class="small">${f.name}</span>
+              <span class="text-secondary" style="font-size:0.75rem">${(f.size / 1024 / 1024).toFixed(2)} MB</span>
+            </div>
+            <button type="button" class="btn btn-sm btn-outline-danger py-0 px-2" onclick="removerArquivo(${i})">✕</button>`;
+          lista.appendChild(div);
+        });
+      }
+
+      window.removerArquivo = function (i) {
+        arquivosSelecionados.splice(i, 1);
+        renderizarLista();
+      };
+
+      // ── Fechar modal sucesso
       window.fecharModalSucesso = function () {
         esconderModal("modalSucesso");
         const form = document.getElementById("registoForm");
@@ -845,11 +892,7 @@
         document.getElementById("categoriaContainer").classList.add("d-none");
       };
 
-      // ── Estado ────────────────────────────────────────────────────
-      let choicesInstance = null;
-      let arquivosSelecionados = [];
-
-      // ── Inicialização (quando tudo carregou) ──────────────────────
+      // ── Inicialização após carregar todos os scripts ──────────────
       window.onload = function () {
         // NIPC apenas números
         document.getElementById("nipc").addEventListener("input", function () {
@@ -858,7 +901,7 @@
 
         // Países
         const selectPais = document.getElementById("pais");
-        const paises = [
+        [
           "Portugal",
           "Brasil",
           "Espanha",
@@ -877,16 +920,17 @@
           "Japão",
           "Austrália",
           "Índia",
-        ];
-        selectPais.innerHTML =
-          '<option value="" disabled selected>Selecione o país</option>';
-        paises.forEach((p) => {
+        ].forEach((p) => {
           const o = document.createElement("option");
           o.value = o.textContent = p;
           selectPais.appendChild(o);
         });
+        selectPais.insertAdjacentHTML(
+          "afterbegin",
+          '<option value="" disabled selected>Selecione o país</option>',
+        );
 
-        // Choices (categorias)
+        // Choices
         const categoriasEl = document.getElementById("categorias");
         choicesInstance = new Choices(categoriasEl, {
           removeItemButton: true,
@@ -897,7 +941,7 @@
           shouldSort: false,
         });
 
-        // Mostrar/ocultar categorias conforme perfil
+        // Perfil → mostrar/ocultar categorias
         const categoriaContainer =
           document.getElementById("categoriaContainer");
         document.querySelectorAll('input[name="perfil"]').forEach((r) => {
@@ -912,8 +956,8 @@
           });
         });
 
-        // intlTelInput
-        const itiGeral = window.intlTelInput(
+        // intlTelInput — atribuídos às variáveis globais
+        itiGeral = window.intlTelInput(
           document.getElementById("telefoneGeral"),
           {
             initialCountry: "pt",
@@ -921,7 +965,7 @@
             separateDialCode: true,
           },
         );
-        const itiPrincipal = window.intlTelInput(
+        itiPrincipal = window.intlTelInput(
           document.getElementById("telefonePrincipal"),
           {
             initialCountry: "pt",
@@ -930,12 +974,14 @@
           },
         );
 
-        // Ficheiros
+        // Ficheiros — acumula sem apagar os anteriores
         const fileInput = document.getElementById("documentos");
         fileInput.addEventListener("change", () => {
           Array.from(fileInput.files).forEach((f) => {
             if (f.size > 10 * 1024 * 1024) {
-              alert(`"${f.name}" excede 10MB.`);
+              alert(
+                `"${f.name}" excede o limite de 10MB e não foi adicionado.`,
+              );
               return;
             }
             arquivosSelecionados.push(f);
@@ -944,31 +990,7 @@
           renderizarLista();
         });
 
-        function renderizarLista() {
-          const lista = document.getElementById("listaDocumentos");
-          lista.innerHTML = "";
-          if (!arquivosSelecionados.length) {
-            lista.innerHTML =
-              "<p class='text-secondary text-xs mb-0'>Nenhum arquivo selecionado.</p>";
-            return;
-          }
-          arquivosSelecionados.forEach((f, i) => {
-            const div = document.createElement("div");
-            div.className =
-              "d-flex align-items-center justify-content-between border rounded-3 p-2 mb-2 bg-light";
-            div.innerHTML = `
-              <span class="small">${f.name} <span class="text-secondary">(${(f.size / 1024 / 1024).toFixed(2)} MB)</span></span>
-              <button type="button" class="btn btn-sm btn-outline-danger" onclick="removerArquivo(${i})">✕</button>`;
-            lista.appendChild(div);
-          });
-        }
-
-        window.removerArquivo = function (i) {
-          arquivosSelecionados.splice(i, 1);
-          renderizarLista();
-        };
-
-        // Fechar modal de termos (btn-close)
+        // Modais — fechar com btn-close
         document
           .querySelectorAll('[data-bs-dismiss="modal"]')
           .forEach((btn) => {
@@ -978,7 +1000,7 @@
             });
           });
 
-        // Abrir modal de termos
+        // Modal termos
         document
           .querySelectorAll('[data-bs-target="#modalTermos"]')
           .forEach((el) => {
@@ -996,7 +1018,6 @@
 
             const form = this;
 
-            // Validação HTML5 nativa
             if (!form.checkValidity()) {
               form.classList.add("was-validated");
               form
@@ -1005,13 +1026,12 @@
               return;
             }
 
-            // Validação extra: categorias obrigatórias para fornecedora
             const perfil = document.querySelector(
               'input[name="perfil"]:checked',
             )?.value;
             if (
               perfil === "fornecedora" &&
-              !categoriasEl.selectedOptions.length
+              !Array.from(categoriasEl.selectedOptions).length
             ) {
               categoriasEl.classList.add("is-invalid");
               categoriasEl.scrollIntoView({
@@ -1021,12 +1041,19 @@
               return;
             }
 
-            // Mostrar loading
             mostrarModal("statusModal");
 
             try {
               const fd = new FormData();
               fd.append("perfil", perfil || "");
+              fd.append(
+                "telefoneGeral",
+                document.getElementById("telefoneGeral").value || "",
+              );
+              fd.append(
+                "telefonePrincipal",
+                document.getElementById("telefonePrincipal").value || "",
+              );
 
               [
                 "nomeComercial",
@@ -1047,14 +1074,10 @@
                 fd.append(id, document.getElementById(id)?.value || ""),
               );
 
-              fd.append("telefoneGeral", itiGeral.getNumber());
-              fd.append("telefonePrincipal", itiPrincipal.getNumber());
-
               Array.from(categoriasEl.selectedOptions).forEach((o) =>
                 fd.append("categorias", o.value),
               );
 
-              // Documentos em base64
               for (let i = 0; i < arquivosSelecionados.length; i++) {
                 const f = arquivosSelecionados[i];
                 const b64 = await new Promise((res, rej) => {
@@ -1075,19 +1098,15 @@
               const result = await resp.json();
 
               esconderModal("statusModal");
-              if (result.success) {
-                mostrarModal("modalSucesso");
-              } else {
-                console.error(result.error);
-                mostrarModal("modalErro");
-              }
+              mostrarModal(result.success ? "modalSucesso" : "modalErro");
+              if (!result.success) console.error(result.error);
             } catch (err) {
               console.error(err);
               esconderModal("statusModal");
               mostrarModal("modalErro");
             }
           });
-      }; // fim window.onload
+      };
     </script>
   </body>
 </html>
