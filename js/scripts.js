@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Formulário
 const SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbzm0I1mysEcSX9TNnRLvFeNwH0IHwOZ01TxNMBq5lCvAOK4AA6tQqqOVM8n8Op_6PoR/exec";
+  "https://script.google.com/macros/s/AKfycbzv6efjfy3jbg_JVsb9lv1pdghixDdtTWYyesoH0SJzvvUqQG0jHnw4vI6e8xt6ytX6/exec";
 
 const contactoForm = document.getElementById("formulario");
 const statusModal = new bootstrap.Modal(document.getElementById("statusModal"));

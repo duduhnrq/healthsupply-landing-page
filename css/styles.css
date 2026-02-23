@@ -20,6 +20,14 @@
   font-size: 0.875rem;
 }
 
+.text-primary {
+  color: var(--color001) !important;
+}
+
+.text-tertiary {
+  color: var(--color003) !important;
+}
+
 .btn-primary {
   color: white;
   background-color: var(--color001);
@@ -30,8 +38,6 @@
 .btn-primary:hover {
   background-color: var(--color001-dark);
 }
-
-.btn
 
 .btn-secondary {
   color: white;
@@ -453,6 +459,17 @@ html {
   fill: white;
 }
 
+.item-icon-07 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.item-icon-07 svg {
+  width: 20px;
+  fill: var(--color001);
+}
+
 .email-image {
   display: flex;
   justify-content: center;
@@ -578,12 +595,11 @@ html {
   width: 100%;
 }
 
-.support-text {
+.link-text {
   text-decoration: none;
-  color: var(--color001);
 }
 
-.support-text:hover {
+.link-text:hover {
   text-decoration: underline;
 }
 
@@ -596,5 +612,10 @@ html {
 
 .upload-box:hover {
   border-color: var(--color001);
-  background-color: rgba(var(--bs-primary-rgb), 0.05);
+  background-color: #3fb3a51c;
 }
+
+.remove-file-btn:hover {
+  color: white !important;
+  background-color: var(--color003);
+} 
