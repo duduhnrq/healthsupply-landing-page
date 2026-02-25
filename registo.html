@@ -359,7 +359,6 @@
             <div class="mb-3 w-100">
               <label for="pais" class="form-label">País *</label>
               <select id="pais" name="pais" class="form-select" required>
-                <option value="" disabled selected>Carregando...</option>
               </select>
               <div class="invalid-feedback">Por favor selecione o país.</div>
             </div>
@@ -812,7 +811,7 @@
 
     <script>
       const SCRIPT_URL =
-        "https://script.google.com/macros/s/AKfycbz3hWzEqgnNB5F3gBLaNmm73-wKCV8h4x1bnaHtcLcHEqDEhlP6rfd2X0kOhLUYSKAVcg/exec";
+        "https://script.google.com/macros/s/AKfycbyFJVlc2jRvnAete1QUrDxyRden0DWrDs_KVL4n-wIg_MIDatiV--HxeO62QRtyA1Yh/exec";
 
       // ── Modais
       function mostrarModal(id) {
@@ -892,7 +891,7 @@
         document.getElementById("categoriaContainer").classList.add("d-none");
       };
 
-      // ── Inicialização após carregar todos os scripts ──────────────
+      // ── Inicialização após carregar todos os scripts
       window.onload = function () {
         // NIPC apenas números
         document.getElementById("nipc").addEventListener("input", function () {
@@ -1010,7 +1009,7 @@
             });
           });
 
-        // ── SUBMIT ────────────────────────────────────────────────
+        // ── SUBMIT
         document
           .getElementById("registoForm")
           .addEventListener("submit", async function (e) {
