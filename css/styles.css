@@ -292,14 +292,24 @@ html {
     text-align: center;
   }
 
-  .nav-btn {
-    justify-content: center !important;
+  .nav-btn-container {
+    flex-direction: column;
+    width: 100%;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+  }
+
+  .nav-btn-container .btn {
     width: 100%;
   }
 
   .hero-cta {
     flex-direction: column;
     gap: 1.5rem !important;
+  }
+
+  .hero-image {
+    display: none !important;
   }
 
   .sol-container {
