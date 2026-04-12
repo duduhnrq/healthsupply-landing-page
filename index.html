@@ -3,134 +3,205 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
     <title>HealthSupply</title>
     <link rel="shortcut icon" href="imagens/hs_logo.ico" type="image/x-icon" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
-    />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/css/intlTelInput.css"
     />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg position-fixed sticky-top w-100">
-      <div class="container-fluid justify-content-between w-75">
-        <a class="navbar-brand" href="#"
-          ><img src="imagens/hs_logo.png" alt="HealthSupply Logo"
-        /></a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
+    <!-- Navigation -->
+    <nav
+      class="fixed top-0 left-0 w-full bg-white/80 backdrop-blur-md shadow-sm z-50"
+    >
+      <div
+        class="max-w-7xl mx-auto px-4 flex justify-between items-center py-4"
+      >
+        <a href="#" class="flex-shrink-0">
+          <img src="imagens/hs_logo.png" alt="HealthSupply Logo" class="h-10" />
+        </a>
+        <div class="hidden md:flex space-x-6">
+          <a
+            href="#solucoes"
+            class="text-gray-700 hover:text-[--color001] transition"
+            >Soluções</a
+          >
+          <a
+            href="#modulos"
+            class="text-gray-700 hover:text-[--color001] transition"
+            >Módulos</a
+          >
+          <a
+            href="#contacto"
+            class="text-gray-700 hover:text-[--color001] transition"
+            >Contacto</a
+          >
+        </div>
+        <div class="hidden md:flex space-x-2">
+          <a
+            href="https://mkt.healthsupply.pt/login"
+            class="px-4 py-2 text-[--color003] border border-[--color003] rounded-lg hover:bg-[--color003-dark] hover:text-white transition"
+            >Entrar</a
+          >
+          <a
+            href="registo.html"
+            class="px-4 py-2 bg-gradient-to-r from-[--color001] to-[--color002] text-white rounded-lg hover:shadow-lg transition"
+            >Registar Empresa</a
+          >
+        </div>
+        <button class="md:hidden" id="menu-toggle">
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            ></path>
+          </svg>
         </button>
-        <div
-          class="collapse navbar-collapse flex-grow-0 gap-3"
-          id="navbarSupportedContent"
-        >
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="#solucoes">Soluções</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#funcionalidades">Funcionalidades</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#contacto">Contacto</a>
-            </li>
-          </ul>
-          <div class="nav-btn-container d-flex gap-2 justify-content-center align-items-center">
-            <a
-              class="btn btn-outline-secondary"
-              href="https://mkt.healthsupply.pt/login"
-            >
-              Entrar
-            </a>
-            <a class="btn btn-cta" href="registo.html"> Registar Empresa </a>
-          </div>
+      </div>
+      <div class="md:hidden hidden" id="mobile-menu">
+        <div class="px-4 py-2 space-y-2">
+          <a
+            href="#solucoes"
+            class="block text-gray-700 hover:text-[--color001]"
+            >Soluções</a
+          >
+          <a
+            href="#modulos"
+            class="block text-gray-700 hover:text-[--color001]"
+            >Módulos</a
+          >
+          <a
+            href="#contacto"
+            class="block text-gray-700 hover:text-[--color001]"
+            >Contacto</a
+          >
+          <a
+            href="https://mkt.healthsupply.pt/login"
+            class="block px-4 py-2 text-[--color003] border border-[--color003] rounded-lg text-center hover:bg-[--color003-dark] hover:text-white transition"
+            >Entrar</a
+          >
+          <a
+            href="registo.html"
+            class="block px-4 py-2 bg-gradient-to-r from-[--color001] to-[--color002] text-white rounded-lg text-center hover:shadow-lg transition"
+            >Registar Empresa</a
+          >
         </div>
       </div>
     </nav>
 
-    <section id="hero">
+    <!-- Hero Section -->
+    <section id="hero" class="bg-gradient-to-b from-white to-gray-100">
       <div
-        class="hero-cta d-flex m-auto justify-content-center align-items-center gap-3 py-5 w-75"
+        class="max-w-7xl mx-auto px-4 py-20 mt-12 flex flex-col md:flex-row items-center gap-8"
       >
-        <div
-          class="container d-flex flex-column justify-content-center align-items-start gap-3"
-        >
-          <h1 class="display-3 lh-1 text-bold">
+        <div class="flex-1 text-left space-y-6">
+          <h1
+            class="text-5xl md:text-6xl font-medium leading-tight text-gray-800"
+          >
             Evolução nas
-            <span class="text-fade">Compras Hospitalares</span>
+            <span
+              class="bg-gradient-to-r from-[--color001] to-[--color002] bg-clip-text text-transparent"
+              >Compras Hospitalares</span
+            >
           </h1>
-          <p class="text-light w-100 w-xl-75">
+          <p class="text-gray-500 text-md md:w-3/4">
             Centralize negociações, reduza custos, automatize processos e tenha
             controlo total sobre toda a sua cadeia de abastecimento.
           </p>
-          <div class="d-flex gap-3">
-            <a href="#solucoes" class="btn btn-cta"
-              >Descobrir Soluções
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                class="bi bi-arrow-right"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"
-                />
-              </svg>
-            </a>
-          </div>
+          <a
+            href="#solucoes"
+            class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-[--color001] to-[--color002] text-white font-medium rounded-lg hover:shadow-lg transition"
+          >
+            Descobrir Soluções
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-arrow-right ml-2"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"
+              />
+            </svg>
+          </a>
         </div>
-        <div class="hero-image border-radius w-100 mt-3 mt-lg-0">
-          <img class="rounded-4 shadow" src="imagens/image001.jpg" />
+        <div class="flex-1">
+          <img
+            class="w-full rounded-lg shadow-lg"
+            src="imagens/image001.jpg"
+            alt="Hero Image"
+          />
         </div>
       </div>
     </section>
 
-    <section id="solucoes">
-      <div class="w-75 m-auto">
-        <div
-          class="sol-container d-flex justify-content-between gap-4 align-items-stretch mt-5"
-        >
-          <div class="item d-flex flex-column gap-3">
-            <div class="item-icon-01 rounded-4">
-              <img src="imagens/calendar.png" alt="Calendar Icon" />
+    <!-- Soluções -->
+    <section id="solucoes" class="py-16 scroll-m-16">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="grid md:grid-cols-2 gap-8">
+          <div
+            class="bg-white p-6 rounded-lg border border-1 hover:shadow-lg hover:border-[--color001] transition duration-300 flex flex-col gap-4"
+          >
+            <div class="flex justify-center">
+              <div
+                class="w-16 h-16 bg-[--color001-light] rounded-xl flex items-center justify-center"
+              >
+                <img
+                  src="imagens/calendar.png"
+                  alt="Calendar Icon"
+                  class="w-9 h-9 card-icon-01"
+                />
+              </div>
             </div>
-            <h3 class="item-title">
-              <span class="text-fade">Planeamento</span> Inteligente
+            <h3 class="text-2xl font-medium text-center text-gray-800">
+              <span class="text-[--color001]">Planeamento</span> Inteligente
             </h3>
-            <p class="text-light" style="text-align: justify">
+            <p class="text-gray-600 text-justify">
               Com mecanismos modernos e considerando as principais curvas de
               análise, o Módulo de Planeamento de Compras liga-se à base de
               dados do seu ERP, analisa o histórico de movimentação dos produtos
               e sugere a lista de artigos e quantidades a adquirir.
             </p>
           </div>
-          <div class="item d-flex flex-column gap-3">
-            <div class="item-icon-02 rounded-4">
-              <img src="imagens/online-shopping.png" alt="Cart Icon" />
+          <div
+            class="bg-white p-6 rounded-lg border border-1 hover:shadow-lg hover:border-[--color002] transition duration-300 flex flex-col gap-4"
+          >
+            <div class="flex justify-center">
+              <div
+                class="w-16 h-16 bg-[--color002-light] rounded-xl flex items-center justify-center"
+              >
+                <img
+                  src="imagens/online-shopping.png"
+                  alt="Cart Icon"
+                  class="w-9 h-9 card-icon-02"
+                />
+              </div>
             </div>
-            <h3 class="item-title">
-              <span class="text-fade">Marketplace</span> Especializado
+            <h3 class="text-2xl font-medium text-center text-gray-800">
+              <span class="text-[--color002]">Marketplace</span> Especializado
             </h3>
-            <p class="text-light" style="text-align: justify">
+            <p class="text-gray-600 text-justify">
               Este módulo permite ao utilizador lançar negociações no mercado
               para os artigos necessários ao abastecimento, receber propostas de
               preços dos fornecedores e gerar um mapa comparativo completo com
@@ -142,49 +213,74 @@
       </div>
     </section>
 
-    <section id="planeamento">
-      <div class="w-75 m-auto pt-5">
-        <div class="text-center py-3">
-          <h2 class="display-5 text-bold">
-            Como funciona o <span class="text-fade">Planeamento</span>
+    <!-- Planeamento -->
+    <section id="planeamento" class="py-16">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-4xl md:text-5xl text-gray-800 font-medium mb-4">
+            Como funciona o <span class="text-[--color001]">Planeamento</span>
           </h2>
-          <p class="text-light">
+          <p class="text-gray-600 text-lg">
             Gestão inteligente de compras, do planeamento à entrega
           </p>
         </div>
-        <div class="plan-container d-flex gap-4">
+        <div class="grid md:grid-cols-3 gap-8">
           <div
-            class="item d-flex flex-column justify-content-center align-items-center text-center gap-3"
+            class="bg-white p-8 rounded-lg border border-1 hover:shadow-lg hover:border-[--color001] transition duration-300 flex flex-col items-center text-center gap-4"
           >
-            <div class="item-icon-01 rounded-4">
-              <img src="imagens/setting.png" alt="Setting Icon" />
+            <div
+              class="w-16 h-16 bg-[--color001-light] rounded-xl flex items-center justify-center"
+            >
+              <img
+                src="imagens/setting.png"
+                alt="Setting Icon"
+                class="w-9 h-9 card-icon-01"
+              />
             </div>
-            <h3>Integração com o ERP</h3>
-            <p>
+            <h3 class="text-xl font-medium text-gray-800">
+              Integração com o ERP
+            </h3>
+            <p class="text-gray-600">
               Liga-se ao ERP do cliente para gerir stocks e gerar pedidos de
               reposição automaticamente.
             </p>
           </div>
           <div
-            class="item d-flex flex-column justify-content-center align-items-center text-center gap-3"
+            class="bg-white p-8 rounded-lg border border-1 hover:shadow-lg hover:border-[--color001] transition duration-300 flex flex-col items-center text-center gap-4"
           >
-            <div class="item-icon-01 rounded-4">
-              <img src="imagens/delivery-robot.png" alt="Delivery Robot Icon" />
+            <div
+              class="w-16 h-16 bg-[--color001-light] rounded-xl flex items-center justify-center"
+            >
+              <img
+                src="imagens/delivery-robot.png"
+                alt="Delivery Robot Icon"
+                class="w-9 h-9 card-icon-01"
+              />
             </div>
-            <h3>Pedidos Automáticos</h3>
-            <p>
+            <h3 class="text-xl font-medium text-gray-800">
+              Pedidos Automáticos
+            </h3>
+            <p class="text-gray-600">
               Sugere compras e transfere entre armazéns, equilibrando custos e
               nível de serviço com algoritmos inteligentes.
             </p>
           </div>
           <div
-            class="item d-flex flex-column justify-content-center align-items-center text-center gap-3"
+            class="bg-white p-8 rounded-lg border border-1 hover:shadow-lg hover:border-[--color001] transition duration-300 flex flex-col items-center text-center gap-4"
           >
-            <div class="item-icon-01 rounded-4">
-              <img src="imagens/delivery.png" alt="Delivery Icon" />
+            <div
+              class="w-16 h-16 bg-[--color001-light] rounded-xl flex items-center justify-center"
+            >
+              <img
+                src="imagens/delivery.png"
+                alt="Delivery Icon"
+                class="w-9 h-9 card-icon-01"
+              />
             </div>
-            <h3>Acompanhamento de Entregas</h3>
-            <p>
+            <h3 class="text-xl font-medium text-gray-800">
+              Acompanhamento de Entregas
+            </h3>
+            <p class="text-gray-600">
               Regista a receção e facilita o acompanhamento das compras,
               integrando o módulo de Qualificação de Fornecedores.
             </p>
@@ -193,194 +289,284 @@
       </div>
     </section>
 
-    <section id="marketplace">
-      <div class="w-75 m-auto py-5">
-        <div class="text-center py-3">
-          <h2 class="display-5 text-bold">
-            Como funciona o <span class="text-fade">Marketplace</span>
+    <!-- Marketplace -->
+    <section
+      id="marketplace"
+      class="bg-gradient-to-b from-white to-gray-100 py-16"
+    >
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-4xl md:text-5xl text-gray-800 font-medium mb-4">
+            Como funciona o <span class="text-[--color002]">Marketplace</span>
           </h2>
-          <p class="text-light">
+          <p class="text-gray-600 text-lg">
             Seis etapas para transformar a gestão de compras hospitalares
           </p>
         </div>
-        <div class="mark-container row g-4">
-          <div class="col-md-4">
+        <div class="grid md:grid-cols-3 gap-8">
+          <div
+            class="bg-white p-6 rounded-lg border border-1 hover:border-[--color002] hover:shadow-lg transition duration-300 flex flex-col gap-4 h-full"
+          >
             <div
-              class="item d-flex flex-column justify-content-start gap-3 h-100"
+              class="w-12 h-12 bg-[--color002-light] rounded-xl flex items-center justify-center"
             >
-              <div class="item-icon-04 rounded-4">
-                <img src="imagens/copy.png" alt="Copy Icon" />
-              </div>
-              <p class="text-blue">ETAPA 01</p>
-              <h3>Lançamento das Negociações</h3>
-              <p>
-                A HealthSupply liga rapidamente hospitais a milhares de
-                fornecedores de medicamentos, materiais médicos, higiene,
-                alimentação, EPI e muito mais.
-              </p>
+              <img
+                src="imagens/copy.png"
+                alt="Copy Icon"
+                class="w-6 h-6 card-icon-02"
+              />
             </div>
+            <p class="text-[--color002] font-medium">ETAPA 01</p>
+            <h3 class="text-lg font-medium text-gray-800">
+              Lançamento das Negociações
+            </h3>
+            <p class="text-gray-600">
+              A HealthSupply liga rapidamente hospitais a milhares de
+              fornecedores de medicamentos, materiais médicos, higiene,
+              alimentação, EPI e muito mais.
+            </p>
           </div>
-          <div class="col-md-4">
+          <div
+            class="bg-white p-6 rounded-lg border border-1 hover:border-[--color002] hover:shadow-lg transition duration-300 flex flex-col gap-4 h-full"
+          >
             <div
-              class="item d-flex flex-column justify-content-start gap-3 h-100"
+              class="w-12 h-12 bg-[--color002-light] rounded-xl flex items-center justify-center"
             >
-              <div class="item-icon-04 rounded-4">
-                <img src="imagens/sale.png" alt="Sale Icon" />
-              </div>
-              <p class="text-blue">ETAPA 02</p>
-              <h3>Ofertas dos Fornecedores</h3>
-              <p>
-                Os fornecedores recebem notificações e enviam propostas pelo
-                sistema, eliminando folhas de cálculo e centralizando tudo num
-                mapa de fácil análise.
-              </p>
+              <img
+                src="imagens/sale.png"
+                alt="Sale Icon"
+                class="w-6 h-6 card-icon-02"
+              />
             </div>
+            <p class="text-[--color002] font-medium">ETAPA 02</p>
+            <h3 class="text-lg font-medium text-gray-800">
+              Ofertas dos Fornecedores
+            </h3>
+            <p class="text-gray-600">
+              Os fornecedores recebem notificações e enviam propostas pelo
+              sistema, eliminando folhas de cálculo e centralizando tudo num
+              mapa de fácil análise.
+            </p>
           </div>
-          <div class="col-md-4">
+          <div
+            class="bg-white p-6 rounded-lg border border-1 hover:border-[--color002] hover:shadow-lg transition duration-300 flex flex-col gap-4 h-full"
+          >
             <div
-              class="item d-flex flex-column justify-content-start gap-3 h-100"
+              class="w-12 h-12 bg-[--color002-light] rounded-xl flex items-center justify-center"
             >
-              <div class="item-icon-04 rounded-4">
-                <img src="imagens/data-analysis.png" alt="Data Analysis Icon" />
-              </div>
-              <p class="text-blue">ETAPA 03</p>
-              <h3>Análise e Emissão das NC's</h3>
-              <p>
-                O mapa comparativo organiza preços e informações de gestão,
-                permitindo selecionar os vencedores e gerar automaticamente os
-                pedidos eletrónicos.
-              </p>
+              <img
+                src="imagens/data-analysis.png"
+                alt="Data Analysis Icon"
+                class="w-6 h-6 card-icon-02"
+              />
             </div>
+            <p class="text-[--color002] font-medium">ETAPA 03</p>
+            <h3 class="text-lg font-medium text-gray-800">
+              Análise e Emissão das NC's
+            </h3>
+            <p class="text-gray-600">
+              O mapa comparativo organiza preços e informações de gestão,
+              permitindo selecionar os vencedores e gerar automaticamente os
+              pedidos eletrónicos.
+            </p>
           </div>
-          <div class="col-md-4">
+          <div
+            class="bg-white p-6 rounded-lg border border-1 hover:border-[--color002] hover:shadow-lg transition duration-300 flex flex-col gap-4 h-full"
+          >
             <div
-              class="item d-flex flex-column justify-content-start gap-3 h-100"
+              class="w-12 h-12 bg-[--color002-light] rounded-xl flex items-center justify-center"
             >
-              <div class="item-icon-04 rounded-4">
-                <img src="imagens/delivered.png" alt="Delivered Icon" />
-              </div>
-              <p class="text-blue">ETAPA 04</p>
-              <h3>Acompanhamento das Entregas</h3>
-              <p>
-                Monitorização das entregas e faturação, com notificações
-                automáticas em caso de falta de produtos.
-              </p>
+              <img
+                src="imagens/delivered.png"
+                alt="Delivered Icon"
+                class="w-6 h-6 card-icon-02"
+              />
             </div>
+            <p class="text-[--color002] font-medium">ETAPA 04</p>
+            <h3 class="text-lg font-medium text-gray-800">
+              Acompanhamento das Entregas
+            </h3>
+            <p class="text-gray-600">
+              Monitorização das entregas e faturação, com notificações
+              automáticas em caso de falta de produtos.
+            </p>
           </div>
-          <div class="col-md-4">
+          <div
+            class="bg-white p-6 rounded-lg border border-1 hover:border-[--color002] hover:shadow-lg transition duration-300 flex flex-col gap-4 h-full"
+          >
             <div
-              class="item d-flex flex-column justify-content-start gap-3 h-100"
+              class="w-12 h-12 bg-[--color002-light] rounded-xl flex items-center justify-center"
             >
-              <div class="item-icon-04 rounded-4">
-                <img src="imagens/report.png" alt="Report Icon" />
-              </div>
-              <p class="text-blue">ETAPA 05</p>
-              <h3>Relatórios</h3>
-              <p>
-                Relatórios completos garantem controlo e transparência nas
-                compras e evolução de preços.
-              </p>
+              <img
+                src="imagens/report.png"
+                alt="Report Icon"
+                class="w-6 h-6 card-icon-02"
+              />
             </div>
+            <p class="text-[--color002] font-medium">ETAPA 05</p>
+            <h3 class="text-lg font-medium text-gray-800">Relatórios</h3>
+            <p class="text-gray-600">
+              Relatórios completos garantem controlo e transparência nas compras
+              e evolução de preços.
+            </p>
           </div>
-          <div class="col-md-4">
+          <div
+            class="bg-white p-6 rounded-lg border border-1 hover:border-[--color002] hover:shadow-lg transition duration-300 flex flex-col gap-4 h-full"
+          >
             <div
-              class="item d-flex flex-column justify-content-start gap-3 h-100"
+              class="w-12 h-12 bg-[--color002-light] rounded-xl flex items-center justify-center"
             >
-              <div class="item-icon-04 rounded-4">
-                <img src="imagens/signing.png" alt="Signing Icon" />
-              </div>
-              <p class="text-blue">ETAPA 06</p>
-              <h3>Gestão de Contratos</h3>
-              <p>
-                Gestão de contratos e criação automática de pedidos com base em
-                tabelas pré-negociadas, além de monitorização de Rappel.
-              </p>
+              <img
+                src="imagens/signing.png"
+                alt="Signing Icon"
+                class="w-6 h-6 card-icon-02"
+              />
             </div>
+            <p class="text-[--color002] font-medium">ETAPA 06</p>
+            <h3 class="text-lg font-medium text-gray-800">
+              Gestão de Contratos
+            </h3>
+            <p class="text-gray-600">
+              Gestão de contratos e criação automática de pedidos com base em
+              tabelas pré-negociadas, além de monitorização de Rappel.
+            </p>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="tecnologia">
-      <div class="w-75 m-auto py-5 d-flex flex-column gap-3">
+    <!-- Tecnologias -->
+    <section id="tecnologia" class="py-16">
+      <div class="max-w-7xl mx-auto px-4 flex flex-col gap-8">
         <div>
-          <h2 class="display-5 text-center text-bold">
-            A Melhor <span class="text-fade">Tecnologia</span>
+          <h2
+            class="text-4xl md:text-5xl font-medium text-center text-gray-800"
+          >
+            A Melhor
+            <span
+              class="bg-gradient-to-r from-[--color001] to-[--color002] bg-clip-text text-transparent"
+              >Tecnologia</span
+            >
           </h2>
         </div>
-        <div class="tec-content rounded-4 shadow">
-          <div class="bg-white rounded-4 p-5">
-            <div class="tec-container row g-4">
+        <div
+          class="bg-gradient-to-l from-[--color003] via-[--color002] to-[--color001] p-1 rounded-2xl shadow-lg"
+        >
+          <div class="bg-white rounded-2xl p-8 md:p-12">
+            <div class="grid md:grid-cols-3 gap-8">
               <div
-                class="col-md-4 d-flex flex-column align-items-center text-center gap-3"
+                class="col-md-4 flex flex-col items-center text-center gap-4"
               >
-                <div class="item-icon-04 rounded-4">
-                  <img src="imagens/verified.png" alt="Verified Icon" />
+                <div
+                  class="w-12 h-12 bg-[--color002-light] rounded-xl flex items-center justify-center m-auto"
+                >
+                  <img
+                    src="imagens/verified.png"
+                    alt="Verified Icon"
+                    class="w-6 h-6 card-icon-02"
+                  />
                 </div>
-                <h3>Segurança e Confiabilidade</h3>
-                <p class="text-light">
+                <h3 class="font-medium text-gray-800 text-lg">
+                  Segurança e Confiabilidade
+                </h3>
+                <p class="text-gray-600">
                   O nosso ambiente utiliza certificado SSL, garantindo que todos
                   os dados entre o navegador e o servidor sejam encriptados.
                 </p>
               </div>
               <div
-                class="col-md-4 d-flex flex-column align-items-center text-center gap-3"
+                class="col-md-4 flex flex-col items-center text-center gap-4"
               >
-                <div class="item-icon-04 rounded-4">
-                  <img src="imagens/data-center.png" alt="Data Center Icon" />
+                <div
+                  class="w-12 h-12 bg-[--color002-light] rounded-xl flex items-center justify-center m-auto"
+                >
+                  <img
+                    src="imagens/data-center.png"
+                    alt="Data Center Icon"
+                    class="w-6 h-6 card-icon-02"
+                  />
                 </div>
-                <h3>Hospedagem Segura</h3>
-                <p class="text-light">
+                <h3 class="font-medium text-gray-800 text-lg">
+                  Hospedagem Segura
+                </h3>
+                <p class="text-gray-600">
                   Serviço alojado na Oracle Cloud Infrastructure (OCI),
                   garantindo um Data Center de elevada segurança.
                 </p>
               </div>
               <div
-                class="col-md-4 d-flex flex-column align-items-center text-center gap-3"
+                class="col-md-4 flex flex-col items-center text-center gap-4"
               >
-                <div class="item-icon-04 rounded-4">
-                  <img src="imagens/eye.png" alt="Eye Icon" />
+                <div
+                  class="w-12 h-12 bg-[--color002-light] rounded-xl flex items-center justify-center m-auto"
+                >
+                  <img
+                    src="imagens/eye.png"
+                    alt="Eye Icon"
+                    class="w-6 h-6 card-icon-02"
+                  />
                 </div>
-                <h3>Monitorização Contínua</h3>
-                <p class="text-light">
+                <h3 class="font-medium text-gray-800 text-lg">
+                  Monitorização Contínua
+                </h3>
+                <p class="text-gray-600">
                   Monitorização 24/7 do desempenho e da estabilidade,
                   assegurando o máximo de disponibilidade.
                 </p>
               </div>
               <div
-                class="col-md-4 d-flex flex-column align-items-center text-center gap-3"
+                class="col-md-4 flex flex-col items-center text-center gap-4"
               >
-                <div class="item-icon-04 rounded-4">
+                <div
+                  class="w-12 h-12 bg-[--color002-light] rounded-xl flex items-center justify-center m-auto"
+                >
                   <img
                     src="imagens/cloud-storage.png"
                     alt="Cloud Storage Icon"
+                    class="w-6 h-6 card-icon-02"
                   />
                 </div>
-                <h3>Backups Regulares</h3>
-                <p class="text-light">
+                <h3 class="font-medium text-gray-800 text-lg">
+                  Backups Regulares
+                </h3>
+                <p class="text-gray-600">
                   Políticas de proteção de alto nível contra vírus e ataques.
                 </p>
               </div>
               <div
-                class="col-md-4 d-flex flex-column align-items-center text-center gap-3"
+                class="col-md-4 flex flex-col items-center text-center gap-4"
               >
-                <div class="item-icon-04 rounded-4">
-                  <img src="imagens/organization.png" alt="Organization Icon" />
+                <div
+                  class="w-12 h-12 bg-[--color002-light] rounded-xl flex items-center justify-center m-auto"
+                >
+                  <img
+                    src="imagens/organization.png"
+                    alt="Organization Icon"
+                    class="w-6 h-6 card-icon-02"
+                  />
                 </div>
-                <h3>Alta Disponibilidade</h3>
-                <p class="text-light">
+                <h3 class="font-medium text-gray-800 text-lg">
+                  Alta Disponibilidade
+                </h3>
+                <p class="text-gray-600">
                   Espelhamento online dos dados com elevada redundância de
                   servidores e ligações.
                 </p>
               </div>
               <div
-                class="col-md-4 d-flex flex-column align-items-center text-center gap-3"
+                class="col-md-4 flex flex-col align-items-center text-center gap-3"
               >
-                <div class="item-icon-04 rounded-4">
-                  <img src="imagens/lock.png" alt="Lock Icon" />
+                <div
+                  class="w-12 h-12 bg-[--color002-light] rounded-xl flex items-center justify-center m-auto"
+                >
+                  <img
+                    src="imagens/lock.png"
+                    alt="Lock Icon"
+                    class="w-6 h-6 card-icon-02"
+                  />
                 </div>
-                <h3>Segurança</h3>
-                <p class="text-light">
+                <h3 class="font-medium text-gray-800 text-lg">Segurança</h3>
+                <p class="text-gray-600">
                   Políticas de proteção de elevado nível contra vírus e ataques.
                 </p>
               </div>
@@ -390,92 +576,102 @@
       </div>
     </section>
 
-    <section id="funcionalidades">
-      <div class="func-container w-75 m-auto py-5 d-flex flex-column gap-3">
-        <div class="func-header">
-          <h2 class="display-5 text-center text-bold">
-            Funcionalidades <span class="text-fade">Diferenciadas</span>
+    <!-- Funcionalidades -->
+    <section id="funcionalidades" class="py-16 scroll-mt-16">
+      <div class="max-w-7xl mx-auto px-4 flex flex-col gap-8">
+        <div class="text-center mb-12">
+          <h2 class="text-4xl md:text-5xl font-medium mb-4 text-gray-800">
+            Funcionalidades
+            <span
+              class="bg-gradient-to-r from-[--color001] to-[--color002] text-transparent bg-clip-text"
+              >Diferenciadas</span
+            >
           </h2>
-          <p class="text-light text-center">
+          <p class="text-gray-600 text-lg">
             Conheça as funcionalidades que tornam a nossa plataforma única.
           </p>
         </div>
 
-        <div
-          id="carouselExampleDark"
-          class="carousel carousel-dark slide"
-          data-bs-ride="carousel"
-        >
-          <div class="carousel-inner">
-            <div class="carousel-item active" data-bs-interval="10000">
-              <div class="cards-wrapper">
-                <div class="card-item">
-                  <div class="card h-100">
-                    <div class="card-body d-flex flex-column gap-3">
-                      <div class="item-icon-05 rounded-4">
+        <div id="funcionalidadesCarousel" class="relative w-full px-20">
+          <div class="overflow-hidden">
+            <div class="carousel-item active transition-opacity duration-500">
+              <div class="flex flex-col md:flex-row gap-6">
+                <div class="flex-1">
+                  <div class="bg-white p-6 rounded-lg border border-1 h-full">
+                    <div class="flex flex-col gap-3">
+                      <div
+                        class="bg-gradient-to-r from-[--color001] to-[--color002] w-12 h-12 rounded-xl flex items-center justify-center"
+                      >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           id="Layer_1"
                           data-name="Layer 1"
                           viewBox="0 0 24 24"
-                          width="512"
-                          height="512"
+                          class="w-6 h-6 card-icon-03"
                         >
                           <path
                             d="M16.5,0c-4.276,0-7.5,1.935-7.5,4.5,0,.2,.02,.397,.058,.589-.5-.059-1.021-.089-1.558-.089C3.224,5,0,6.935,0,9.5v10c0,2.565,3.224,4.5,7.5,4.5s7.5-1.935,7.5-4.5v-.585c.491,.056,.994,.085,1.5,.085,4.276,0,7.5-1.935,7.5-4.5V4.5c0-2.565-3.224-4.5-7.5-4.5Zm0,3c2.904,0,4.5,1.126,4.5,1.5s-1.596,1.5-4.5,1.5-4.5-1.126-4.5-1.5,1.596-1.5,4.5-1.5ZM7.5,8c2.904,0,4.5,1.126,4.5,1.5s-1.596,1.5-4.5,1.5-4.5-1.126-4.5-1.5,1.596-1.5,4.5-1.5ZM3,13.149c1.237,.539,2.784,.851,4.5,.851s3.263-.312,4.5-.851v1.351c0,.374-1.596,1.5-4.5,1.5s-4.5-1.126-4.5-1.5v-1.351Zm4.5,7.851c-2.904,0-4.5-1.126-4.5-1.5v-1.351c1.237,.539,2.784,.851,4.5,.851s3.263-.312,4.5-.851v1.351c0,.374-1.596,1.5-4.5,1.5Zm9-5c-.513,0-1.018-.037-1.5-.109v-1.976c.491,.056,.994,.085,1.5,.085,1.716,0,3.263-.312,4.5-.851v1.351c0,.374-1.596,1.5-4.5,1.5Zm0-5c-.513,0-1.018-.037-1.5-.109v-1.391c0-.2-.02-.397-.058-.589,.5,.059,1.021,.089,1.558,.089,1.716,0,3.263-.312,4.5-.851v1.351c0,.374-1.596,1.5-4.5,1.5Z"
                           />
                         </svg>
                       </div>
-                      <h5 class="card-title mb-0">Cotações Agrupadas</h5>
-                      <p class="card-text text-light">
+                      <h5 class="font-medium text-lg">Cotações Agrupadas</h5>
+                      <p class="text-gray-600 text-sm">
                         Reúne vários pedidos numa única negociação para
                         optimizar preços.
                       </p>
                     </div>
                   </div>
                 </div>
-                <div class="card-item">
-                  <div class="card h-100">
-                    <div class="card-body d-flex flex-column gap-3">
-                      <div class="item-icon-05 rounded-4">
+                <div class="flex-1">
+                  <div class="bg-white p-6 rounded-lg border border-1 h-full">
+                    <div class="flex flex-col gap-3">
+                      <div
+                        class="bg-gradient-to-r from-[--color001] to-[--color002] w-12 h-12 rounded-xl flex items-center justify-center"
+                      >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           id="Layer_1"
                           data-name="Layer 1"
                           viewBox="0 0 24 24"
+                          class="w-6 h-6 card-icon-03"
                         >
                           <path
                             d="m17.024,8.988l2.26-2.26c-1.692-2.334-4.399-3.728-7.284-3.728C7.038,3,3,7.037,3,12s4.038,9,9,9,9-4.037,9-9h3c0,6.617-5.383,12-12,12S0,18.617,0,12,5.383,0,12,0c3.687,0,7.147,1.715,9.416,4.596l2.584-2.584v5.83c0,.633-.513,1.146-1.146,1.146h-5.83Zm-1.024,1.012v-.5c0-1.58-1.059-2.903-2.5-3.337v-1.163h-3v1.163c-1.441.434-2.5,1.757-2.5,3.337,0,1.528.917,2.883,2.335,3.449l2.216.887c.273.109.449.37.449.664,0,.275-.224.5-.5.5h-1c-.276,0-.5-.225-.5-.5v-.5h-3v.5c0,1.58,1.059,2.903,2.5,3.337v1.163h3v-1.163c1.441-.434,2.5-1.757,2.5-3.337,0-1.528-.917-2.883-2.335-3.449l-2.216-.887c-.273-.109-.449-.37-.449-.664,0-.275.224-.5.5-.5h1c.276,0,.5.225.5.5v.5h3Z"
                           />
                         </svg>
                       </div>
-                      <h5 class="card-title mb-0">
+                      <h5 class="font-medium text-lg">
                         Gestão de Acordos de Rappel
                       </h5>
-                      <p class="card-text text-light">
+                      <p class="text-gray-600 text-sm">
                         Controla acordos de Rappel e acompanha automaticamente
                         os valores acumulados.
                       </p>
                     </div>
                   </div>
                 </div>
-                <div class="card-item">
-                  <div class="card h-100">
-                    <div class="card-body d-flex flex-column gap-3">
-                      <div class="item-icon-05 rounded-4">
+                <div class="flex-1">
+                  <div class="bg-white p-6 rounded-lg border border-1 h-full">
+                    <div class="flex flex-col gap-3">
+                      <div
+                        class="bg-gradient-to-r from-[--color001] to-[--color002] w-12 h-12 rounded-xl flex items-center justify-center"
+                      >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           id="Layer_1"
                           data-name="Layer 1"
                           viewBox="0 0 24 24"
+                          class="w-6 h-6 card-icon-03"
                         >
                           <path
                             d="M24,4c0-2.206-1.794-4-4-4s-4,1.794-4,4c0,.067,.017,.13,.02,.196L7.386,6.894c-.707-1.133-1.955-1.894-3.386-1.894C1.794,5,0,6.794,0,9s1.794,4,4,4c.802,0,1.547-.243,2.174-.651l6.31,5.784c-.299,.56-.484,1.189-.484,1.867,0,2.206,1.794,4,4,4s4-1.794,4-4c0-1.513-.854-2.816-2.096-3.496l2.127-8.507c2.191-.017,3.969-1.802,3.969-3.997Zm-7.386,2.106c.365,.584,.876,1.058,1.482,1.39l-2.126,8.508c-.79,.006-1.524,.245-2.143,.647l-6.31-5.784c.299-.56,.484-1.189,.484-1.867,0-.067-.017-.13-.02-.196l8.634-2.698Z"
                           />
                         </svg>
                       </div>
-                      <h5 class="card-title mb-0">Integração com o INFARMED</h5>
-                      <p class="card-text text-light">
+                      <h5 class="font-medium text-lg">
+                        Integração com o INFARMED
+                      </h5>
+                      <p class="text-gray-600 text-sm">
                         Sincroniza informações com o INFARMED, assegurando
                         conformidade.
                       </p>
@@ -485,79 +681,86 @@
               </div>
             </div>
 
-            <div class="carousel-item" data-bs-interval="5000">
-              <div class="cards-wrapper">
-                <div class="card-item">
-                  <div class="card h-100">
-                    <div class="card-body d-flex flex-column gap-3">
-                      <div class="item-icon-05 rounded-4">
+            <div class="carousel-item transition-opacity duration-500 hidden">
+              <div class="flex flex-col md:flex-row gap-6">
+                <div class="flex-1">
+                  <div class="bg-white p-6 rounded-lg border border-1 h-full">
+                    <div class="flex flex-col gap-3">
+                      <div
+                        class="bg-gradient-to-r from-[--color001] to-[--color002] w-12 h-12 rounded-xl flex items-center justify-center"
+                      >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           id="Layer_1"
                           data-name="Layer 1"
                           viewBox="0 0 24 24"
-                          width="512"
-                          height="512"
+                          class="w-6 h-6 card-icon-03"
                         >
                           <path
                             d="m13,9c-1.105,0-2-.895-2-2V3h-5.5c-1.378,0-2.5,1.122-2.5,2.5v13c0,1.378,1.122,2.5,2.5,2.5h3c.829,0,1.5.671,1.5,1.5s-.671,1.5-1.5,1.5h-3c-3.033,0-5.5-2.467-5.5-5.5V5.5C0,2.467,2.467,0,5.5,0h6.343c1.469,0,2.85.572,3.889,1.611l2.657,2.657c1.039,1.039,1.611,2.419,1.611,3.889v1.343c0,.829-.671,1.5-1.5,1.5s-1.5-.671-1.5-1.5v-.5h-4Zm10.512,3.849c-.875-1.07-2.456-1.129-3.409-.176l-6.808,6.808c-.813.813-1.269,1.915-1.269,3.064v.955c0,.276.224.5.5.5h.955c1.149,0,2.252-.457,3.064-1.269l6.715-6.715c.85-.85,1.013-2.236.252-3.167Z"
                           />
                         </svg>
                       </div>
-                      <h5 class="card-title mb-0">
+                      <h5 class="font-medium text-lg">
                         Ficha de Adjudicação Personalizável
                       </h5>
-                      <p class="card-text text-light">
+                      <p class="text-gray-600 text-sm">
                         Ficha ajustável ao formato e necessidades de cada
                         cliente.
                       </p>
                     </div>
                   </div>
                 </div>
-                <div class="card-item">
-                  <div class="card h-100">
-                    <div class="card-body d-flex flex-column gap-3">
-                      <div class="item-icon-05 rounded-4">
+                <div class="flex-1">
+                  <div class="bg-white p-6 rounded-lg border border-1 h-full">
+                    <div class="flex flex-col gap-3">
+                      <div
+                        class="bg-gradient-to-r from-[--color001] to-[--color002] w-12 h-12 rounded-xl flex items-center justify-center"
+                      >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           id="Layer_1"
                           data-name="Layer 1"
                           viewBox="0 0 24 24"
+                          class="w-6 h-6 card-icon-03"
                         >
                           <path
                             d="m24,8c0,1.064-.256,2.205-.762,3.392-.162.38-.531.609-.92.609-.131,0-.264-.026-.392-.081-.509-.216-.745-.804-.528-1.312.399-.938.602-1.815.602-2.608,0-2.71-2.061-5-4.5-5-2.235,0-3.508.905-4.366,1.694l-3.824,3.549c-.353.354-.437.949-.163,1.33.179.249.442.399.739.423.295.027.581-.081.788-.29l4.173-3.995c.396-.381,1.031-.368,1.414.031.382.399.368,1.032-.031,1.414l-1.238,1.185,4.747,4.166c1.112.976,1.386,2.615.637,3.812-.461.736-1.214,1.231-2.065,1.356-.058.008-.115.015-.173.02-.004.515-.141,1.025-.422,1.475-.461.736-1.214,1.231-2.065,1.356-.185.026-.369.037-.553.028-.054.382-.184.754-.395,1.091-.461.736-1.204,1.387-2.492,1.387-.707,0-1.393-.255-1.931-.728l-3.104-2.784C3.901,16.56,0,12.161,0,8,0,4.14,2.916,1,6.5,1c.826,0,1.633.168,2.397.5.507.22.74.809.52,1.315-.22.506-.809.738-1.315.52-.512-.222-1.051-.334-1.603-.334-2.439,0-4.5,2.29-4.5,5,0,2.674,2.313,6.237,6.515,10.034l3.094,2.774c.197.173.47.253.74.214.274-.04.509-.195.66-.438.23-.369.116-.917-.261-1.247l-3.207-3.049c-.399-.38-.416-1.012-.037-1.413.38-.4,1.012-.417,1.413-.039l3.722,3.514c.179.156.456.238.722.196.274-.04.509-.196.66-.438.23-.369.116-.917-.261-1.248l-3.56-3.223c-.408-.369-.441-1-.073-1.409.367-.409.998-.445,1.409-.079l3.742,3.33c.2.176.474.258.743.216.274-.04.509-.196.66-.438.23-.369.116-.917-.261-1.248l-4.878-4.281-1.47,1.407c-.607.608-1.464.924-2.348.854-.878-.071-1.681-.526-2.201-1.249-.845-1.174-.674-2.867.398-3.939l3.855-3.578c1.042-.957,2.764-2.225,5.723-2.225,3.584,0,6.5,3.14,6.5,7Z"
                           />
                         </svg>
                       </div>
-                      <h5 class="card-title mb-0">
+                      <h5 class="font-medium text-lg">
                         Gestão de Acordos de Fornecimento
                       </h5>
-                      <p class="card-text text-light">
+                      <p class="text-gray-600 text-sm">
                         Avalia performance dos fornecedores com alertas e
                         análise de mercado.
                       </p>
                     </div>
                   </div>
                 </div>
-                <div class="card-item">
-                  <div class="card h-100">
-                    <div class="card-body d-flex flex-column gap-3">
-                      <div class="item-icon-05 rounded-4">
+                <div class="flex-1">
+                  <div class="bg-white p-6 rounded-lg border border-1 h-full">
+                    <div class="flex flex-col gap-3">
+                      <div
+                        class="bg-gradient-to-r from-[--color001] to-[--color002] w-12 h-12 rounded-xl flex items-center justify-center"
+                      >
                         <svg
                           id="Layer_1"
                           viewBox="0 0 24 24"
                           xmlns="http://www.w3.org/2000/svg"
                           data-name="Layer 1"
+                          class="w-6 h-6 card-icon-03"
                         >
                           <path
                             d="m24 4v2.988c0 1.103-.897 2-2 2l-2.996.012h-.004c-.551 0-.998-.445-1-.996-.002-.552.443-1.002.996-1.004l1.666-.007c-1.766-3.075-5.024-4.993-8.662-4.993-5.15 0-9.541 3.993-10 9.09-.048.552-.544.957-1.086.906-.55-.05-.956-.536-.906-1.086.551-6.118 5.816-10.91 11.992-10.91 4.108 0 7.809 2.042 9.998 5.359l.002-1.359c0-.552.447-1 1-1s1 .448 1 1zm-.914 8.004c-.544-.043-1.036.356-1.086.906-.459 5.097-4.85 9.09-10 9.09-3.583 0-6.857-1.938-8.633-4.994l1.637-.006c.553-.002.998-.452.996-1.004-.002-.551-.449-.996-1-.996h-.004l-2.996.012c-1.103 0-2 .897-2 2v2.988c0 .552.447 1 1 1s1-.448 1-1l.002-1.372c2.2 3.313 5.942 5.372 9.998 5.372 6.176 0 11.441-4.792 11.992-10.91.05-.55-.356-1.036-.906-1.086zm-11.086 5.996c-3.314 0-6-2.686-6-6s2.686-6 6-6 6 2.686 6 6-2.686 6-6 6zm-.674-3.003c.602 0 1.201-.225 1.653-.671l2.703-2.614c.398-.383.411-1.016.029-1.414-.383-.399-1.017-.41-1.414-.029l-2.713 2.624c-.143.141-.379.144-.522.002l-1.354-1.331c-.396-.388-1.028-.381-1.414.014-.387.395-.381 1.027.014 1.414l1.354 1.332c.46.449 1.062.674 1.663.674z"
                           />
                         </svg>
                       </div>
-                      <h5 class="card-title mb-0">
+                      <h5 class="font-medium text-lg">
                         Controlo Automático da Documentação
                       </h5>
-                      <p class="card-text text-light">
+                      <p class="text-gray-600 text-sm">
                         Confere e actualiza documentação dos fornecedores
                         conforme a sua linha de produtos.
                       </p>
@@ -567,77 +770,86 @@
               </div>
             </div>
 
-            <div class="carousel-item" data-bs-interval="5000">
-              <div class="cards-wrapper">
-                <div class="card-item">
-                  <div class="card h-100">
-                    <div class="card-body d-flex flex-column gap-3">
-                      <div class="item-icon-05 rounded-4">
+            <div class="carousel-item transition-opacity duration-500 hidden">
+              <div class="flex flex-col md:flex-row gap-6">
+                <div class="flex-1">
+                  <div class="bg-white p-6 rounded-lg border border-1 h-full">
+                    <div class="flex flex-col gap-3">
+                      <div
+                        class="bg-gradient-to-r from-[--color001] to-[--color002] w-12 h-12 rounded-xl flex items-center justify-center"
+                      >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           id="Layer_1"
                           data-name="Layer 1"
                           viewBox="0 0 24 24"
+                          class="w-6 h-6 card-icon-03"
                         >
                           <path
                             d="M23,13.087c-.03-1.409-.425-2.537-1.177-3.362,.06-.296,.093-.615,.1-.962-.044-2.049-1.038-3.045-2.064-3.526-.233-1.429-1.171-3.22-4.399-3.236-1.73,.009-2.802,.528-3.46,1.232-.659-.703-1.733-1.223-3.468-1.232-3.221,.016-4.156,1.808-4.39,3.236-1.027,.483-2.021,1.485-2.064,3.567,.007,.324,.04,.632,.099,.922-.751,.827-1.146,1.96-1.176,3.402,.044,2.223,1.049,3.426,2.092,4.076-.008,.118-.013,.24-.016,.368,.056,2.797,1.862,4.411,4.968,4.429,1.783-.01,3.121-.522,3.955-1.488,.835,.964,2.177,1.478,3.969,1.488,3.094-.018,4.9-1.632,4.956-4.469-.003-.111-.008-.22-.015-.328,1.043-.651,2.047-1.86,2.091-4.116Zm-14.956,6.913c-2.588-.015-2.945-1.327-2.968-2.428,.005-.265,.031-.51,.076-.728,.098-.469-.15-.941-.591-1.126-1.039-.436-1.535-1.271-1.562-2.588,.022-1.085,.323-1.837,.919-2.301,.349-.271,.479-.74,.317-1.152-.099-.253-.152-.56-.159-.871,.028-1.354,.659-1.715,1.272-1.891,.418-.119,.711-.494,.725-.929,.039-1.185,.474-1.975,2.457-1.985,2.008,.01,2.441,.817,2.469,2.026v2.003h-1.742c-.308-.551-.885-.878-1.636-.883-1.117,.007-1.853,.739-1.872,1.899,.019,1.109,.771,1.858,1.884,1.866,.745-.005,1.319-.332,1.626-.883h1.741v3.979h-1.721c-.302-.574-.888-.915-1.657-.92-1.117,.007-1.853,.739-1.872,1.899,.019,1.11,.771,1.86,1.884,1.866,.728-.004,1.293-.317,1.605-.846h1.762v1.523c-.024,1.213-.396,2.455-2.956,2.469Zm11.395-4.282c-.44,.185-.688,.657-.591,1.126,.045,.218,.071,.463,.076,.688-.022,1.142-.38,2.454-2.956,2.469-2.571-.014-2.943-1.256-2.968-2.449v-3.549c1.589-.045,3.134-.257,3.206-.267,.367-.051,.677-.302,.803-.651,.016-.044,.328-.922,.438-2.17,.656-.27,1.058-.885,1.073-1.713v-.036c-.02-1.126-.755-1.858-1.884-1.865-1.117,.007-1.852,.739-1.871,1.899,.011,.641,.266,1.161,.694,1.488-.037,.454-.108,.849-.174,1.145-.564,.062-1.423,.143-2.284,.17V6.026c.027-1.209,.461-2.016,2.459-2.026,1.993,.01,2.428,.801,2.467,1.985,.014,.435,.307,.81,.725,.929,.613,.175,1.244,.537,1.272,1.85-.007,.352-.061,.659-.159,.912-.161,.412-.031,.881,.317,1.152,.596,.464,.896,1.216,.919,2.261-.026,1.357-.522,2.193-1.562,2.629Z"
                           />
                         </svg>
                       </div>
-                      <h5 class="card-title mb-0">
+                      <h5 class="font-medium text-lg">
                         Padronização Inteligente de Marcas
                       </h5>
-                      <p class="card-text text-light">
+                      <p class="text-gray-600 text-sm">
                         O sistema aprende preferências técnicas e orienta o
                         comprador na padronização.
                       </p>
                     </div>
                   </div>
                 </div>
-                <div class="card-item">
-                  <div class="card h-100">
-                    <div class="card-body d-flex flex-column gap-3">
-                      <div class="item-icon-05 rounded-4">
+                <div class="flex-1">
+                  <div class="bg-white p-6 rounded-lg border border-1 h-full">
+                    <div class="flex flex-col gap-3">
+                      <div
+                        class="bg-gradient-to-r from-[--color001] to-[--color002] w-12 h-12 rounded-xl flex items-center justify-center"
+                      >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           id="Layer_1"
                           data-name="Layer 1"
                           viewBox="0 0 24 24"
+                          class="w-6 h-6 card-icon-03"
                         >
                           <path
                             d="M8.326,16.689c.692,.456,1.674-.039,1.672-.915l.002-6.771c0-1.657-1.342-3-2.999-3.001H3.001s0-.001,0-.001c-1.657,0-3,1.343-3,3v2.999c0,1.657,1.343,3,3,3h2.872l2.454,1.69ZM2.997,9.001h.004s3.999,0,3.999,0v3.218c-.357-.144-.739-.22-1.128-.22H3l-.003-2.999ZM21,0h-4c-1.657,.002-3,1.345-2.999,3.002l.002,6.771c-.002,.876,.98,1.371,1.672,.915l2.454-1.69h2.872c1.657,0,3-1.343,3-3V3.001C24,1.344,22.657,0,21,0Zm0,5.999h-2.872c-.388,0-.771,.075-1.127,.22V3.002s3.999-.001,3.999-.001v2.999Zm-2.5,5c-.829,0-1.5,.672-1.5,1.5v5.5H6.908c-.207-.581-.756-1-1.408-1-.829,0-1.5,.672-1.5,1.5v.5c0,2.761,2.239,5,5,5h6c2.761,0,5-2.239,5-5v-6.5c0-.828-.671-1.5-1.5-1.5Zm-5.501,11.008h-2c-.552,0-1-.448-1-1s.448-1,1-1h2c.552,0,1,.448,1,1s-.448,1-1,1ZM5.375,3.492c-.548-.621-.489-1.569,.133-2.117,1.005-.887,2.297-1.375,3.638-1.375h1.354c.829,0,1.5,.672,1.5,1.5s-.671,1.5-1.5,1.5h-1.354c-.609,0-1.196,.222-1.653,.625-.619,.546-1.567,.49-2.117-.133Z"
                           />
                         </svg>
                       </div>
-                      <h5 class="card-title mb-0">
+                      <h5 class="font-medium text-lg">
                         App Móvel e WhatsApp Integrado
                       </h5>
-                      <p class="card-text text-light">
+                      <p class="text-gray-600 text-sm">
                         Permite gerir negociações via app e comunicar
                         directamente por WhatsApp.
                       </p>
                     </div>
                   </div>
                 </div>
-                <div class="card-item">
-                  <div class="card h-100">
-                    <div class="card-body d-flex flex-column gap-3">
-                      <div class="item-icon-05 rounded-4">
+                <div class="flex-1">
+                  <div class="bg-white p-6 rounded-lg border border-1 h-full">
+                    <div class="flex flex-col gap-3">
+                      <div
+                        class="bg-gradient-to-r from-[--color001] to-[--color002] w-12 h-12 rounded-xl flex items-center justify-center"
+                      >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           id="Layer_1"
                           data-name="Layer 1"
                           viewBox="0 0 24 24"
-                          width="512"
-                          height="512"
+                          class="w-6 h-6 card-icon-03"
                         >
                           <path
                             d="M12,16c.828,0,1.5,.672,1.5,1.5s-.672,1.5-1.5,1.5-1.5-.672-1.5-1.5,.672-1.5,1.5-1.5Zm1.405-2.977c.005-.012,.131-.284,.567-.543,1.486-.884,2.258-2.529,1.966-4.192-.283-1.616-1.61-2.943-3.225-3.226-2.165-.373-4.198,1-4.633,3.139-.165,.812,.36,1.604,1.171,1.769,.813,.166,1.604-.359,1.769-1.171,.095-.469,.559-.891,1.175-.781,.382,.066,.721,.405,.788,.789,.114,.648-.388,1.003-.543,1.095-1.396,.828-1.802,1.934-1.87,2.146-.25,.79,.175,1.668,.965,1.918,.158,.05,.317,.073,.473,.073,.625,0,1.197-.384,1.397-1.016Zm10.595,5.477v-6.176c0-3.713-1.618-7.2-4.438-9.567C16.854,.483,13.428-.428,9.908,.188,4.614,1.119,.562,5.518,.056,10.885c-.313,3.311,.733,6.473,2.946,8.904,2.435,2.676,6.092,4.211,10.032,4.211h5.466c3.033,0,5.5-2.468,5.5-5.5Zm-6.367-13.446c2.14,1.797,3.367,4.446,3.367,7.271v6.176c0,1.379-1.122,2.5-2.5,2.5h-5.466c-3.097,0-5.945-1.177-7.813-3.229-1.637-1.8-2.411-4.145-2.179-6.604,.375-3.962,3.48-7.336,7.385-8.022,.539-.095,1.074-.142,1.603-.142,2.052,0,3.999,.705,5.603,2.052Z"
                           />
                         </svg>
                       </div>
-                      <h5 class="card-title mb-0">Dúvidas e FAQ Integrados</h5>
-                      <p class="card-text text-light">
+                      <h5 class="font-medium text-lg">
+                        Dúvidas e FAQ Integrados
+                      </h5>
+                      <p class="text-gray-600 text-sm">
                         Regista dúvidas e disponibiliza respostas no próprio
                         fluxo de negociação.
                       </p>
@@ -649,180 +861,432 @@
           </div>
 
           <button
-            class="carousel-control-prev"
-            type="button"
-            data-bs-target="#carouselExampleDark"
-            data-bs-slide="prev"
-            style="width: 5%"
+            id="carouselPrev"
+            class="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white border border-1 hover:bg-gray-100 text-gray-800 p-2 rounded-full shadow-md transition"
+            aria-label="Slide anterior"
           >
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-6 h-6"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
           </button>
           <button
-            class="carousel-control-next"
-            type="button"
-            data-bs-target="#carouselExampleDark"
-            data-bs-slide="next"
-            style="width: 5%"
+            id="carouselNext"
+            class="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white border border-1 hover:bg-gray-100 text-gray-800 p-2 rounded-full shadow-md transition"
+            aria-label="Próximo slide"
           >
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-6 h-6"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
           </button>
         </div>
       </div>
     </section>
 
-    <section id="contacto">
-      <div class="w-75 m-auto pt-5 d-flex flex-column gap-3">
-        <div>
-          <h2 class="display-5 text-center text-bold">
-            Entre em <span class="text-fade">Contacto</span>
+    <!-- Módulos -->
+    <section id="modulos" class="py-16 scroll-mt-16">
+      <div class="max-w-7xl mx-auto px-4">
+        <!-- Cabeçalho -->
+        <div class="text-center mb-16">
+            <h1 class="text-4xl md:text-5xl font-medium text-gray-800 mb-4 tracking-tight">Potencialize Suas <span class="bg-gradient-to-r from-[--color001] to-[--color002] bg-clip-text text-transparent">Vendas</span></h1>
+            <p class="text-lg text-gray-600">Acesso democrático ao mercado da saúde com módulos para alta performance.</p>
+        </div>
+
+        <!-- Grelha Principal -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            
+            <!-- COLUNA ESQUERDA: PLANO GRATUITO -->
+            <div class="lg:col-span-5">
+                <div class="bg-white rounded-3xl hs-card-shadow free-plan-border overflow-hidden">
+                    <div class="hs-gradient-bg p-10 text-white relative">
+                        <h2 class="text-3xl font-bold mt-2 tracking-tight uppercase">PLANO GRATUITO</h2>
+                        <p class="mt-3 opacity-90 leading-relaxed font-medium">Ideal para operar na Healthsupply e fechar vendas, sem qualquer custo.</p>
+                    </div>
+                    <div class="p-8 md:p-10">
+                        <h3 class="text-sm font-bold text-slate-400 uppercase tracking-widest mb-6 border-b pb-2">Incluído no plano:</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check-circle mt-1 mr-3 check-icon text-lg"></i>
+                                <span class="text-slate-700"><strong>1 utilizador incluso</strong> - Perfil completo para gerir a sua participação.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check-circle mt-1 mr-3 check-icon text-lg"></i>
+                                <span class="text-slate-700"><strong>Acesso às cotações em tempo real</strong> - Compras diárias de dezenas de hospitais e clínicas privadas.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check-circle mt-1 mr-3 check-icon text-lg"></i>
+                                <span class="text-slate-700"><strong>Gestão de catálogo</strong> - Organize produtos e marcas com rapidez.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check-circle mt-1 mr-3 check-icon text-lg"></i>
+                                <span class="text-slate-700"><strong>Submissão de propostas</strong> - Responda facilmente e aumente vendas.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check-circle mt-1 mr-3 check-icon text-lg"></i>
+                                <span class="text-slate-700"><strong>Anexar ficheiros</strong> - Documentação e fichas técnicas ilimitadas.</span>
+                            </li>
+                            <!-- FAQ e NE Separados -->
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check-circle mt-1 mr-3 check-icon text-lg"></i>
+                                <span class="text-slate-700"><strong>FAQ (Perguntas Frequentes)</strong> - Tire dúvidas e consulte o histórico de P&R da cotação.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check-circle mt-1 mr-3 check-icon text-lg"></i>
+                                <span class="text-slate-700"><strong>Notas de Encomenda (NE's)</strong> - Acompanhe as NE's emitidas pelos compradores.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check-circle mt-1 mr-3 check-icon text-lg"></i>
+                                <span class="text-slate-700"><strong>Relatórios Nível 1 & App Mobile</strong> - Gestão na palma da mão 24/7.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check-circle mt-1 mr-3 check-icon text-lg"></i>
+                                <span class="text-slate-700"><strong>Suporte Completo</strong> - Vídeos, IA 24/7 e Help Desk especializado.</span>
+                            </li>
+                        </ul>
+
+                        <div class="mt-12 text-center">
+                            <p class="text-slate-500 text-sm mb-4 font-medium uppercase tracking-tighter">Sem taxas de adesão ou mensais</p>
+                            <button class="w-full btn-primary text-white font-bold py-5 rounded-2xl shadow-lg uppercase tracking-widest text-sm">
+                                Participar Gratuitamente
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- COLUNA DIREITA: MÓDULOS ADICIONAIS -->
+            <div class="lg:col-span-7">
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-2">Funcionalidades Avançadas Opcionais</h3>
+                    <p class="text-slate-600">Personalize a sua experiência de acordo com as suas necessidades.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-y-10 gap-x-5 mt-10">
+                    
+                    <!-- Módulo 1: Utilizadores -->
+                    <div class="bg-white p-7 rounded-2xl module-card flex flex-col justify-between">
+                        <div class="module-number uppercase">Módulo 01</div>
+                        <div>
+                            <div class="flex justify-between items-start mb-5">
+                                <div class="w-12 h-12 rounded-xl flex items-center justify-center icon-box">
+                                    <i class="fa-solid fa-user-plus text-xl"></i>
+                                </div>
+                                <div class="flex items-center gap-3 bg-slate-50 p-1 rounded-xl border border-slate-100">
+                                    <button onclick="changeUsers(-1)" class="counter-btn"><i class="fa-solid fa-minus text-xs"></i></button>
+                                    <span id="user-count" class="font-bold text-slate-700 min-w-[20px] text-center">1</span>
+                                    <button onclick="changeUsers(1)" class="counter-btn"><i class="fa-solid fa-plus text-xs"></i></button>
+                                </div>
+                            </div>
+                            <h4 class="font-bold text-slate-800 text-lg mb-3">Utilizadores Adicionais</h4>
+                            <p class="text-sm text-slate-500 leading-relaxed mb-6">
+                                Adicione utilizadores e escale a sua operação comercial. Organize equipas por região ou categorias de produtos.
+                            </p>
+                        </div>
+                        <div class="flex justify-between items-center pt-4 border-t border-slate-50">
+                            <span class="text-xs font-bold text-slate-400 uppercase tracking-tighter">Investimento</span>
+                            <div class="text-right">
+                                <span id="user-price" class="text-xl font-bold text-slate-800">€95</span>
+                                <span class="text-xs text-slate-400 block">/mês</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Módulo 2: Automatização -->
+                    <div class="bg-white p-7 rounded-2xl module-card flex flex-col justify-between">
+                        <div class="module-number uppercase">Módulo 02</div>
+                        <div>
+                            <div class="w-12 h-12 rounded-xl flex items-center justify-center icon-box mb-5">
+                                <i class="fa-solid fa-bolt text-xl"></i>
+                            </div>
+                            <h4 class="font-bold text-slate-800 text-lg mb-3">Automatização de Ofertas</h4>
+                            <p class="text-sm text-slate-500 leading-relaxed mb-6">
+                                Inserção automática de propostas na abertura das cotações. Tabelas de preços personalizadas e eliminação de erros.
+                            </p>
+                        </div>
+                        <div class="flex justify-between items-center pt-4 border-t border-slate-50">
+                            <span class="text-xs font-bold text-slate-400 uppercase tracking-tighter">Investimento</span>
+                            <div class="text-right">
+                                <span class="text-xl font-bold text-slate-800">€295</span>
+                                <span class="text-xs text-slate-400 block">/mês</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Módulo 3: Relatórios Nível 2 -->
+                    <div class="bg-white p-7 rounded-2xl module-card flex flex-col justify-between">
+                        <div class="module-number uppercase">Módulo 03</div>
+                        <div>
+                            <div class="w-12 h-12 rounded-xl flex items-center justify-center icon-box mb-5">
+                                <i class="fa-solid fa-chart-pie text-xl"></i>
+                            </div>
+                            <h4 class="font-bold text-slate-800 text-lg mb-3">Relatórios Nível 2</h4>
+                            <p class="text-sm text-slate-500 leading-relaxed mb-6">
+                                Insights estratégicos: Taxa de aproveitamento, performance por vendedor e relatório de resultado das cotações.
+                            </p>
+                        </div>
+                        <div class="flex justify-between items-center pt-4 border-t border-slate-50">
+                            <span class="text-xs font-bold text-slate-400 uppercase tracking-tighter">Investimento</span>
+                            <div class="text-right">
+                                <span class="text-xl font-bold text-slate-800">€95</span>
+                                <span class="text-xs text-slate-400 block">/mês</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Módulo 4: Análises de Mercado -->
+                    <div class="bg-white p-7 rounded-2xl module-card flex flex-col justify-between">
+                        <div class="module-number uppercase">Módulo 04</div>
+                        <div>
+                            <div class="w-12 h-12 rounded-xl flex items-center justify-center icon-box mb-5">
+                                <i class="fa-solid fa-magnifying-glass-chart text-xl"></i>
+                            </div>
+                            <h4 class="font-bold text-slate-800 text-lg mb-3">Análises de Mercado</h4>
+                            <p class="text-sm text-slate-500 leading-relaxed mb-6">
+                                Análise de consumo, market share e potencial financeiro por produto e região (últimos 12 meses).
+                            </p>
+                        </div>
+                        <div class="flex justify-between items-center pt-4 border-t border-slate-50">
+                            <span class="text-xs font-bold text-slate-400 uppercase tracking-tighter">Por Emissão</span>
+                            <div class="text-right">
+                                <span class="text-xl font-bold text-slate-800">€3.990</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- CTA de Contacto -->
+                <div class="mt-12 bg-slate-900 text-white p-8 rounded-3xl flex flex-col md:flex-row items-center justify-between gap-6">
+                    <div class="text-center md:text-left">
+                        <p class="text-lg font-bold">Precisa de uma solução personalizada?</p>
+                        <p class="text-slate-400 text-sm">Fale com os nossos especialistas para configurar os seus módulos.</p>
+                    </div>
+                    <button class="btn-outline-white px-8 py-4 rounded-xl font-bold uppercase text-xs tracking-widest whitespace-nowrap">
+                        Consultar Especialista
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Rodapé Notas -->
+        <div class="mt-16 text-center text-slate-400 text-xs">
+            <p>* Todos os valores apresentados acrescem IVA à taxa legal em vigor. Os módulos podem ser ativados ou desativados mensalmente.</p>
+        </div>
+      </div>  
+    </section>
+
+    <!-- Contacto -->
+    <section
+      id="contacto"
+      class="py-16 bg-gradient-to-b from-white to-gray-100 scroll-mt-16"
+    >
+      <!-- Formulário de Contato -->
+      <div class="max-w-7xl mx-auto px-4 flex flex-col gap-6">
+        <div class="text-center">
+          <h2 class="text-4xl md:text-5xl font-medium text-gray-800">
+            Entre em <span class="bg-gradient-to-r from-[--color001] to-[--color002] text-transparent bg-clip-text">Contacto</span>
           </h2>
-          <p class="text-light text-center">
+          <p class="mt-4 text-gray-600 text-lg max-w-3xl mx-auto">
             Pronto para transformar a gestão da sua empresa? Fale connosco hoje.
           </p>
         </div>
-      </div>
 
-      <div
-        class="ctt-container d-flex justify-content-between gap-5 w-75 m-auto mt-5"
-      >
-        <div class="ctt-block form w-50 p-4">
-          <form
-            method="post"
-            action=""
-            name="formulario-contacto"
-            id="formulario"
+        <div class="grid gap-8 lg:grid-cols-[1fr_0.95fr]">
+          <div
+            class="bg-white border border-gray-200 rounded-lg p-8 shadow-sm"
           >
-            <div class="mb-4 lh-1">
-              <label for="name" class="form-label">Nome Completo</label>
-              <input
-                type="text"
-                class="form-control"
-                id="nome"
-                name="nome"
-                placeholder="Seu nome completo"
-                required
-              />
-            </div>
-            <div class="email-tel-container d-flex gap-3">
-              <div class="mb-4 lh-1 w-100">
-                <label for="email" class="form-label">Email</label>
+            <form
+              method="post"
+              action=""
+              name="formulario-contacto"
+              id="formulario"
+              class="grid gap-5"
+            >
+              <div class="grid gap-2">
+                <label for="name" class="text-sm font-medium text-gray-700">
+                  Nome Completo
+                </label>
                 <input
-                  type="email"
-                  class="form-control"
-                  id="email"
-                  name="email"
-                  placeholder="seu@email.com"
+                  type="text"
+                  id="nome"
+                  name="nome"
+                  placeholder="Seu nome completo"
                   required
+                  class="w-full rounded-lg border border-gray-200 bg-white px-4 py-3 text-gray-800 outline-none transition focus:border-[--color001] focus:ring-2 focus:ring-[--color001]/20"
                 />
               </div>
-              <div class="mb-4 lh-1 w-100">
-                <label for="phone" class="form-label">Telefone</label>
-                <input
-                  type="tel"
-                  class="form-control"
-                  id="telefone"
-                  name="telefone"
-                  placeholder=""
-                />
+
+              <div class="grid gap-5 md:grid-cols-2">
+                <div class="grid gap-2">
+                  <label for="email" class="text-sm font-medium text-gray-700">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="seu@email.com"
+                    required
+                    class="w-full rounded-lg border border-gray-200 bg-white px-4 py-3 text-gray-800 outline-none transition focus:border-[--color001] focus:ring-2 focus:ring-[--color001]/20"
+                  />
+                </div>
+                <div class="grid gap-2">
+                  <label for="phone" class="text-sm font-medium text-gray-700">
+                    Telefone
+                  </label>
+                  <input
+                    type="tel"
+                    id="telefone"
+                    name="telefone"
+                    placeholder=""
+                    class="w-full rounded-lg border border-gray-200 bg-white px-4 py-3 text-gray-800 outline-none transition focus:border-[--color001] focus:ring-2 focus:ring-[--color001]/20"
+                  />
+                </div>
               </div>
-            </div>
-            <div class="mb-4 lh-1">
-              <label for="entityType" class="form-label"
-                >Tipo de Entidade</label
-              >
-              <select
-                class="form-select"
-                id="entityType"
-                name="entidade"
-                required
-              >
-                <option value="">Selecione</option>
-                <option value="comprador">Comprador</option>
-                <option value="fornecedor">Fornecedor</option>
-              </select>
-              <div class="form-check d-flex align-items-center gap-2 mt-2">
+
+              <div class="grid gap-3">
+                <label
+                  for="entityType"
+                  class="text-sm font-medium text-gray-700"
+                >
+                  Tipo de Entidade
+                </label>
+                <select
+                  id="entityType"
+                  name="entidade"
+                  required
+                  class="w-full rounded-lg border border-gray-200 bg-white px-4 py-3 text-gray-800 outline-none transition focus:border-[--color001] focus:ring-2 focus:ring-[--color001]/20"
+                >
+                  <option value="">Selecione</option>
+                  <option value="comprador">Comprador</option>
+                  <option value="fornecedor">Fornecedor</option>
+                </select>
+              </div>
+
+              <div class="flex items-center gap-3">
                 <input
-                  class="form-check-input"
                   type="checkbox"
                   id="solicitar"
                   name="Solicitar"
                   value="Sim"
+                  class="h-5 w-5 rounded border-gray-300 text-[--color001] focus:ring-[--color001]"
                 />
-                <label class="form-check-label" for="solicitar">
+                <label for="solicitar" class="text-gray-700">
                   Solicitar uma demonstração
                 </label>
               </div>
-            </div>
-            <div class="mb-4 lh-1">
-              <label for="message" class="form-label">Mensagem</label>
-              <textarea
-                class="form-control"
-                id="mensagem"
-                rows="3"
-                name="mensagem"
-                placeholder="Digite sua mensagem aqui..."
-                required
-              ></textarea>
-            </div>
-            <button type="submit" class="btn btn-cta">Enviar</button>
-          </form>
 
-          <div
-            class="modal fade"
-            id="statusModal"
-            tabindex="-1"
-            aria-hidden="true"
-          >
-            <div class="modal-dialog modal-dialog-centered">
-              <div class="modal-content text-center p-4">
-                <div class="modal-body">
-                  <div id="statusMessage">
-                    <div class="spinner-grow mb-3" role="status"></div>
-                    <p>Enviando sua mensagem...</p>
+              <div class="grid gap-2">
+                <label for="message" class="text-sm font-medium text-gray-700">
+                  Mensagem
+                </label>
+                <textarea
+                  id="mensagem"
+                  rows="4"
+                  name="mensagem"
+                  placeholder="Digite sua mensagem aqui..."
+                  required
+                  class="w-full rounded-lg border border-gray-200 bg-white px-4 py-3 text-gray-800 outline-none transition focus:border-[--color001] focus:ring-2 focus:ring-[--color001]/20"
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                class="w-full bg-gradient-to-r from-[--color001] to-[--color002] text-white px-6 py-3 rounded-lg shadow-lg hover:shadow-xl transition"
+              >
+                Enviar
+              </button>
+            </form>
+
+            <div
+              id="statusModal"
+              class="fixed inset-0 flex items-center justify-center z-50 hidden"
+              role="dialog"
+            >
+              <div
+                class="bg-white rounded-lg p-8 max-w-md w-full mx-4 shadow-xl"
+              >
+                <div id="statusMessage" class="text-center">
+                  <div class="flex justify-center mb-4">
+                    <div
+                      class="animate-spin rounded-full h-12 w-12 border-b-2 border-[--color001]"
+                    ></div>
                   </div>
+                  <p class="text-gray-700">Enviando sua mensagem...</p>
                 </div>
+                <button
+                  data-modal-close
+                  class="absolute top-4 right-4 text-gray-400 hover:text-gray-600"
+                >
+                  <svg
+                    class="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M6 18L18 6M6 6l12 12"
+                    ></path>
+                  </svg>
+                </button>
               </div>
             </div>
           </div>
-        </div>
 
-        <div
-          class="ctt-block d-flex flex-column justify-content-start gap-4 align-items-center w-50"
-        >
-          <div class="ctt-item d-flex align-items-stretch gap-3">
-            <div class="email-image rounded-4">
-              <img src="imagens/mail.png" alt="Email Icon" />
+          <!-- Informações de Contato -->
+          <div
+            class="flex flex-col gap-4"
+          >
+            <div class="bg-white border border-1 rounded-lg p-6 flex items-start gap-4 shadow-sm">
+              <div class="bg-[--color002-light] rounded-lg shrink-0 p-3">
+                <img src="imagens/mail.png" alt="Email Icon" class="w-7 h-7 card-icon-02" />
+              </div>
+              <div>
+                <p class="font-medium text-gray-900">Email</p>
+                <p class="text-gray-600">contacto@healthsupply.pt</p>
+              </div>
             </div>
-            <div class="email-content">
-              <p class="text-bold">Email</p>
-              <p class="text-light">contacto@healthsupply.pt</p>
+            <div class="bg-white border border-1 rounded-lg p-6 flex items-start gap-4 shadow-sm">
+              <div class="bg-[--color001-light] rounded-lg shrink-0 p-3">
+                <img src="imagens/whatsapp.png" alt="Phone Icon" class="w-7 h-7 card-icon-01" />
+              </div>
+              <div>
+                <a
+                  href="https://api.whatsapp.com/send?phone=351910998075"
+                  target="_blank"
+                  class="font-medium hover:underline"
+                >
+                  WhatsApp
+                </a>
+                <p class="text-gray-600">+351 910 998 075</p>
+                <p class="text-gray-600">Segunda a Sexta: 9h - 18h</p>
+              </div>
             </div>
-          </div>
-          <div class="ctt-item d-flex align-items-stretch gap-3">
-            <div class="tel-image rounded-4">
-              <img src="imagens/whatsapp.png" alt="Phone Icon" />
-            </div>
-            <div class="tel-content">
-              <a
-                href="https://api.whatsapp.com/send?phone=351910998075"
-                target="_blank"
-                class="text-bold"
-                >WhatsApp</a
-              >
-              <p class="text-light">+351 910 998 075</p>
-              <p class="text-light">Segunda a Sexta: 9h - 18h</p>
-            </div>
-          </div>
-          <div class="ctt-item d-flex align-items-stretch gap-3">
-            <div class="esc-image rounded-4">
-              <img src="imagens/pin.png" alt="Pin Icon" />
-            </div>
-            <div class="esc-content">
-              <p class="text-bold">Morada</p>
-              <p class="text-light">Praça das Indústrias, 1300, Sala 6</p>
-              <p class="text-light">1300-307 Lisboa, Portugal</p>
+            <div class="bg-white border border-1 rounded-lg p-6 flex items-start gap-4 shadow-sm">
+              <div class="bg-[--color003-light] rounded-lg shrink-0 p-3">
+                <img src="imagens/pin.png" alt="Pin Icon" class="w-7 h-7 card-icon-04" />
+              </div>
+              <div>
+                <p class="font-medium text-gray-900">Morada</p>
+                <p class="text-gray-600">Praça das Indústrias, 1300, Sala 6</p>
+                <p class="text-gray-600">1300-307 Lisboa, Portugal</p>
+              </div>
             </div>
           </div>
         </div>
@@ -830,16 +1294,12 @@
     </section>
 
     <section id="footer">
-      <div class="w-100 bg-dark container-fluid py-3 mt-5">
+      <div class="w-full bg-neutral-800 py-4 text-neutral-500">
         <div class="text-center">
-          <p class="text-light m-0">
-            © 2025 HealthSupply. Todos os direitos reservados.
-          </p>
+          <p>© 2025 HealthSupply. Todos os direitos reservados.</p>
         </div>
       </div>
     </section>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js"></script>
 
