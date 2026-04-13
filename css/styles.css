@@ -234,6 +234,12 @@ html {
   display: block !important;
 }
 
+.selected {
+  background-color: var(--color001-light) !important;
+  border-color: var(--color001-dark) !important;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.075) !important;
+}
+
 .choices {
   margin-bottom: 0;
 }

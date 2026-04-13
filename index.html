@@ -83,9 +83,7 @@
             class="block text-gray-700 hover:text-[--color001]"
             >Soluções</a
           >
-          <a
-            href="#modulos"
-            class="block text-gray-700 hover:text-[--color001]"
+          <a href="#modulos" class="block text-gray-700 hover:text-[--color001]"
             >Módulos</a
           >
           <a
@@ -593,8 +591,11 @@
         </div>
 
         <div id="funcionalidadesCarousel" class="relative w-full px-20">
-          <div class="overflow-hidden">
-            <div class="carousel-item active transition-opacity duration-500">
+          <div class="overflow-hidden relative">
+            <div
+              data-carousel-item
+              class="transition-opacity duration-500 opacity-100"
+            >
               <div class="flex flex-col md:flex-row gap-6">
                 <div class="flex-1">
                   <div class="bg-white p-6 rounded-lg border border-1 h-full">
@@ -681,7 +682,10 @@
               </div>
             </div>
 
-            <div class="carousel-item transition-opacity duration-500 hidden">
+            <div
+              data-carousel-item
+              class="transition-opacity duration-500 opacity-0 pointer-events-none absolute inset-0"
+            >
               <div class="flex flex-col md:flex-row gap-6">
                 <div class="flex-1">
                   <div class="bg-white p-6 rounded-lg border border-1 h-full">
@@ -770,7 +774,10 @@
               </div>
             </div>
 
-            <div class="carousel-item transition-opacity duration-500 hidden">
+            <div
+              data-carousel-item
+              class="transition-opacity duration-500 opacity-0 pointer-events-none absolute inset-0"
+            >
               <div class="flex flex-col md:flex-row gap-6">
                 <div class="flex-1">
                   <div class="bg-white p-6 rounded-lg border border-1 h-full">
@@ -861,7 +868,7 @@
           </div>
 
           <button
-            id="carouselPrev"
+            data-carousel-prev
             class="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white border border-1 hover:bg-gray-100 text-gray-800 p-2 rounded-full shadow-md transition"
             aria-label="Slide anterior"
           >
@@ -877,7 +884,7 @@
             </svg>
           </button>
           <button
-            id="carouselNext"
+            data-carousel-next
             class="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white border border-1 hover:bg-gray-100 text-gray-800 p-2 rounded-full shadow-md transition"
             aria-label="Próximo slide"
           >
@@ -901,191 +908,345 @@
       <div class="max-w-7xl mx-auto px-4">
         <!-- Cabeçalho -->
         <div class="text-center mb-16">
-            <h1 class="text-4xl md:text-5xl font-medium text-gray-800 mb-4 tracking-tight">Potencialize Suas <span class="bg-gradient-to-r from-[--color001] to-[--color002] bg-clip-text text-transparent">Vendas</span></h1>
-            <p class="text-lg text-gray-600">Acesso democrático ao mercado da saúde com módulos para alta performance.</p>
+          <h1
+            class="text-4xl md:text-5xl font-medium text-gray-800 mb-4 tracking-tight"
+          >
+            Fornecedor, Potencialize Suas
+            <span
+              class="bg-gradient-to-r from-[--color001] to-[--color002] bg-clip-text text-transparent"
+              >Vendas</span
+            >
+          </h1>
+          <p class="text-lg text-gray-600">
+            Acesso fácil e seguro ao mercado da saúde, com módulos para alta
+            performance.
+          </p>
         </div>
 
         <!-- Grelha Principal -->
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            
-            <!-- COLUNA ESQUERDA: PLANO GRATUITO -->
-            <div class="lg:col-span-5">
-                <div class="bg-white rounded-3xl hs-card-shadow free-plan-border overflow-hidden">
-                    <div class="hs-gradient-bg p-10 text-white relative">
-                        <h2 class="text-3xl font-bold mt-2 tracking-tight uppercase">PLANO GRATUITO</h2>
-                        <p class="mt-3 opacity-90 leading-relaxed font-medium">Ideal para operar na Healthsupply e fechar vendas, sem qualquer custo.</p>
-                    </div>
-                    <div class="p-8 md:p-10">
-                        <h3 class="text-sm font-bold text-slate-400 uppercase tracking-widest mb-6 border-b pb-2">Incluído no plano:</h3>
-                        <ul class="space-y-4">
-                            <li class="flex items-start">
-                                <i class="fa-solid fa-check-circle mt-1 mr-3 check-icon text-lg"></i>
-                                <span class="text-slate-700"><strong>1 utilizador incluso</strong> - Perfil completo para gerir a sua participação.</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fa-solid fa-check-circle mt-1 mr-3 check-icon text-lg"></i>
-                                <span class="text-slate-700"><strong>Acesso às cotações em tempo real</strong> - Compras diárias de dezenas de hospitais e clínicas privadas.</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fa-solid fa-check-circle mt-1 mr-3 check-icon text-lg"></i>
-                                <span class="text-slate-700"><strong>Gestão de catálogo</strong> - Organize produtos e marcas com rapidez.</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fa-solid fa-check-circle mt-1 mr-3 check-icon text-lg"></i>
-                                <span class="text-slate-700"><strong>Submissão de propostas</strong> - Responda facilmente e aumente vendas.</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fa-solid fa-check-circle mt-1 mr-3 check-icon text-lg"></i>
-                                <span class="text-slate-700"><strong>Anexar ficheiros</strong> - Documentação e fichas técnicas ilimitadas.</span>
-                            </li>
-                            <!-- FAQ e NE Separados -->
-                            <li class="flex items-start">
-                                <i class="fa-solid fa-check-circle mt-1 mr-3 check-icon text-lg"></i>
-                                <span class="text-slate-700"><strong>FAQ (Perguntas Frequentes)</strong> - Tire dúvidas e consulte o histórico de P&R da cotação.</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fa-solid fa-check-circle mt-1 mr-3 check-icon text-lg"></i>
-                                <span class="text-slate-700"><strong>Notas de Encomenda (NE's)</strong> - Acompanhe as NE's emitidas pelos compradores.</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fa-solid fa-check-circle mt-1 mr-3 check-icon text-lg"></i>
-                                <span class="text-slate-700"><strong>Relatórios Nível 1 & App Mobile</strong> - Gestão na palma da mão 24/7.</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fa-solid fa-check-circle mt-1 mr-3 check-icon text-lg"></i>
-                                <span class="text-slate-700"><strong>Suporte Completo</strong> - Vídeos, IA 24/7 e Help Desk especializado.</span>
-                            </li>
-                        </ul>
+          <!-- COLUNA ESQUERDA: PLANO GRATUITO -->
+          <div class="lg:col-span-5">
+            <div
+              class="bg-white rounded-3xl hs-card-shadow free-plan-border overflow-hidden"
+            >
+              <div class="hs-gradient-bg p-10 text-white relative">
+                <h2 class="text-3xl font-bold mt-2 tracking-tight uppercase">
+                  PLANO GRATUITO
+                </h2>
+                <p class="mt-3 opacity-90 leading-relaxed font-medium">
+                  Ideal para operar na Healthsupply e fechar vendas, sem
+                  qualquer custo.
+                </p>
+              </div>
+              <div class="p-8 md:p-10">
+                <h3
+                  class="text-sm font-bold text-slate-400 uppercase tracking-widest mb-6 border-b pb-2"
+                >
+                  Incluído no plano:
+                </h3>
+                <ul class="space-y-4">
+                  <li class="flex items-start">
+                    <i
+                      class="fa-solid fa-check-circle mt-1 mr-3 check-icon text-lg"
+                    ></i>
+                    <span class="text-slate-700"
+                      ><strong>1 utilizador incluso</strong> - Perfil completo
+                      para gerir a sua participação.</span
+                    >
+                  </li>
+                  <li class="flex items-start">
+                    <i
+                      class="fa-solid fa-check-circle mt-1 mr-3 check-icon text-lg"
+                    ></i>
+                    <span class="text-slate-700"
+                      ><strong>Acesso às cotações em tempo real</strong> -
+                      Compras diárias de dezenas de hospitais e clínicas
+                      privadas.</span
+                    >
+                  </li>
+                  <li class="flex items-start">
+                    <i
+                      class="fa-solid fa-check-circle mt-1 mr-3 check-icon text-lg"
+                    ></i>
+                    <span class="text-slate-700"
+                      ><strong>Gestão de catálogo</strong> - Organize produtos e
+                      marcas com rapidez.</span
+                    >
+                  </li>
+                  <li class="flex items-start">
+                    <i
+                      class="fa-solid fa-check-circle mt-1 mr-3 check-icon text-lg"
+                    ></i>
+                    <span class="text-slate-700"
+                      ><strong>Submissão de propostas</strong> - Responda
+                      facilmente e aumente vendas.</span
+                    >
+                  </li>
+                  <li class="flex items-start">
+                    <i
+                      class="fa-solid fa-check-circle mt-1 mr-3 check-icon text-lg"
+                    ></i>
+                    <span class="text-slate-700"
+                      ><strong>Anexar ficheiros</strong> - Documentação e fichas
+                      técnicas ilimitadas.</span
+                    >
+                  </li>
+                  <!-- FAQ e NE Separados -->
+                  <li class="flex items-start">
+                    <i
+                      class="fa-solid fa-check-circle mt-1 mr-3 check-icon text-lg"
+                    ></i>
+                    <span class="text-slate-700"
+                      ><strong>FAQ (Perguntas Frequentes)</strong> - Tire
+                      dúvidas e consulte o histórico de P&R da cotação.</span
+                    >
+                  </li>
+                  <li class="flex items-start">
+                    <i
+                      class="fa-solid fa-check-circle mt-1 mr-3 check-icon text-lg"
+                    ></i>
+                    <span class="text-slate-700"
+                      ><strong>Notas de Encomenda (NE's)</strong> - Acompanhe as
+                      NE's emitidas pelos compradores.</span
+                    >
+                  </li>
+                  <li class="flex items-start">
+                    <i
+                      class="fa-solid fa-check-circle mt-1 mr-3 check-icon text-lg"
+                    ></i>
+                    <span class="text-slate-700"
+                      ><strong>Relatórios Nível 1 & App Mobile</strong> - Gestão
+                      na palma da mão 24/7.</span
+                    >
+                  </li>
+                  <li class="flex items-start">
+                    <i
+                      class="fa-solid fa-check-circle mt-1 mr-3 check-icon text-lg"
+                    ></i>
+                    <span class="text-slate-700"
+                      ><strong>Suporte Completo</strong> - Vídeos, IA 24/7 e
+                      Help Desk especializado.</span
+                    >
+                  </li>
+                </ul>
 
-                        <div class="mt-12 text-center">
-                            <p class="text-slate-500 text-sm mb-4 font-medium uppercase tracking-tighter">Sem taxas de adesão ou mensais</p>
-                            <button class="w-full btn-primary text-white font-bold py-5 rounded-2xl shadow-lg uppercase tracking-widest text-sm">
-                                Participar Gratuitamente
-                            </button>
-                        </div>
-                    </div>
+                <div class="mt-12 text-center">
+                  <p
+                    class="text-slate-500 text-sm mb-4 font-medium uppercase tracking-tighter"
+                  >
+                    Sem taxas de adesão ou mensais
+                  </p>
+                  <a
+                    class="flex justify-center w-full btn-primary text-white font-bold py-5 rounded-2xl shadow-lg uppercase tracking-widest text-sm"
+                    href="registo.html"
+                  >
+                    Participar Gratuitamente
+                  </a>
                 </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- COLUNA DIREITA: MÓDULOS ADICIONAIS -->
+          <div class="lg:col-span-7">
+            <div class="mb-8">
+              <h3 class="text-2xl font-bold text-slate-800 mb-2">
+                Funcionalidades Avançadas Opcionais
+              </h3>
+              <p class="text-slate-600">
+                Personalize a sua experiência de acordo com as suas
+                necessidades.
+              </p>
             </div>
 
-            <!-- COLUNA DIREITA: MÓDULOS ADICIONAIS -->
-            <div class="lg:col-span-7">
-                <div class="mb-8">
-                    <h3 class="text-2xl font-bold text-slate-800 mb-2">Funcionalidades Avançadas Opcionais</h3>
-                    <p class="text-slate-600">Personalize a sua experiência de acordo com as suas necessidades.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-y-10 gap-x-5 mt-10">
+              <!-- Módulo 1: Utilizadores -->
+              <div
+                class="bg-white p-7 rounded-2xl module-card flex flex-col justify-between"
+              >
+                <div class="module-number uppercase">Módulo 01</div>
+                <div>
+                  <div class="flex justify-between items-start mb-5">
+                    <div
+                      class="w-12 h-12 rounded-xl flex items-center justify-center icon-box"
+                    >
+                      <i class="fa-solid fa-user-plus text-xl"></i>
+                    </div>
+                    <div
+                      class="flex items-center gap-3 bg-slate-50 p-1 rounded-xl border border-slate-100"
+                    >
+                      <button onclick="changeUsers(-1)" class="counter-btn">
+                        <i class="fa-solid fa-minus text-xs"></i>
+                      </button>
+                      <span
+                        id="user-count"
+                        class="font-bold text-slate-700 min-w-[20px] text-center"
+                        >1</span
+                      >
+                      <button onclick="changeUsers(1)" class="counter-btn">
+                        <i class="fa-solid fa-plus text-xs"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <h4 class="font-bold text-slate-800 text-lg mb-3">
+                    Utilizadores Adicionais
+                  </h4>
+                  <p class="text-sm text-slate-500 leading-relaxed mb-6">
+                    Adicione utilizadores e escale a sua operação comercial.
+                    Organize equipas por região ou categorias de produtos.
+                  </p>
                 </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-y-10 gap-x-5 mt-10">
-                    
-                    <!-- Módulo 1: Utilizadores -->
-                    <div class="bg-white p-7 rounded-2xl module-card flex flex-col justify-between">
-                        <div class="module-number uppercase">Módulo 01</div>
-                        <div>
-                            <div class="flex justify-between items-start mb-5">
-                                <div class="w-12 h-12 rounded-xl flex items-center justify-center icon-box">
-                                    <i class="fa-solid fa-user-plus text-xl"></i>
-                                </div>
-                                <div class="flex items-center gap-3 bg-slate-50 p-1 rounded-xl border border-slate-100">
-                                    <button onclick="changeUsers(-1)" class="counter-btn"><i class="fa-solid fa-minus text-xs"></i></button>
-                                    <span id="user-count" class="font-bold text-slate-700 min-w-[20px] text-center">1</span>
-                                    <button onclick="changeUsers(1)" class="counter-btn"><i class="fa-solid fa-plus text-xs"></i></button>
-                                </div>
-                            </div>
-                            <h4 class="font-bold text-slate-800 text-lg mb-3">Utilizadores Adicionais</h4>
-                            <p class="text-sm text-slate-500 leading-relaxed mb-6">
-                                Adicione utilizadores e escale a sua operação comercial. Organize equipas por região ou categorias de produtos.
-                            </p>
-                        </div>
-                        <div class="flex justify-between items-center pt-4 border-t border-slate-50">
-                            <span class="text-xs font-bold text-slate-400 uppercase tracking-tighter">Investimento</span>
-                            <div class="text-right">
-                                <span id="user-price" class="text-xl font-bold text-slate-800">€95</span>
-                                <span class="text-xs text-slate-400 block">/mês</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Módulo 2: Automatização -->
-                    <div class="bg-white p-7 rounded-2xl module-card flex flex-col justify-between">
-                        <div class="module-number uppercase">Módulo 02</div>
-                        <div>
-                            <div class="w-12 h-12 rounded-xl flex items-center justify-center icon-box mb-5">
-                                <i class="fa-solid fa-bolt text-xl"></i>
-                            </div>
-                            <h4 class="font-bold text-slate-800 text-lg mb-3">Automatização de Ofertas</h4>
-                            <p class="text-sm text-slate-500 leading-relaxed mb-6">
-                                Inserção automática de propostas na abertura das cotações. Tabelas de preços personalizadas e eliminação de erros.
-                            </p>
-                        </div>
-                        <div class="flex justify-between items-center pt-4 border-t border-slate-50">
-                            <span class="text-xs font-bold text-slate-400 uppercase tracking-tighter">Investimento</span>
-                            <div class="text-right">
-                                <span class="text-xl font-bold text-slate-800">€295</span>
-                                <span class="text-xs text-slate-400 block">/mês</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Módulo 3: Relatórios Nível 2 -->
-                    <div class="bg-white p-7 rounded-2xl module-card flex flex-col justify-between">
-                        <div class="module-number uppercase">Módulo 03</div>
-                        <div>
-                            <div class="w-12 h-12 rounded-xl flex items-center justify-center icon-box mb-5">
-                                <i class="fa-solid fa-chart-pie text-xl"></i>
-                            </div>
-                            <h4 class="font-bold text-slate-800 text-lg mb-3">Relatórios Nível 2</h4>
-                            <p class="text-sm text-slate-500 leading-relaxed mb-6">
-                                Insights estratégicos: Taxa de aproveitamento, performance por vendedor e relatório de resultado das cotações.
-                            </p>
-                        </div>
-                        <div class="flex justify-between items-center pt-4 border-t border-slate-50">
-                            <span class="text-xs font-bold text-slate-400 uppercase tracking-tighter">Investimento</span>
-                            <div class="text-right">
-                                <span class="text-xl font-bold text-slate-800">€95</span>
-                                <span class="text-xs text-slate-400 block">/mês</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Módulo 4: Análises de Mercado -->
-                    <div class="bg-white p-7 rounded-2xl module-card flex flex-col justify-between">
-                        <div class="module-number uppercase">Módulo 04</div>
-                        <div>
-                            <div class="w-12 h-12 rounded-xl flex items-center justify-center icon-box mb-5">
-                                <i class="fa-solid fa-magnifying-glass-chart text-xl"></i>
-                            </div>
-                            <h4 class="font-bold text-slate-800 text-lg mb-3">Análises de Mercado</h4>
-                            <p class="text-sm text-slate-500 leading-relaxed mb-6">
-                                Análise de consumo, market share e potencial financeiro por produto e região (últimos 12 meses).
-                            </p>
-                        </div>
-                        <div class="flex justify-between items-center pt-4 border-t border-slate-50">
-                            <span class="text-xs font-bold text-slate-400 uppercase tracking-tighter">Por Emissão</span>
-                            <div class="text-right">
-                                <span class="text-xl font-bold text-slate-800">€3.990</span>
-                            </div>
-                        </div>
-                    </div>
-
+                <div
+                  class="flex justify-between items-center pt-4 border-t border-slate-50"
+                >
+                  <span
+                    class="text-xs font-bold text-slate-400 uppercase tracking-tighter"
+                    >Investimento</span
+                  >
+                  <div class="text-right">
+                    <span
+                      id="user-price"
+                      class="text-xl font-bold text-slate-800"
+                      >€95</span
+                    >
+                    <span class="text-xs text-slate-400 block">/mês</span>
+                  </div>
                 </div>
+              </div>
 
-                <!-- CTA de Contacto -->
-                <div class="mt-12 bg-slate-900 text-white p-8 rounded-3xl flex flex-col md:flex-row items-center justify-between gap-6">
-                    <div class="text-center md:text-left">
-                        <p class="text-lg font-bold">Precisa de uma solução personalizada?</p>
-                        <p class="text-slate-400 text-sm">Fale com os nossos especialistas para configurar os seus módulos.</p>
-                    </div>
-                    <button class="btn-outline-white px-8 py-4 rounded-xl font-bold uppercase text-xs tracking-widest whitespace-nowrap">
-                        Consultar Especialista
-                    </button>
+              <!-- Módulo 2: Automatização -->
+              <div
+                class="bg-white p-7 rounded-2xl module-card flex flex-col justify-between"
+              >
+                <div class="module-number uppercase">Módulo 02</div>
+                <div>
+                  <div
+                    class="w-12 h-12 rounded-xl flex items-center justify-center icon-box mb-5"
+                  >
+                    <i class="fa-solid fa-bolt text-xl"></i>
+                  </div>
+                  <h4 class="font-bold text-slate-800 text-lg mb-3">
+                    Automatização de Ofertas
+                  </h4>
+                  <p class="text-sm text-slate-500 leading-relaxed mb-6">
+                    Inserção automática de propostas com tabelas de preços
+                    personalizadas. Ganhe tempo, elimine os erros manuais e
+                    garanta sua participação em todas as negociações.
+                  </p>
                 </div>
+                <div
+                  class="flex justify-between items-center pt-4 border-t border-slate-50"
+                >
+                  <span
+                    class="text-xs font-bold text-slate-400 uppercase tracking-tighter"
+                    >Investimento</span
+                  >
+                  <div class="text-right">
+                    <span class="text-xl font-bold text-slate-800">€295</span>
+                    <span class="text-xs text-slate-400 block">/mês</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Módulo 3: Relatórios Nível 2 -->
+              <div
+                class="bg-white p-7 rounded-2xl module-card flex flex-col justify-between"
+              >
+                <div class="module-number uppercase">Módulo 03</div>
+                <div>
+                  <div
+                    class="w-12 h-12 rounded-xl flex items-center justify-center icon-box mb-5"
+                  >
+                    <i class="fa-solid fa-chart-pie text-xl"></i>
+                  </div>
+                  <h4 class="font-bold text-slate-800 text-lg mb-3">
+                    Relatórios Nível 2
+                  </h4>
+                  <p class="text-sm text-slate-500 leading-relaxed mb-6">
+                    Insights estratégicos: Taxa de aproveitamento, performance
+                    por vendedor e relatório de resultado das cotações.
+                  </p>
+                </div>
+                <div
+                  class="flex justify-between items-center pt-4 border-t border-slate-50"
+                >
+                  <span
+                    class="text-xs font-bold text-slate-400 uppercase tracking-tighter"
+                    >Investimento</span
+                  >
+                  <div class="text-right">
+                    <span class="text-xl font-bold text-slate-800">€145</span>
+                    <span class="text-xs text-slate-400 block">/mês</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Módulo 4: Análises de Mercado -->
+              <div
+                class="bg-white p-7 rounded-2xl module-card flex flex-col justify-between"
+              >
+                <div class="module-number uppercase">Módulo 04</div>
+                <div>
+                  <div
+                    class="w-12 h-12 rounded-xl flex items-center justify-center icon-box mb-5"
+                  >
+                    <i class="fa-solid fa-chart-column text-xl"></i>
+                  </div>
+                  <h4 class="font-bold text-slate-800 text-lg mb-3">
+                    Análises de Mercado
+                  </h4>
+                  <p class="text-sm text-slate-500 leading-relaxed mb-6">
+                    Análise de consumo, market share e potencial financeiro por
+                    produto e região (últimos 12 meses).
+                  </p>
+                </div>
+                <div
+                  class="flex justify-between items-center pt-4 border-t border-slate-50"
+                >
+                  <span
+                    class="text-xs font-bold text-slate-400 uppercase tracking-tighter"
+                    >Por Emissão</span
+                  >
+                  <div class="text-right">
+                    <span class="text-xl font-bold text-slate-800">€3.990</span>
+                  </div>
+                </div>
+              </div>
             </div>
+
+            <!-- CTA de Contacto -->
+            <div
+              class="mt-12 bg-slate-900 text-white p-8 rounded-3xl flex flex-col md:flex-row items-center justify-between gap-6"
+            >
+              <div class="text-center md:text-left">
+                <p class="text-lg font-bold">
+                  Precisa de uma solução personalizada?
+                </p>
+                <p class="text-slate-400 text-sm">
+                  Fale com os nossos especialistas para configurar os seus
+                  módulos.
+                </p>
+              </div>
+              <a
+                href="https://api.whatsapp.com/send?phone=351910998075"
+                target="_blank"
+                class="flex btn-outline-white px-8 py-4 rounded-xl font-bold uppercase text-xs tracking-widest whitespace-nowrap"
+              >
+                Consultar Especialista
+              </a>
+            </div>
+          </div>
         </div>
-        
+
         <!-- Rodapé Notas -->
         <div class="mt-16 text-center text-slate-400 text-xs">
-            <p>* Todos os valores apresentados acrescem IVA à taxa legal em vigor. Os módulos podem ser ativados ou desativados mensalmente.</p>
+          <p>
+            * Todos os valores apresentados acrescem IVA à taxa legal em vigor.
+            Os módulos podem ser ativados ou desativados mensalmente.
+          </p>
         </div>
-      </div>  
+      </div>
     </section>
 
     <!-- Contacto -->
@@ -1097,7 +1258,11 @@
       <div class="max-w-7xl mx-auto px-4 flex flex-col gap-6">
         <div class="text-center">
           <h2 class="text-4xl md:text-5xl font-medium text-gray-800">
-            Entre em <span class="bg-gradient-to-r from-[--color001] to-[--color002] text-transparent bg-clip-text">Contacto</span>
+            Entre em
+            <span
+              class="bg-gradient-to-r from-[--color001] to-[--color002] text-transparent bg-clip-text"
+              >Contacto</span
+            >
           </h2>
           <p class="mt-4 text-gray-600 text-lg max-w-3xl mx-auto">
             Pronto para transformar a gestão da sua empresa? Fale connosco hoje.
@@ -1105,9 +1270,7 @@
         </div>
 
         <div class="grid gap-8 lg:grid-cols-[1fr_0.95fr]">
-          <div
-            class="bg-white border border-gray-200 rounded-lg p-8 shadow-sm"
-          >
+          <div class="bg-white border border-gray-200 rounded-lg p-8 shadow-sm">
             <form
               method="post"
               action=""
@@ -1213,58 +1376,45 @@
 
             <div
               id="statusModal"
-              class="fixed inset-0 flex items-center justify-center z-50 hidden"
+              class="fixed inset-0 flex items-center justify-center z-50 bg-slate-900/50 hidden"
               role="dialog"
             >
               <div
                 class="bg-white rounded-lg p-8 max-w-md w-full mx-4 shadow-xl"
               >
                 <div id="statusMessage" class="text-center">
-                  <div class="flex justify-center mb-4">
-                    <div
-                      class="animate-spin rounded-full h-12 w-12 border-b-2 border-[--color001]"
-                    ></div>
-                  </div>
-                  <p class="text-gray-700">Enviando sua mensagem...</p>
+                  
                 </div>
-                <button
-                  data-modal-close
-                  class="absolute top-4 right-4 text-gray-400 hover:text-gray-600"
-                >
-                  <svg
-                    class="w-6 h-6"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M6 18L18 6M6 6l12 12"
-                    ></path>
-                  </svg>
-                </button>
               </div>
             </div>
           </div>
 
           <!-- Informações de Contato -->
-          <div
-            class="flex flex-col gap-4"
-          >
-            <div class="bg-white border border-1 rounded-lg p-6 flex items-start gap-4 shadow-sm">
+          <div class="flex flex-col gap-4">
+            <div
+              class="bg-white border border-1 rounded-lg p-6 flex items-start gap-4 shadow-sm"
+            >
               <div class="bg-[--color002-light] rounded-lg shrink-0 p-3">
-                <img src="imagens/mail.png" alt="Email Icon" class="w-7 h-7 card-icon-02" />
+                <img
+                  src="imagens/mail.png"
+                  alt="Email Icon"
+                  class="w-7 h-7 card-icon-02"
+                />
               </div>
               <div>
                 <p class="font-medium text-gray-900">Email</p>
                 <p class="text-gray-600">contacto@healthsupply.pt</p>
               </div>
             </div>
-            <div class="bg-white border border-1 rounded-lg p-6 flex items-start gap-4 shadow-sm">
+            <div
+              class="bg-white border border-1 rounded-lg p-6 flex items-start gap-4 shadow-sm"
+            >
               <div class="bg-[--color001-light] rounded-lg shrink-0 p-3">
-                <img src="imagens/whatsapp.png" alt="Phone Icon" class="w-7 h-7 card-icon-01" />
+                <img
+                  src="imagens/whatsapp.png"
+                  alt="Phone Icon"
+                  class="w-7 h-7 card-icon-01"
+                />
               </div>
               <div>
                 <a
@@ -1278,9 +1428,15 @@
                 <p class="text-gray-600">Segunda a Sexta: 9h - 18h</p>
               </div>
             </div>
-            <div class="bg-white border border-1 rounded-lg p-6 flex items-start gap-4 shadow-sm">
+            <div
+              class="bg-white border border-1 rounded-lg p-6 flex items-start gap-4 shadow-sm"
+            >
               <div class="bg-[--color003-light] rounded-lg shrink-0 p-3">
-                <img src="imagens/pin.png" alt="Pin Icon" class="w-7 h-7 card-icon-04" />
+                <img
+                  src="imagens/pin.png"
+                  alt="Pin Icon"
+                  class="w-7 h-7 card-icon-04"
+                />
               </div>
               <div>
                 <p class="font-medium text-gray-900">Morada</p>
