@@ -88,11 +88,7 @@ html {
 }
 
 .hs-gradient-bg {
-  background: linear-gradient(
-    135deg,
-    var(--color001) 0%,
-    var(--color002) 100%
-  );
+  background: linear-gradient(135deg, var(--color001) 0%, var(--color002) 100%);
 }
 
 .hs-card-shadow {
@@ -133,55 +129,6 @@ html {
   transform: translateY(-2px);
 }
 
-.module-card {
-  transition: all 0.3s ease;
-  border: 1px solid #e2e8f0;
-  position: relative;
-}
-
-.module-card:hover {
-  transform: translateY(-5px);
-  border-color: var(--color001);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-}
-
-.icon-box {
-  background-color: rgba(63, 179, 166, 0.1);
-  color: var(--color001);
-}
-
-.module-number {
-  position: absolute;
-  top: -10px;
-  left: 20px;
-  background: var(--color001);
-  color: white;
-  font-size: 10px;
-  font-weight: bold;
-  padding: 2px 10px;
-  border-radius: 20px;
-  z-index: 10;
-}
-
-.counter-btn {
-  width: 32px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 8px;
-  border: 1px solid #e2e8f0;
-  background: white;
-  color: var(--color001);
-  transition: all 0.2s;
-}
-
-.counter-btn:hover {
-  background: var(--color001-dark);
-  color: white;
-  border-color: var(--color001-dark);
-}
-
 /* Register Page */
 
 .input-field {
@@ -193,7 +140,9 @@ html {
   font-size: 0.9375rem;
   color: #0f172a;
   outline: none;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .input-field:focus {
@@ -240,6 +189,33 @@ html {
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.075) !important;
 }
 
+.modules-divider::before,
+.modules-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #e9eef4;
+}
+
+.counter-btn {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  background: white;
+  color: var(--color001);
+  transition: all 0.2s;
+}
+
+.counter-btn:hover {
+  background: var(--color001-dark);
+  color: white;
+  border-color: var(--color001-dark);
+}
+
 .choices {
   margin-bottom: 0;
 }
@@ -249,8 +225,13 @@ html {
   border-radius: 0.5rem;
 }
 
+.choices__inner input {
+  width: 100% !important;
+}
+
 .choices__input {
   background-color: white;
+  width: 100%;
 }
 
 .choices__list--multiple .choices__item {
