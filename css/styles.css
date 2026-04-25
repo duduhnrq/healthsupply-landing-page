@@ -225,10 +225,6 @@ html {
   border-radius: 0.5rem;
 }
 
-.choices__inner input {
-  width: 100% !important;
-}
-
 .choices__input {
   background-color: white;
   width: 100%;
