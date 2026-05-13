@@ -1,3 +1,6 @@
+const SCRIPT_URL =
+  "https://script.google.com/macros/s/AKfycbxFslf9pFh8mX0D_e97gtEEB587WhBJU9fSK8dZT_lIIYyDCjsguiuS1aMQ4oyWz8xEBg/exec";
+
 // ====== UTILIDADES DE MODAL CUSTOMIZADO ======
 const CustomModal = {
   show(id) {
@@ -131,10 +134,208 @@ const carousel = new Carousel("funcionalidadesCarousel", {
   autoPlayDelay: 5000,
 });
 
-// ====== FORMULÁRIO DE CONTACTO ======
-const SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbzv6efjfy3jbg_JVsb9lv1pdghixDdtTWYyesoH0SJzvvUqQG0jHnw4vI6e8xt6ytX6/exec";
+// ====== INQUÉRITO DE SATISFAÇÃO ======
+(function initSurvey() {
+  // ── Estado NPS ──
+  let selectedScore = null;
 
+  // ── Elementos ──
+  const openBtn = document.getElementById("open-survey-btn");
+  const closeBtn = document.getElementById("survey-close-btn");
+  const cancelBtn = document.getElementById("survey-cancel-btn");
+  const backdrop = document.getElementById("survey-backdrop");
+  const dialog = document.getElementById("survey-dialog");
+  const surveyForm = document.getElementById("survey-form");
+  const submitBtn = document.getElementById("survey-submit-btn");
+  const errorBanner = document.getElementById("survey-error-banner");
+  const nameInput = document.getElementById("survey-name");
+  const emailInput = document.getElementById("survey-email");
+  const reasonInput = document.getElementById("survey-reason");
+  const feedbackInput = document.getElementById("survey-feedback");
+  const scoreGrid = document.getElementById("survey-score-grid");
+  const toast = document.getElementById("survey-toast");
+  const toastInner = document.getElementById("survey-toast-inner");
+  const toastTitle = document.getElementById("survey-toast-title");
+  const toastDesc = document.getElementById("survey-toast-desc");
+
+  if (!openBtn || !surveyForm) return;
+
+  // ── Criar botões NPS ──
+  for (let i = 0; i <= 10; i++) {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.textContent = i;
+    btn.dataset.score = i;
+    btn.setAttribute("aria-label", `Pontuação ${i}`);
+    btn.className =
+      "score-btn h-10 rounded-md font-semibold text-sm bg-gray-100 text-gray-600 hover:bg-gray-200 transition-all";
+    btn.addEventListener("click", () => selectScore(i));
+    scoreGrid.appendChild(btn);
+  }
+
+  function selectScore(n) {
+    selectedScore = n;
+    scoreGrid.querySelectorAll(".score-btn").forEach((btn) => {
+      btn.classList.remove("active-green");
+      btn.classList.add("bg-gray-100", "text-gray-600");
+    });
+    const active = scoreGrid.querySelector(`[data-score="${n}"]`);
+    active.classList.remove(
+      "bg-gray-100",
+      "text-gray-600",
+      "hover:bg-gray-200",
+    );
+    active.classList.add("active-green");
+  }
+
+  // ── Abrir / Fechar ──
+  function openDialog() {
+    backdrop.classList.remove("hidden");
+    dialog.classList.remove("hidden");
+    requestAnimationFrame(() => {
+      backdrop.style.opacity = "1";
+      dialog.style.opacity = "1";
+      dialog.style.transform = "translateY(0)";
+    });
+    nameInput?.focus();
+  }
+
+  function closeDialog() {
+    backdrop.classList.add("hidden");
+    dialog.classList.add("hidden");
+  }
+
+  function resetSurveyForm() {
+    selectedScore = null;
+    surveyForm.reset();
+    errorBanner.classList.add("hidden");
+    scoreGrid.querySelectorAll(".score-btn").forEach((btn) => {
+      btn.classList.remove("active-red", "active-amber", "active-green");
+      btn.classList.add("bg-gray-100", "text-gray-600");
+    });
+  }
+
+  openBtn.addEventListener("click", openDialog);
+  closeBtn?.addEventListener("click", () => {
+    closeDialog();
+    resetSurveyForm();
+  });
+  cancelBtn?.addEventListener("click", () => {
+    closeDialog();
+    resetSurveyForm();
+  });
+  backdrop?.addEventListener("click", () => {
+    closeDialog();
+    resetSurveyForm();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !dialog.classList.contains("hidden")) {
+      closeDialog();
+      resetSurveyForm();
+    }
+  });
+
+  // ── Validação ──
+  function validateSurvey() {
+    const email = emailInput.value.trim();
+    const reason = reasonInput.value.trim();
+    const feedback = feedbackInput.value.trim();
+
+    if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
+      return "Por favor insira um email válido.";
+    if (selectedScore === null)
+      return "Por favor selecione uma pontuação de 0 a 10.";
+    if (reason.length < 3)
+      return "Por favor indique o motivo da sua classificação.";
+    if (feedback.length < 3)
+      return "Por favor partilhe a sua opinião sobre a plataforma.";
+    return null;
+  }
+
+  // ── Toast ──
+  let toastTimeout;
+  function showSurveyToast(title, desc, success = true) {
+    toastTitle.textContent = title;
+    toastDesc.textContent = desc;
+    toastInner.className = success
+      ? "rounded-xl px-4 py-3 shadow-lg text-sm font-medium flex items-start gap-3 bg-white border border-gray-200 text-gray-800"
+      : "rounded-xl px-4 py-3 shadow-lg text-sm font-medium flex items-start gap-3 bg-red-50 border border-red-200 text-red-800";
+
+    const iconEl = toastInner.querySelector(".toast-icon");
+    if (iconEl) {
+      iconEl.innerHTML = success
+        ? `<svg class="w-5 h-5 text-teal-500 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+           </svg>`
+        : `<svg class="w-5 h-5 text-red-500 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+           </svg>`;
+    }
+
+    toast.classList.remove("hidden");
+    clearTimeout(toastTimeout);
+    toastTimeout = setTimeout(() => toast.classList.add("hidden"), 4500);
+  }
+
+  // ── Submit → Google Apps Script ──
+  surveyForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    errorBanner.classList.add("hidden");
+
+    const err = validateSurvey();
+    if (err) {
+      errorBanner.textContent = err;
+      errorBanner.classList.remove("hidden");
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = "A enviar...";
+
+    const feedbackData = new FormData();
+    
+    feedbackData.append("email", emailInput.value.trim());
+    feedbackData.append("satisfacao", selectedScore);
+    feedbackData.append("nome", nameInput.value.trim());
+    feedbackData.append("motivo", reasonInput.value.trim());
+    feedbackData.append("feedback", feedbackInput.value.trim());
+
+    try {
+      const response = await fetch(SCRIPT_URL, {
+        method: "POST",
+        body: feedbackData,
+      });
+      const result = await response.json();
+
+      if (result.success) {
+        showSurveyToast(
+          "Obrigado pelo seu feedback!",
+          "A sua opinião ajuda-nos a melhorar a HealthSupply.",
+        );
+        resetSurveyForm();
+        closeDialog();
+      } else {
+        showSurveyToast(
+          "Não foi possível enviar",
+          result.message || "Tente novamente em instantes.",
+          false,
+        );
+      }
+    } catch (error) {
+      showSurveyToast(
+        "Erro de ligação",
+        "Verifique a sua ligação à internet e tente novamente.",
+        false,
+      );
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Enviar resposta";
+    }
+  });
+})();
+
+// ====== FORMULÁRIO DE CONTACTO ======
 document.addEventListener("DOMContentLoaded", function () {
   // Telefone
   const inputTel = document.querySelector("#telefone");
@@ -186,6 +387,8 @@ document.addEventListener("DOMContentLoaded", function () {
       };
 
       const formData = new FormData(contactForm);
+      formData.append("formType", "contacto");
+
       formData.set(
         "solicitar",
         document.getElementById("solicitar")?.checked ? "Sim" : "Não",
@@ -234,15 +437,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Menu mobile
-  const menuToggle = document.getElementById("menu-toggle");
-  const mobileMenu = document.getElementById("mobile-menu");
-  if (menuToggle && mobileMenu) {
-    menuToggle.addEventListener("click", () => {
-      mobileMenu.classList.toggle("hidden");
-    });
-  }
-
   // Carrossel de funcionalidades
   const carouselContainer = document.getElementById("carouselContainer");
   if (carouselContainer) {
@@ -270,6 +464,15 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+// Menu mobile
+const menuToggle = document.getElementById("menu-toggle");
+const mobileMenu = document.getElementById("mobile-menu");
+if (menuToggle && mobileMenu) {
+  menuToggle.addEventListener("click", () => {
+    mobileMenu.classList.toggle("hidden");
+  });
+}
 
 // Contador de utilizadores
 window.changeUsers = function (delta) {

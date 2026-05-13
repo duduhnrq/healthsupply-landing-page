@@ -129,6 +129,39 @@ html {
   transform: translateY(-2px);
 }
 
+.active-red {
+  background-color: var(--color003);
+  color: white;
+}
+
+.active-red:hover {
+  background-color: var(--color003-dark);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.active-amber {
+  background-color: var(--color002);
+  color: white;
+}
+
+.active-amber:hover {
+  background-color: var(--color002-dark);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.active-green {
+  background-color: var(--color001);
+  color: white;
+}
+
+.active-green:hover {
+  background-color: var(--color001-dark);
+  color: white;
+  transform: translateY(-2px);
+}
+
 /* Register Page */
 
 .input-field {

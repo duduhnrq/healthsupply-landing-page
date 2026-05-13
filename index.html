@@ -83,7 +83,9 @@
             class="block text-gray-700 hover:text-[--color001]"
             >Soluções</a
           >
-          <a href="#funcionalidades" class="block text-gray-700 hover:text-[--color001]"
+          <a
+            href="#funcionalidades"
+            class="block text-gray-700 hover:text-[--color001]"
             >Funcionalidades</a
           >
           <a
@@ -146,7 +148,7 @@
         </div>
         <div class="flex-1">
           <img
-            class="w-full rounded-lg shadow-lg"
+            class="w-full rounded-lg shadow-lg hidden md:block"
             src="imagens/image001.jpg"
             alt="Hero Image"
           />
@@ -1036,9 +1038,7 @@
               <div
                 class="bg-white rounded-lg p-8 max-w-md w-full mx-4 shadow-xl"
               >
-                <div id="statusMessage" class="text-center">
-                  
-                </div>
+                <div id="statusMessage" class="text-center"></div>
               </div>
             </div>
           </div>
@@ -1102,6 +1102,200 @@
         </div>
       </div>
     </section>
+
+    <!-- Satisfação -->
+    <button
+      id="open-survey-btn"
+      aria-label="Inquérito de Satisfação"
+      class="fixed bottom-6 right-6 z-40 flex items-center gap-2 bg-gradient-to-r from-[--color001] to-[--color002] hover:from-[--color001-dark] hover:to-[--color002-dark] active:scale-95 text-white font-semibold px-5 h-14 rounded-full shadow-xl transition-all"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="22"
+        height="22"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path
+          d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+        />
+        <path d="M12 8c-1.1 0-2 .9-2 2 0 2 2 3 2 3s2-1 2-3c0-1.1-.9-2-2-2z" />
+      </svg>
+      <span class="hidden sm:inline">Feedback</span>
+    </button>
+
+    <div
+      id="survey-backdrop"
+      class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm hidden"
+    ></div>
+
+    <div
+      id="survey-dialog"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="dialog-title"
+      class="fixed z-50 inset-0 flex items-center justify-center p-4 hidden"
+    >
+      <div
+        class="bg-white w-full max-w-xl rounded-2xl shadow-2xl max-h-[90vh] overflow-y-auto"
+      >
+        <div class="px-6 pt-6 pb-4 border-b border-gray-100">
+          <div class="flex items-start justify-between">
+            <div>
+              <h2 id="dialog-title" class="text-2xl font-medium text-gray-900">
+                Inquérito de Satisfação
+              </h2>
+              <p class="text-sm text-gray-500 mt-1">
+                A sua opinião é importante. Leva menos de 1 minuto.
+              </p>
+            </div>
+            <button
+              id="survey-close-btn"
+              aria-label="Fechar"
+              class="text-gray-400 hover:text-gray-600 transition-colors ml-4 mt-0.5"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Form de Satisfação -->
+        <form id="survey-form" novalidate class="px-6 pb-6 space-y-6">
+          <div
+            id="survey-error-banner"
+            class="hidden bg-red-50 border border-red-200 text-red-700 text-sm rounded-lg px-4 py-3 mt-6"
+          ></div>
+
+          <div class="space-y-1.5">
+            <label
+              for="survey-name"
+              class="block text-sm font-medium text-gray-700"
+              >Nome (opcional)</label
+            >
+            <input
+              id="survey-name"
+              type="text"
+              maxlength="255"
+              placeholder="Seu nome completo"
+              class="w-full rounded-lg border border-gray-200 bg-white px-4 py-3 text-gray-800 outline-none transition focus:border-[--color001] focus:ring-2 focus:ring-[--color001]/20"
+            />
+          </div>
+
+          <div class="space-y-1.5">
+            <label
+              for="survey-email"
+              class="block text-sm font-medium text-gray-700"
+              >Email (opcional)</label
+            >
+            <input
+              id="survey-email"
+              type="email"
+              maxlength="255"
+              placeholder="seu@email.com"
+              class="w-full rounded-lg border border-gray-200 bg-white px-4 py-3 text-gray-800 outline-none transition focus:border-[--color001] focus:ring-2 focus:ring-[--color001]/20"
+            />
+          </div>
+
+          <div class="space-y-3">
+            <label class="block text-sm font-medium text-gray-700">
+              1. Numa escala de 0 a 10, qual a probabilidade de recomendar a
+              plataforma HealthSupply a um colega?
+            </label>
+            <div class="grid grid-cols-11 gap-1.5" id="survey-score-grid">
+            </div>
+            <div class="flex justify-between text-xs text-gray-400">
+              <span>Nada provável</span>
+              <span>Extremamente provável</span>
+            </div>
+          </div>
+
+          <div class="space-y-1.5">
+            <label
+              for="survey-reason"
+              class="block text-sm font-medium text-gray-700"
+            >
+              2. Qual o principal motivo da sua classificação?
+            </label>
+            <textarea
+              id="survey-reason"
+              rows="3"
+              maxlength="1000"
+              placeholder="Explique brevemente porque escolheu essa pontuação..."
+              required
+              class="w-full rounded-lg border border-gray-200 bg-white px-4 py-3 text-gray-800 outline-none transition focus:border-[--color001] focus:ring-2 focus:ring-[--color001]/20"
+            ></textarea>
+          </div>
+
+          <div class="space-y-1.5">
+            <label
+              for="survey-feedback"
+              class="block text-sm font-medium text-gray-700"
+            >
+              3. Quais os principais pontos positivos da plataforma e que
+              melhorias sugere?
+            </label>
+            <textarea
+              id="survey-feedback"
+              rows="4"
+              maxlength="2000"
+              placeholder="Partilhe os pontos positivos e sugestões de melhoria..."
+              required
+              class="w-full rounded-lg border border-gray-200 bg-white px-4 py-3 text-gray-800 outline-none transition focus:border-[--color001] focus:ring-2 focus:ring-[--color001]/20"
+            ></textarea>
+          </div>
+
+          <div class="flex gap-3 justify-end pt-1">
+            <button
+              type="button"
+              id="survey-cancel-btn"
+              class="px-4 py-2.5 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-100 transition-colors"
+            >
+              Cancelar
+            </button>
+            <button
+              type="submit"
+              id="survey-submit-btn"
+              class="px-5 py-2.5 bg-gradient-to-r from-[--color001] to-[--color002] text-white rounded-lg hover:shadow-lg transition"
+            >
+              Enviar resposta
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div
+      id="survey-toast"
+      class="fixed bottom-24 right-6 z-[60] max-w-xs w-full hidden"
+    >
+      <div
+        id="survey-toast-inner"
+        class="rounded-xl px-4 py-3 shadow-lg text-sm font-medium flex items-start gap-3"
+      >
+        <span id="survey-toast-icon" class="text-lg leading-none mt-0.5"></span>
+        <div>
+          <p id="survey-toast-title" class="font-semibold"></p>
+          <p id="survey-toast-desc" class="text-xs opacity-80 mt-0.5"></p>
+        </div>
+      </div>
+    </div>
 
     <section id="footer">
       <div class="w-full bg-neutral-800 py-4 text-neutral-500">
