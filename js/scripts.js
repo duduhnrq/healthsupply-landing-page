@@ -215,6 +215,16 @@ const carousel = new Carousel("funcionalidadesCarousel", {
     });
   }
 
+  // ── Inicializar survey ──
+  window.addEventListener("load", function () {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get("feedback") === "true") {
+      if (typeof openDialog === "function") {
+        openDialog();
+      }
+    }
+  });
+
   openBtn.addEventListener("click", openDialog);
   closeBtn?.addEventListener("click", () => {
     closeDialog();
@@ -294,7 +304,7 @@ const carousel = new Carousel("funcionalidadesCarousel", {
     submitBtn.textContent = "A enviar...";
 
     const feedbackData = new FormData();
-    
+
     feedbackData.append("email", emailInput.value.trim());
     feedbackData.append("satisfacao", selectedScore);
     feedbackData.append("nome", nameInput.value.trim());
