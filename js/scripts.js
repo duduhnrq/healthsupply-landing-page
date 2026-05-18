@@ -1,5 +1,5 @@
 const SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbyFaqfrYj1B2KBBmn5axrrn403Mn13jQQd5gg2gHSgPD_wH0wnaJM04sxrmfWS8e7MJAA/exec";
+  "https://script.google.com/macros/s/AKfycbx2Z_7ZURWPInSwXQc9F9ir2xA0VnZuzI4HFPjBE3obPlV2U5kPVX95u3XrpT6Fr4rMwg/exec";
 
 // ====== UTILIDADES DE MODAL CUSTOMIZADO ======
 const CustomModal = {
