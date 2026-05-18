@@ -248,18 +248,32 @@ const carousel = new Carousel("funcionalidadesCarousel", {
 
   // ── Validação ──
   function validateSurvey() {
+    const name = nameInput.value.trim();
     const email = emailInput.value.trim();
     const reason = reasonInput.value.trim();
     const feedback = feedbackInput.value.trim();
 
-    if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
-      return "Por favor insira um email válido.";
+    // Nome obrigatório
+    if (!name || name.length < 2)
+      return "Por favor, preencha o nome corretamente.";
+
+    // Email obrigatório + formato válido
+    if (!email) return "Por favor, preencha o email.";
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
+      return "Por favor, insira um email válido.";
+
+    // Pontuação obrigatória
     if (selectedScore === null)
-      return "Por favor selecione uma pontuação de 0 a 10.";
-    if (reason.length < 3)
-      return "Por favor indique o motivo da sua classificação.";
-    if (feedback.length < 3)
-      return "Por favor partilhe a sua opinião sobre a plataforma.";
+      return "Por favor, selecione uma pontuação de 0 a 10.";
+
+    // Motivo obrigatório
+    if (!reason || reason.length < 3)
+      return "Por favor, indique o motivo da sua classificação.";
+
+    // Feedback obrigatório
+    if (!feedback || feedback.length < 3)
+      return "Por favor, partilhe a sua opinião sobre a plataforma.";
+
     return null;
   }
 
